@@ -1,0 +1,117 @@
+{
+  "name": "oss",
+  "version": "3.7.3",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build && rm -rf dist/package-lock.json",
+    "lint": "vue-cli-service lint",
+    "stylelint:fix": "stylelint \"**/*.{css,scss,vue}\" --fix",
+    "postinstall": "npx husky install"
+  },
+  "dependencies": {
+    "@antv/g6": "^4.8.23",
+    "@penglei188288/clampjs": "^2.0.0",
+    "axios": "^0.27.2",
+    "babel-plugin-component": "^1.1.1",
+    "browserslist": "^4.20.2",
+    "caniuse-lite": "^1.0.30001331",
+    "chroma-js": "^2.4.2",
+    "copy-util": "^1.0.1",
+    "core-js": "^3.6.5",
+    "echarts": "^5.1.1",
+    "echarts-liquidfill": "^3.0.0",
+    "element-ui": "^2.15.7",
+    "html2canvas": "^1.4.1",
+    "js-base64": "^3.4.5",
+    "js-cookie": "^2.2.1",
+    "js-md5": "^0.7.3",
+    "jshint": "^2.12.0",
+    "jsonlint": "^1.6.3",
+    "lodash-es": "^4.17.21",
+    "nprogress": "^0.2.0",
+    "qs": "^6.11.0",
+    "resize-detector": "^0.3.0",
+    "script-loader": "^0.7.2",
+    "sockjs-client": "^1.5.1",
+    "spark-md5": "^3.0.1",
+    "stompjs": "^2.3.3",
+    "vue": "^2.7.0",
+    "vue-auto-virtual-scroll-list": "^0.3.0",
+    "vue-codemirror": "^4.0.6",
+    "vue-count-to": "^1.0.13",
+    "vue-directive-zery": "^1.1.2",
+    "vue-router": "^3.2.0",
+    "vue-virtual-scroll-list": "^2.3.3",
+    "vuedraggable": "^2.24.3",
+    "vuex": "^3.4.0",
+    "vuex-along": "^1.2.13",
+    "worker-loader": "^3.0.8",
+    "xlsx": "^0.18.5",
+    "xss": "^1.0.8"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.2",
+    "@vue/cli-plugin-babel": "~4.5.18",
+    "@vue/cli-plugin-eslint": "~4.5.18",
+    "@vue/cli-plugin-router": "~4.5.18",
+    "@vue/cli-plugin-vuex": "~4.5.18",
+    "@vue/cli-service": "~4.5.18",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "babel-eslint": "^10.1.0",
+    "cache-loader": "^4.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^9.0.0",
+    "html-webpack-inline-source-plugin": "^0.0.10",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.2",
+    "postcss": "^8.4.14",
+    "postcss-html": "^1.4.1",
+    "sass": "^1.53.0",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^14.9.1",
+    "stylelint-config-recommended-scss": "^6.0.0",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-standard-scss": "^4.0.0",
+    "stylelint-config-standard-vue": "^1.0.0",
+    "terser-webpack-plugin": "^4.2.3"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/standard"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "vue/multi-word-component-names": "off",
+      "no-void": "off"
+    },
+    "globals": {
+      "to": true,
+      "get": true,
+      "isFunction": true,
+      "isArray": true,
+      "isNull": true,
+      "isUndefined": true,
+      "isObject": true,
+      "isNumber": true
+    }
+  },
+  "browserslist": [
+    "since 2014"
+  ],
+  "lint-staged": {
+    "*.{js,vue}": "npm run lint",
+    "*.{css,scss,vue}": "stylelint --allow-empty-input"
+  }
+}

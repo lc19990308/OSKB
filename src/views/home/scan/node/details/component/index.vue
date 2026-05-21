@@ -1,0 +1,90 @@
+<template>
+  <div style="display: flex;">
+    <div class="oss-border m-r-15" style="padding:15px 10px 0 10px;width: 335px;flex-shrink: 0;">
+      <StickyContent
+        activeStickyClass="activeStickyClass"
+        :sticky-top="125"
+      >
+        <ComponentSelect
+          ref="componentSelect"
+          :init-list-xhr="componentList"
+          :dic-component-id="dicComponentId"
+          @select="select"
+        ></ComponentSelect>
+      </StickyContent>
+    </div>
+    <div class="second-main oss-border" style="padding: 20px; flex: 1;">
+      <empty v-if="!dicComponentId"></empty>
+      <template v-else>
+        <ComponentInfo :asset-component-id="assetComponentId"></ComponentInfo>
+        <ComponentVul :dic-component-id="dicComponentId" :task-id="taskId"></ComponentVul>
+        <license-list :dic-component-id="dicComponentId" :task-id="taskId"></license-list>
+        <affected :dic-component-id="dicComponentId"></affected>
+      </template>
+
+    </div>
+  </div>
+</template>
+<script>
+import Affected from '@/views/home/public/component/affected/index.vue'
+import LicenseList from '@/views/home/public/component/license/index.vue'
+import StickyContent from '@/components/public/StickyContent/index.vue'
+import ComponentSelect from '@/views/home/public/component/ComponentSelect/index.vue'
+import ComponentInfo from '@/views/home/public/component/ComponentInfo/index.vue'
+import ComponentVul from '@/views/home/public/component/ComponentVul/index.vue'
+import { componentList } from '@/api/home/scan/node'
+
+export default {
+  name: 'RepositorySvnDetailsComponent',
+  components: {
+    ComponentVul,
+    ComponentSelect,
+    ComponentInfo,
+    StickyContent,
+    Affected,
+    LicenseList
+  },
+  data () {
+    return {
+      projectId: this.$route.query.project,
+      assetComponentId: null,
+      taskId: null,
+      dicComponentId: null
+    }
+  },
+  computed: {
+    appId () {
+      return this.$parent.appId
+    }
+  },
+  methods: {
+    componentList (data) {
+      return componentList(data)
+    },
+
+    // 组件选中
+    select (item) {
+      this.dicComponentId = item.dicComponentId
+      this.taskId = item.taskId
+      this.assetComponentId = item.assetComponentId
+    }
+  },
+  watch: {
+    appId (newVal) {
+      this.$refs.componentSelect.params = {
+        appId: newVal
+      }
+      this.$refs.componentSelect.search()
+      this.$refs.componentSelect.getTier()
+    }
+  },
+  mounted () {
+    if (this.appId) {
+      this.$refs.componentSelect.params = {
+        appId: this.appId
+      }
+      this.$refs.componentSelect.search()
+    }
+  }
+}
+</script>

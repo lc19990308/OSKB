@@ -1,0 +1,164 @@
+<template>
+  <el-dialog
+    title="生成报告"
+    :visible.sync="dialogVisible"
+    :append-to-body="true"
+    width="600px"
+    :close-on-click-modal="false"
+    :destroy-on-close="true">
+    <el-form :model="form" label-width="100px" :rules="rules" ref="form" size="medium" label-position="right" @submit.native.prevent>
+      <el-form-item v-if="!isAll" label="报告名称：" prop="name">
+        <el-input v-model="form.name" placeholder="请输入报告名称" clearable></el-input>
+      </el-form-item>
+      <el-form-item label="报告类型：" prop="type" style="margin-bottom: 0;">
+        <el-radio-group v-model="form.type">
+          <el-radio v-for="item in options" :label="item.value" :key="item.value">{{item.label}}</el-radio>
+        </el-radio-group>
+      </el-form-item>
+    </el-form>
+    <span slot="footer" class="dialog-footer">
+      <el-button type="primary" @click="createExcelReport" size="medium">确 定</el-button>
+      <el-button @click="cancel" size="medium">取 消</el-button>
+    </span>
+  </el-dialog>
+</template>
+
+<script>
+import { isArray } from '@/utils'
+import { socGenerateExcel } from '@/api/home/assets/app/codeV4'
+
+export default {
+  name: 'DialogReport',
+  props: {
+    type: {
+      type: Array,
+      default: () => ['excel']
+    }
+  },
+  computed: {
+    options () {
+      const options = [
+        {
+          label: 'PDF',
+          value: 'pdf'
+        },
+        {
+          label: 'Word',
+          value: 'word'
+        },
+        {
+          label: 'HTML',
+          value: 'html'
+        },
+        {
+          label: 'Excel',
+          value: 'excel'
+        },
+        {
+          label: 'JSON',
+          value: 'json'
+        }
+      ]
+      return this.type.map(key => options.find(item => item.value === key))
+    },
+    isAll () {
+      return isArray(this.row)
+    }
+  },
+  data () {
+    const validator = (rule, value, callback) => {
+      if (value) {
+        if (/^((?![/\\:*?"'<>!！\s]).){1,30}$/g.test(value)) {
+          callback()
+        } else {
+          return callback(new Error('名称不可超过30个字符，且不能包含 \\ /:*?"<>! 任何字符'))
+        }
+      } else {
+        return callback(new Error('请输入报告名称'))
+      }
+    }
+    return {
+      dialogVisible: false,
+      row: {},
+      form: {
+        name: null,
+        type: 'excel'
+      },
+      rules: {
+        name: [
+          { required: true, validator: validator, trigger: 'change' }
+        ]
+      }
+    }
+  },
+  methods: {
+    // 提交
+    confirm () {
+      this.$refs.form.validate((valid) => {
+        if (valid) {
+          this.submit()
+        } else {
+          return false
+        }
+      })
+    },
+
+    message () {
+      setTimeout(() => this.$popup({
+        title: '提示',
+        width: '550px',
+        confirmButtonText: '去下载',
+        cancelButtonText: '留在本页',
+        center: false,
+        render (h) {
+          return h('el-row', { class: 'font-base', style: { padding: '20px' } }, [
+            h('p', {}, [h('i', {
+              class: 'el-icon-success text-success font-xxl m-r-5',
+              style: { verticalAlign: 'bottom' }
+            }, ''), '操作成功，请在报告管理中下载报告~'])
+          ])
+        },
+        beforeClose: (action, next) => {
+          if (action === 'confirm') {
+            this.$router.push({ path: '/report/list' })
+          }
+          next()
+        }
+      }), 200)
+    },
+
+    // 生成应用包审查任务excel报告
+    createExcelReport () {
+      socGenerateExcel({
+        ...(!this.isAll && { reportName: this.form.name }),
+        projectId: this.projectMixin.id,
+        sourceCheckIds: isArray(this.row) ? this.row.map(row => row.id) : [this.row.id]
+      }).then(() => {
+        this.cancel()
+        this.message()
+      }).catch(error => {
+        if (typeof error === 'object') {
+          this.$message.error(error.message)
+        }
+      })
+    },
+
+    // 取消
+    cancel () {
+      this.$refs.form.resetFields()
+      this.dialogVisible = false
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+.el-form {
+  padding: 0 130px 0 40px;
+
+  .el-radio-group .el-radio {
+    width: 65px;
+    line-height: 34px;
+  }
+}
+</style>
