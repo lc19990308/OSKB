@@ -158,7 +158,7 @@ export default {
 <style scoped lang="scss">
 .drawer-vul {
   :deep(.el-drawer__header){
-    background: #8B5CF6;
+    background: #2C5F8A;
     color: #FFFFFF;
     font-size: 16px;
     padding: 15px 20px;
@@ -188,7 +188,7 @@ export default {
 
         .iconfont{
           font-size: 20px;
-          color: #8B5CF6;
+          color: #2C5F8A;
           //font-weight: 500;
         }
         img{
@@ -211,11 +211,11 @@ export default {
         .vul-item-label{
           display: block;
           width: 120px;
-          color: #666666;
+          color: #4A5568;
         }
         .vul-item-content{
           flex: 1;
-          color: #333333;
+          color: #1B2838;
         }
       }
       .export-item{
@@ -240,8 +240,8 @@ export default {
           left: -1px;
         }
         &.description{
-          background: rgba(#EF4444, 0.1);
-          border: 1px solid rgba(#EF4444, 0.2);
+          background: rgba(#D9534F, 0.1);
+          border: 1px solid rgba(#D9534F, 0.2);
           .vul-item-label{
             background-image: url(~@/assets/images/name-bg.png);
           }
@@ -250,15 +250,15 @@ export default {
             display: block;
             width: 45px;
             height: 8px;
-            background-color: #EF4444;
+            background-color: #D9534F;
             position: absolute;
             right: 20px;
             top: -4px;
           }
         }
         &.suggestion{
-          background: rgba(#8B5CF6, 0.1);
-          border: 1px solid rgba(#8B5CF6, 0.2);
+          background: rgba(#2C5F8A, 0.1);
+          border: 1px solid rgba(#2C5F8A, 0.2);
           .vul-item-label{
             background-image: url(~@/assets/images/name-bg2.png);
           }
@@ -267,7 +267,7 @@ export default {
             display: block;
             width: 45px;
             height: 8px;
-            background-color: #8B5CF6;
+            background-color: #2C5F8A;
             position: absolute;
             right: 20px;
             top: -4px;
@@ -286,10 +286,10 @@ export default {
     margin-left: -100px;
     height: 30px;
     &:active, &:focus{
-      color: #8B5CF6;
+      color: #2C5F8A;
     }
     &:hover{
-      background-color: #8B5CF6;
+      background-color: #2C5F8A;
     }
   }
 }

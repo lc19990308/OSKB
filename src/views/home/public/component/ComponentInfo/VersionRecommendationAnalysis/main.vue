@@ -408,7 +408,7 @@ export default {
   font-size: 12px;
   vertical-align: text-top;
   margin-right: 5px;
-  color: #A78BFA;
+  color: #8BAAC4;
   background: #EDE9FE;
 
 }
@@ -421,7 +421,7 @@ export default {
 
 .divide-icon {
   font-size: 12px !important;
-  color: #999999 !important;
+  color: #8B9CB0 !important;
   padding: 0 5px 0 20px;
 }
 

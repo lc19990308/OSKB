@@ -46,7 +46,7 @@ export default {
   display: flex;
   align-items: center;
   .query-box-item__label{
-    color: #333333;
+    color: #1B2838;
     font-size: 14px;
     line-height: normal;
     text-align: right;

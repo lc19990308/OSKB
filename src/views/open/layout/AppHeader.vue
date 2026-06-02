@@ -82,7 +82,7 @@ export default {
   }
 
   .is-link {
-    color: #8B5CF6;
+    color: #2C5F8A;
     font-weight: 500;
   }
 }

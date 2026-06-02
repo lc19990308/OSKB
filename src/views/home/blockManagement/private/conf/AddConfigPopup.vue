@@ -141,7 +141,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 :deep(.el-input-group__prepend) {
-  color: #333333 !important;
+  color: #1B2838 !important;
   background-color: initial !important;
 }
 </style>

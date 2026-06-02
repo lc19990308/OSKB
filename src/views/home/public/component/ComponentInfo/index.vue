@@ -65,13 +65,13 @@
         <info-item label="是否实际引入：" :span="8">
           <span class="m-r-5">{{componentInfo.realInUse === 1 ? '是' : "否"}}</span>
           <el-tooltip effect="dark" content="是否实际引入：是否在生产环境被引入，即判断该组件是否会在项目编译后被打包" :open-delay="150" placement="top">
-            <i class="el-icon-info" style="color: #999999;"></i>
+            <i class="el-icon-info" style="color: #8B9CB0;"></i>
           </el-tooltip>
         </info-item>
         <info-item v-if="(componentInfo.parseDeep === 1 || !componentInfo.parseDeep)" label="关联漏洞统计：" :span="8">
           <span class="m-r-5">{{componentInfo.indirectVulnCount ? componentInfo.indirectVulnCount : 0}}</span>
           <el-tooltip effect="dark" content="统计直接依赖组件本身及实际引入子依赖的漏洞数量" :open-delay="150" placement="top">
-            <i class="el-icon-info" style="color: #999999;"></i>
+            <i class="el-icon-info" style="color: #8B9CB0;"></i>
           </el-tooltip>
         </info-item>
       </info-row>
@@ -97,7 +97,7 @@
             <i class="iconfont icontuijianshengjibanben1 text-primary"></i>
           </div>
           <div class="content-wrapper">
-            <p style="color: #8B5CF6">推荐分析 <i :class="[recommendLoading ? 'el-icon-loading' : 'el-icon-d-arrow-right']" style="font-weight: bold"></i></p>
+            <p style="color: #2C5F8A">推荐分析 <i :class="[recommendLoading ? 'el-icon-loading' : 'el-icon-d-arrow-right']" style="font-weight: bold"></i></p>
           </div>
         </div>
       </el-col>
@@ -140,7 +140,7 @@
             <img height="30" style="margin-right: 12px;" src="../../../../../assets/images/svg/use-jianyi.svg" alt="">
           </div>
           <div class="content-wrapper">
-            <p style="color: #8B5CF6;">
+            <p style="color: #2C5F8A;">
               其它无漏洞可用版本
               <i class="el-icon-d-arrow-right" style="font-weight: bold;"></i>
             </p>
@@ -312,7 +312,7 @@
 
       h4 {
         display: inline-block;
-        color: #333333;
+        color: #1B2838;
         font-weight: bold;
         font-size: 16px;
         margin: 0;

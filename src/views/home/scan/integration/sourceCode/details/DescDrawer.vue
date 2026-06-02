@@ -84,11 +84,11 @@ export default {
           <div style="width: 640px;margin: 0 auto">
             {
               response.componentBaseLineSwitch === 1 ? (
-                <div style="color: #999999;" class="m-b-15">
-                  <label style="color: #333333; width: 140px; font-size: 16px;">基线规则</label>
+                <div style="color: #8B9CB0;" class="m-b-15">
+                  <label style="color: #1B2838; width: 140px; font-size: 16px;">基线规则</label>
                   <div style="padding: 10px 0 0 38px;">
                     <div style="display: flex" class="m-b-10">
-                      <label style="color: #333333;">组件版本基线：</label>
+                      <label style="color: #1B2838;">组件版本基线：</label>
                       <span style="flex: 1;">
                             当任务检测结果中含有不在版本基线范围内的组件时，本次任务将不允许构建（白名单内的组件会继续构建）
                       </span>
@@ -99,13 +99,13 @@ export default {
 
             {
               [response.componentBlacklistSwitch, response.componentWhitelistSwitch].includes(1) ? (
-                <div style="color: #999999;" class="m-b-15">
-                  <label style="color: #333333; width: 140px; font-size: 16px;">组件规则</label>
+                <div style="color: #8B9CB0;" class="m-b-15">
+                  <label style="color: #1B2838; width: 140px; font-size: 16px;">组件规则</label>
                   {
                     response.componentBlacklistSwitch ? (
                       <div style="padding: 10px 0 0 38px;">
                         <div style="display: flex" class="m-b-10">
-                          <label style="color: #333333;">组件黑名单：</label>
+                          <label style="color: #1B2838;">组件黑名单：</label>
                           <span style="flex: 1;">
                             当任务检测结果中含有黑名单组件时，本次任务将不允许构建
                           </span>
@@ -118,7 +118,7 @@ export default {
                     response.componentWhitelistSwitch ? (
                       <div style="padding: 10px 0 0 38px;">
                         <div style="display: flex" class="m-b-10">
-                          <label style="color: #333333;">组件白名单：</label>
+                          <label style="color: #1B2838;">组件白名单：</label>
                           <span style="flex: 1;">
                             当任务检测结果中含有白名单组件时，系统会忽略组件本身的风险，不影响任务的正常构建
                           </span>
@@ -131,13 +131,13 @@ export default {
 
             {
               [response.blackSwitch, response.whiteSwitch].includes(1) ? (
-                <div style="color: #999999;" class="m-b-15">
-                  <label style="color: #333333; width: 140px; font-size: 16px;">漏洞规则</label>
+                <div style="color: #8B9CB0;" class="m-b-15">
+                  <label style="color: #1B2838; width: 140px; font-size: 16px;">漏洞规则</label>
                   {
                     response.blackSwitch ? (
                       <div style="padding: 10px 0 0 38px;">
                         <div style="display: flex" class="m-b-10">
-                          <label style="color: #333333;">漏洞黑名单：</label>
+                          <label style="color: #1B2838;">漏洞黑名单：</label>
                           <span style="flex: 1;">
                             当任务检测结果中含有黑名单漏洞时，本次任务将不允许构建
                           </span>
@@ -150,7 +150,7 @@ export default {
                     response.whiteSwitch ? (
                       <div style="padding: 10px 0 0 38px;">
                         <div style="display: flex" class="m-b-10">
-                          <label style="color: #333333;">漏洞白名单：</label>
+                          <label style="color: #1B2838;">漏洞白名单：</label>
                           <span style="flex: 1;">
                             当任务检测结果中含有白名单漏洞的组件时，系统会忽略漏洞本身的风险，不影响任务的正常构建
                           </span>
@@ -163,13 +163,13 @@ export default {
 
             {
               [response.licenseBlackListSwitch, response.licenseWhiteListSwitch].includes(1) ? (
-                <div style="color: #999999;" class="m-b-15">
-                  <label style="color: #333333; width: 140px; font-size: 16px;">许可证规则</label>
+                <div style="color: #8B9CB0;" class="m-b-15">
+                  <label style="color: #1B2838; width: 140px; font-size: 16px;">许可证规则</label>
                   {
                     response.licenseBlackListSwitch ? (
                       <div style="padding: 10px 0 0 38px;">
                         <div style="display: flex" class="m-b-10">
-                          <label style="color: #333333;">许可证黑名单：</label>
+                          <label style="color: #1B2838;">许可证黑名单：</label>
                           <span style="flex: 1;">
                             当任务检测结果中含有黑名单许可证时，本次任务将不允许构建
                           </span>
@@ -182,7 +182,7 @@ export default {
                     response.licenseWhiteListSwitch ? (
                       <div style="padding: 10px 0 0 38px;">
                         <div style="display: flex" class="m-b-10">
-                          <label style="color: #333333;">许可证白名单：</label>
+                          <label style="color: #1B2838;">许可证白名单：</label>
                           <span style="flex: 1;">
                             当任务检测结果中含有白名单许可证的组件时，系统会忽略许可证本身的风险，不影响任务的正常构建
                           </span>
@@ -195,13 +195,13 @@ export default {
 
             {
               response.qualitySwitch === 1 ? (
-                <div style="color: #999999;display: flex" class="m-b-15">
-                  <label style="color: #333333; width: 130px; font-size: 16px;">自定义门禁阈值</label>
+                <div style="color: #8B9CB0;display: flex" class="m-b-15">
+                  <label style="color: #1B2838; width: 130px; font-size: 16px;">自定义门禁阈值</label>
                   <span style="flex: 1">
                     {response.vulQualitySwitch === 1
                       ? <div style="display: flex" class="m-b-10">
                         <label>漏洞风险阈值：</label>
-                        <span style="flex: 1;color: #333333">
+                        <span style="flex: 1;color: #1B2838">
                           <span class="text-severity">严重</span>{'<='}{response.vulSeriousNum}，
                           <span class="text-danger">高危</span>{'<='}{response.vulHighNum}，
                           <span class="text-warning">中危</span>{'<='}{response.vulMediumNum}，
@@ -213,7 +213,7 @@ export default {
                       response.licenseQualitySwitch === 1 ? (
                         <div style="display: flex">
                           <label>许可证风险阈值：</label>
-                          <span style="flex: 1;color: #333333">
+                          <span style="flex: 1;color: #1B2838">
                             <span class="text-danger">高风险</span>{'<='}{response.licenseHighNum}，
                             <span class="text-warning">中风险</span>{'<='}{response.licenseMediumNum}，
                             <span class="text-primary">低风险</span>{'<='}{response.licenseLowNum}

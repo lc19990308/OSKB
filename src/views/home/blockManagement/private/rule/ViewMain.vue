@@ -41,7 +41,7 @@
           <el-input class="block m-b-10" :rows="3" resize="none" style="max-width: 720px;" show-word-limit
                     v-model="formData.cves" type="textarea"
                     placeholder="请输入漏洞的CVE编号，多个以英文逗号隔开，例如：CVE-2019-8457,CVE-2019-3856"></el-input>
-<!--          <span style="color: #999999;font-size: 12px;">优先级高于漏洞白名单</span>-->
+<!--          <span style="color: #8B9CB0;font-size: 12px;">优先级高于漏洞白名单</span>-->
         </el-form-item>
       </el-form>
     </div>

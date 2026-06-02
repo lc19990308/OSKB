@@ -28,11 +28,11 @@ export default {
     return {
       windowWidth: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
       color: [
-        '#991B1B',
-        '#EF4444',
-        '#F59E0B',
-        '#8B5CF6',
-        '#6366F1'
+        '#8B1A1A',
+        '#D9534F',
+        '#D4932A',
+        '#2C5F8A',
+        '#5B8BA0'
       ]
     }
   },
@@ -60,7 +60,7 @@ export default {
     option () {
       const rich = {
         labelStyle: {
-          color: '#333333',
+          color: '#1B2838',
           fontWeight: 500,
           fontSize: 12
         }
@@ -75,11 +75,11 @@ export default {
 
       return {
         color: [
-          '#991B1B',
-          '#EF4444',
-          '#F59E0B',
-          '#8B5CF6',
-          '#6366F1'
+          '#8B1A1A',
+          '#D9534F',
+          '#D4932A',
+          '#2C5F8A',
+          '#5B8BA0'
         ],
         tooltip: {
           trigger: 'axis',
@@ -145,7 +145,7 @@ export default {
               margin: 140,
               fontSize: 14,
               align: 'left',
-              color: '#333',
+              color: '#1B2838',
               rich: rich,
               formatter: function (name, index) {
                 let num = ''
@@ -182,7 +182,7 @@ export default {
             },
             axisLabel: {
               show: false,
-              color: '#333333',
+              color: '#1B2838',
               fontSize: this.fontSize(0.13)
             },
             splitLine: {
@@ -203,7 +203,7 @@ export default {
             label: {
               show: true,
               position: [0, '-24px'],
-              color: '#333333',
+              color: '#1B2838',
               fontSize: 14,
               align: 'left',
               rich: rich,
@@ -241,7 +241,7 @@ export default {
           fontSize: this.fontSize(0.12),
           position: 'top',
           formatter: '{c}',
-          color: '#333333'
+          color: '#1B2838'
         }
       }
     },

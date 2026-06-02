@@ -53,10 +53,10 @@ export default {
     return {
       windowWidth: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
       colorList: [
-        '#EF4444',
-        '#F59E0B',
-        '#8B5CF6',
-        '#10B981'
+        '#D9534F',
+        '#D4932A',
+        '#2C5F8A',
+        '#4A9C8C'
       ]
     }
   },
@@ -82,7 +82,7 @@ export default {
             }
           },
           axisLabel: {
-            color: '#333333',
+            color: '#1B2838',
             formatter: '{value}',
             fontSize: this.fontSize(0.14)
           }
@@ -135,7 +135,7 @@ export default {
             nameLocation: 'end',
             nameTextStyle: {
               fontSize: this.fontSize(0.14),
-              color: '#333',
+              color: '#1B2838',
               align: 'left',
               padding: [20, 0, 40, 14 * (-2)]
             },
@@ -155,7 +155,7 @@ export default {
               }
             },
             axisLabel: {
-              color: '#333333',
+              color: '#1B2838',
               fontSize: this.fontSize(0.14)
             },
             data: data.map(function (item) {
@@ -167,7 +167,7 @@ export default {
         series: series,
         legend: {
           top: '5%',
-          color: '#333333',
+          color: '#1B2838',
           fontSize: this.fontSize(0.14)
         }
       }

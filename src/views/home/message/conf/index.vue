@@ -178,13 +178,13 @@ export default {
         content:
           `<div style="padding: 20px;">
                <p>1. 在企业微信的群聊中添加机器人，打开要接收消息通知的群聊，进入【聊天信息】后，点击【添加群机器人】</p>
-               <img class="m-b-20" src="${this.images[0]}" width="90%" style="border: 1px solid #8B5CF6;border-radius: 3px;display: block;">
+               <img class="m-b-20" src="${this.images[0]}" width="90%" style="border: 1px solid #2C5F8A;border-radius: 3px;display: block;">
                <p>2. 点击【新创建一个机器人】</p>
-               <img class="m-b-20" src="${this.images[1]}" width="90%" style="border: 1px solid #8B5CF6;border-radius: 3px;display: block;">
+               <img class="m-b-20" src="${this.images[1]}" width="90%" style="border: 1px solid #2C5F8A;border-radius: 3px;display: block;">
                 <p>3. 输入机器人名称、选择头像（可选）后，点击【添加机器人】按钮</p>
-               <img class="m-b-20" src="${this.images[2]}" width="90%" style="border: 1px solid #8B5CF6;border-radius: 3px;display: block;">
+               <img class="m-b-20" src="${this.images[2]}" width="90%" style="border: 1px solid #2C5F8A;border-radius: 3px;display: block;">
                 <p>4. 点击【复制地址】，将复制的Webhook地址配置到平台的Webhook地址中，可点击【测试推送】按钮推送测试消息到企微群聊，若企微群聊中接收到平台的测试推送消息，则配置成功</p>
-               <img src="${this.images[3]}" width="90%" style="border: 1px solid #8B5CF6;border-radius: 3px;display: block;">
+               <img src="${this.images[3]}" width="90%" style="border: 1px solid #2C5F8A;border-radius: 3px;display: block;">
           </div>`
       })
     },

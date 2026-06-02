@@ -123,7 +123,7 @@ export default {
     }
 
     a {
-      color: #8B5CF6;
+      color: #2C5F8A;
     }
   }
 }

@@ -88,7 +88,7 @@ export default {
               name: '无漏洞',
               value: 0,
               itemStyle: {
-                color: '#10B981'
+                color: '#4A9C8C'
               }
             }
           ]
@@ -113,18 +113,18 @@ export default {
             label: {
               show: true,
               position: 'center',
-              color: '#333333',
+              color: '#1B2838',
               formatter: (x) => {
                 return `{data|${x.name}}\n{title|风险等级}`
               },
               rich: {
                 data: {
                   fontSize: 24,
-                  color: '#333333',
+                  color: '#1B2838',
                   lineHeight: 40
                 },
                 title: {
-                  color: '#333333',
+                  color: '#1B2838',
                   fontSize: 14,
                   lineHeight: 25
                 }
@@ -169,7 +169,7 @@ export default {
           orient: 'vertical',
           textStyle: {
             fontSize: 14,
-            color: '#333333',
+            color: '#1B2838',
             padding: [5, 0, 0, 10],
             rich: {
               num: {

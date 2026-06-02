@@ -145,7 +145,7 @@ export default {
 
       .plugin-title {
         text-align: center;
-        color: #7C3AED;
+        color: #2C5F8A;
         font-size: 16px;
         letter-spacing: 1px;
         margin: 0;

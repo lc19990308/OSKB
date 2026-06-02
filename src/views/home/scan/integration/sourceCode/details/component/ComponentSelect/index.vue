@@ -320,7 +320,7 @@ export default {
 <style scoped lang="scss">
 
 .tag-info {
-  color: #333333;
+  color: #1B2838;
   font-size: 12px;
   border-radius: 3px;
   background: #F5F5F5;
@@ -337,7 +337,7 @@ export default {
 
 .left-icon {
   font-size: 20px;
-  color: #8B5CF6;
+  color: #2C5F8A;
   vertical-align: middle;
   margin-right: 5px;
 }
@@ -429,11 +429,11 @@ ul.component-list {
       background-color: transparent;
 
       .name {
-        color: #7C3AED;
+        color: #2C5F8A;
       }
 
       .version {
-        color: #7C3AED;
+        color: #2C5F8A;
 
         &.iconfengefu {
           color: #999;

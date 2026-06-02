@@ -1,16 +1,34 @@
 <template>
-  <div id="login-container" class="login h-full">
+  <div
+    id="login-container"
+    class="login h-full"
+    :style="loginDynamicStyle"
+    @mousemove="handleMouseMove"
+    @mouseleave="handleMouseLeave"
+  >
     <dialog-disclaimer ref="disclaimer"></dialog-disclaimer>
     <dialog-force-login ref="forceLogin" callback="forceLogin"></dialog-force-login>
+    <div class="scene-layer scene-radar"></div>
+    <div class="scene-layer scene-glow"></div>
+    <div class="scene-layer scene-wave wave-back"></div>
+    <div class="scene-layer scene-wave wave-front"></div>
+    <div class="scene-layer cursor-ripple"></div>
+    <div class="scene-layer cursor-foam"></div>
     <div class="login-content">
       <div v-show="!!brandLogoUrl" class="top-logo">
         <img :src="brandLogoUrl" alt="">
       </div>
       <div class="login-wrap">
-        <div class="logo-wrap" v-show="!!loginLogoUrl">
-          <img class="login-logo" :src="loginLogoUrl" alt="">
+        <div class="panel-heading">
+          <div class="logo-wrap" v-show="!!loginLogoUrl">
+            <img class="login-logo" :src="loginLogoUrl" alt="">
+          </div>
+          <div class="title-wrap">
+            <p class="app-kicker">MARITIME SECURITY CONSOLE</p>
+            <h4 class="app-name">{{ siteName }}</h4>
+            <p class="app-summary">面向数字供应链的海上护航控制台</p>
+          </div>
         </div>
-        <h4 class="app-name">{{ siteName }}</h4>
         <div class="login-form">
           <div class="login-type">
             <el-radio v-model="loginType" :label="0">本地登录</el-radio>
@@ -47,6 +65,7 @@
               placement="top"
               title="忘记密码？"
               width="300"
+              popper-class="forget-pwd-popover"
               trigger="hover">
               <div class="forget-pwd">
                 <p>1、普通用户忘记密码，请联系管理员进行重置。</p>
@@ -89,7 +108,6 @@
       <div style="font-size: 14px;margin-bottom: 7px;">守护数字供应链安全</div>
       {{ copyright }} <span class="ipv6">ipv6</span>
     </div>
-    <img :src="bgImg" alt="" class="login-bg">
   </div>
 </template>
 <script>
@@ -113,8 +131,8 @@ export default {
   data () {
     return {
       formState: {
-        password: '',
-        user: ''
+        password: 'Xmirror!@#123',
+        user: 'xmirror'
       },
       disclaimerTooltip: false,
       visibleTooltip: false,
@@ -127,7 +145,9 @@ export default {
       message: '',
       errorTimeout: null,
       loading: false,
-      bgImg: require('@/assets/images/bgtu.jpg')
+      mouseX: 0,
+      mouseY: 0,
+      rippleOpacity: 0
     }
   },
   computed: {
@@ -139,10 +159,29 @@ export default {
       accessToken: state => state.login.accessToken,
       ossoidcProperties: state => state.site.ossoidcProperties,
       loginVerifyType: state => state.site.loginVerifyType
-    })
+    }),
+    loginDynamicStyle () {
+      return {
+        '--cursor-x': `${this.mouseX}px`,
+        '--cursor-y': `${this.mouseY}px`,
+        '--ripple-opacity': this.rippleOpacity,
+        '--drift-x': `${(this.mouseX - window.innerWidth / 2) / 90}px`,
+        '--drift-y': `${(this.mouseY - window.innerHeight / 2) / 120}px`
+      }
+    }
   },
   methods: {
     isArray,
+    handleMouseMove (event) {
+      this.mouseX = event.clientX
+      this.mouseY = event.clientY
+      this.rippleOpacity = 1
+    },
+    handleMouseLeave () {
+      this.mouseX = window.innerWidth * 0.72
+      this.mouseY = window.innerHeight * 0.72
+      this.rippleOpacity = 0
+    },
     handleButtonLogin () {
       if (this.disclaimer) {
         if (!this.formState.user) {
@@ -252,6 +291,7 @@ export default {
     if (localStore.get('disclaimer') === '1') {
       this.disclaimer = localStore.get('disclaimer') === '1'
     }
+    this.handleMouseLeave()
     this.$store.dispatch('clearUserInfo')
   },
   beforeRouteEnter (to, from, next) {
@@ -404,8 +444,25 @@ export default {
   color: #ffffff;
 }
 
-:deep(.el-checkbox__inner) {
-  background-color: transparent !important;
+:deep(.disclaimer .el-checkbox__inner) {
+  background-color: rgba(8, 26, 46, 0.28) !important;
+  border: 1px solid rgba(143, 214, 255, 0.72) !important;
+  border-radius: 4px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+:deep(.disclaimer .el-checkbox__inner:hover) {
+  border-color: #b9e6ff !important;
+  box-shadow: 0 0 0 3px rgba(143, 214, 255, 0.12);
+}
+
+:deep(.disclaimer .el-checkbox__input.is-checked .el-checkbox__inner) {
+  background: linear-gradient(180deg, rgba(62, 124, 177, 0.92) 0%, rgba(44, 95, 138, 0.92) 100%) !important;
+  border-color: #8fd6ff !important;
+}
+
+:deep(.disclaimer .el-checkbox__inner::after) {
+  border-color: #eff9ff !important;
 }
 
 @keyframes flylight1 {
@@ -484,94 +541,241 @@ select:-webkit-autofill {
 
 .login {
   height: 100%;
+  width: 100%;
   z-index: 1;
   overflow: hidden;
   position: relative;
+  contain: layout paint;
+  --cursor-x: 70%;
+  --cursor-y: 72%;
+  --ripple-opacity: 0;
+  --drift-x: 0px;
+  --drift-y: 0px;
+  background-color: #091b2e;
 
-  .login-bg {
-    position: fixed;
-    top: 0;
-    z-index: -1;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -28px;
+    background-image: url(~@/assets/images/login/ship-login-bg.png);
+    background-position: calc(50% + var(--drift-x)) calc(50% + var(--drift-y));
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background-position 240ms ease-out;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(7, 19, 34, 0.22) 0%, rgba(7, 19, 34, 0.08) 34%, rgba(7, 19, 34, 0.2) 100%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(7, 19, 34, 0.24) 100%);
+    pointer-events: none;
+  }
+
+  .scene-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .scene-radar {
+    background:
+      radial-gradient(circle at 16% 42%, rgba(146, 206, 255, 0.14) 0, rgba(146, 206, 255, 0.05) 28%, transparent 60%),
+      radial-gradient(circle at 80% 76%, rgba(146, 206, 255, 0.08) 0, transparent 22%);
+    opacity: 0.75;
+    mix-blend-mode: screen;
+    transform: translate3d(calc(var(--drift-x) * -0.5), calc(var(--drift-y) * -0.5), 0);
+  }
+
+  .scene-glow {
+    background:
+      radial-gradient(circle at 24% 70%, rgba(255, 255, 255, 0.18) 0, transparent 16%),
+      radial-gradient(circle at 78% 84%, rgba(138, 214, 255, 0.12) 0, transparent 12%);
+    opacity: 0.65;
+    animation: seaGlow 9s ease-in-out infinite alternate;
+    mix-blend-mode: screen;
+  }
+
+  .scene-wave {
+    top: auto;
+    height: 34%;
+    bottom: -2%;
+    background-repeat: repeat-x;
+    background-size: 1200px 100%;
+    opacity: 0.5;
+  }
+
+  .wave-back {
+    background-image:
+      radial-gradient(ellipse at 50% 100%, rgba(133, 203, 255, 0.16) 0, rgba(133, 203, 255, 0.12) 15%, transparent 55%),
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 24px, rgba(255, 255, 255, 0) 24px 48px);
+    filter: blur(10px);
+    animation: waveMove 18s linear infinite;
+  }
+
+  .wave-front {
+    background-image:
+      radial-gradient(ellipse at 50% 100%, rgba(198, 235, 255, 0.16) 0, rgba(198, 235, 255, 0.09) 16%, transparent 58%),
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.11) 0 40px, rgba(255, 255, 255, 0) 40px 76px);
+    filter: blur(4px);
+    animation: waveMoveReverse 12s linear infinite;
+  }
+
+  .cursor-ripple {
+    opacity: var(--ripple-opacity);
+    background:
+      radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(133, 214, 255, 0.26) 0, rgba(133, 214, 255, 0.16) 36px, rgba(133, 214, 255, 0.08) 78px, transparent 150px),
+      radial-gradient(circle at calc(var(--cursor-x) + 28px) calc(var(--cursor-y) + 18px), rgba(255, 255, 255, 0.24) 0, transparent 28px);
+    transition: opacity 0.35s ease;
+    mix-blend-mode: screen;
+  }
+
+  .cursor-foam {
+    opacity: calc(var(--ripple-opacity) * 0.95);
+    background:
+      radial-gradient(ellipse at var(--cursor-x) calc(var(--cursor-y) + 18px), rgba(255, 255, 255, 0.24) 0, rgba(255, 255, 255, 0.12) 16px, transparent 62px),
+      radial-gradient(ellipse at calc(var(--cursor-x) - 24px) calc(var(--cursor-y) + 24px), rgba(255, 255, 255, 0.14) 0, transparent 54px);
+    filter: blur(2px);
+    transition: opacity 0.35s ease;
   }
 
   .login-content {
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 100px 4vw 40px 24px;
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
+    position: relative;
+    z-index: 2;
 
     .top-logo {
       position: fixed;
-      top: 7%;
-      left: 3%;
+      top: 40px;
+      left: 48px;
+      z-index: 2;
 
       img {
-        max-width: 120px;
-        max-height: 90px;
+        max-width: 148px;
+        max-height: 96px;
+        filter: drop-shadow(0 8px 18px rgba(5, 20, 36, 0.28));
       }
     }
 
     .login-wrap {
-      width: 600px;
-      margin: auto;
-      text-align: center;
-      height: 550px;
+      width: 460px;
+      max-width: 100%;
+      margin: 0 0 0 auto;
+      text-align: left;
+      min-height: 500px;
+      padding: 34px 34px 28px;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(16, 42, 69, 0.54) 0%, rgba(8, 26, 46, 0.48) 100%);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 28px 90px rgba(5, 20, 36, 0.24), inset 0 0 0 1px rgba(143, 214, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        border: 1px solid transparent;
+        background:
+          linear-gradient(120deg, rgba(143, 214, 255, 0) 0%, rgba(143, 214, 255, 0.45) 50%, rgba(143, 214, 255, 0) 100%) border-box;
+        -webkit-mask:
+          linear-gradient(#fff 0 0) padding-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        pointer-events: none;
+      }
+
+      &:hover {
+        border-color: rgba(143, 214, 255, 0.38);
+        box-shadow: 0 34px 100px rgba(5, 20, 36, 0.3), 0 0 0 1px rgba(143, 214, 255, 0.16);
+        transform: translateY(-2px);
+
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      .panel-heading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 24px;
+        text-align: center;
+      }
 
       .logo-wrap {
         position: relative;
+        flex: 0 0 auto;
 
         .login-logo {
-          max-width: 600px;
-          max-height: 120px;
-        }
-
-        &::after {
-          content: "";
+          max-width: 170px;
+          max-height: 78px;
           display: block;
-          background: url(~@/assets/images/light.png) no-repeat;
-          background-size: 100% auto;
-          position: absolute;
-          width: 300px;
-          height: 100px;
-          top: 40px;
-          left: 0;
-          opacity: 0;
-          animation-name: flylight1;
-          animation-duration: 3s;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
         }
+      }
 
-        &::before {
-          content: "";
-          display: block;
-          background: url(~@/assets/images/light.png) no-repeat;
-          background-size: 100% auto;
-          position: absolute;
-          width: 200px;
-          height: 100px;
-          top: -40px;
-          left: 0;
-          animation-name: flylight;
-          animation-duration: 3s;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-        }
+      .title-wrap {
+        min-width: 0;
+      }
+
+      .app-kicker {
+        margin: 0 0 8px;
+        color: rgba(166, 212, 255, 0.88);
+        letter-spacing: 0.22em;
+        font-size: 12px;
+      }
+
+      .app-summary {
+        margin: 8px 0 0;
+        color: rgba(220, 235, 247, 0.72);
+        font-size: 13px;
       }
 
       .app-name {
-        font-size: 18px;
+        font-size: 24px;
         color: #fff;
-        font-weight: 500;
-        text-align: center;
-        margin: 46px 0;
+        font-weight: 600;
+        margin: 0;
+        line-height: 1.2;
+        display: inline-block;
+        background-image: linear-gradient(90deg, #f4fbff 0%, #b9e6ff 45%, #ffffff 100%);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        -webkit-background-clip: text;
+        background-clip: text;
+        transition: filter 0.25s ease, text-shadow 0.25s ease, transform 0.25s ease;
+
+        &:hover {
+          color: transparent;
+          text-shadow: 0 0 22px rgba(143, 214, 255, 0.28);
+          filter: brightness(1.08);
+          transform: translateY(-1px);
+        }
       }
 
       .login-form {
-        width: 390px;
+        width: 100%;
+        max-width: 360px;
         margin: 0 auto;
+        text-align: center;
 
         input {
           outline: none;
@@ -584,17 +788,47 @@ select:-webkit-autofill {
         .login-type,
         .login-user,
         .login-pwd {
-          width: 390px;
+          width: 100%;
           height: 46px;
           text-decoration: none;
           position: relative;
         }
 
         .login-type {
-          text-align: left;
+          text-align: center;
+          margin-bottom: 18px;
+
+          :deep(.el-radio) {
+            margin-right: 24px;
+          }
+
+          :deep(.el-radio__input.is-checked .el-radio__inner),
+          :deep(.el-radio__input.is-focus .el-radio__inner),
+          :deep(.el-radio__inner:hover) {
+            border-color: #8fd6ff;
+          }
+
+          :deep(.el-radio__inner) {
+            width: 18px;
+            height: 18px;
+            background: transparent;
+            border: 2px solid rgba(143, 214, 255, 0.9);
+            box-shadow: 0 0 0 2px rgba(143, 214, 255, 0.08);
+
+            &::after {
+              width: 6px;
+              height: 6px;
+              background-color: #8fd6ff;
+            }
+          }
+
+          :deep(.el-radio__input.is-checked + .el-radio__label) {
+            color: #dff3ff;
+          }
 
           :deep(.el-radio__label) {
-            color: #FFFFFF;
+            color: rgba(255, 255, 255, 0.88);
+            transition: color 0.2s ease;
           }
         }
 
@@ -604,15 +838,23 @@ select:-webkit-autofill {
           font-size: 14px;
           width: 100%;
           height: 100%;
-          border: 1px solid #fff;
-          background-color: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.86);
+          background-color: rgba(6, 20, 35, 0.16);
           color: #fff;
-          border-radius: 4px;
+          border-radius: 10px;
           box-sizing: border-box;
+          transition: border-color 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+
+          &:hover,
+          &:focus {
+            border-color: #8fd6ff;
+            box-shadow: 0 0 0 3px rgba(143, 214, 255, 0.12);
+            background-color: rgba(6, 20, 35, 0.24);
+          }
         }
 
         .login-user {
-          margin: 0 auto 50px;
+          margin: 0 auto 20px;
           position: relative;
 
           &::before {
@@ -653,20 +895,91 @@ select:-webkit-autofill {
         }
 
         .disclaimer {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
           text-align: left;
-          color: #fff;
-          margin-top: 30px;
+          color: rgba(201, 223, 239, 0.88);
+          margin-top: 18px;
+          font-size: 13px;
 
-          .el-link {
+          :deep(.el-link) {
             margin-left: 10px;
-            color: #fff;
+            color: rgba(173, 214, 242, 0.92) !important;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
+
+            &:hover {
+              color: #e8f7ff !important;
+              text-shadow: 0 0 14px rgba(143, 214, 255, 0.22);
+            }
           }
         }
       }
 
       .login-op {
-        padding: 5px 0;
+        padding: 10px 0 2px;
+        text-align: left;
+
+        :deep(.el-link) {
+          float: left !important;
+          display: inline-block;
+        }
       }
+    }
+  }
+}
+
+@media (max-width: 1366px) {
+  .login {
+    .login-content {
+      padding: 92px 3vw 36px 24px;
+    }
+
+    .login-content .login-wrap {
+      width: 440px;
+      padding: 32px 28px 24px;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .login {
+    .login-content {
+      padding: 96px 24px 40px;
+      justify-content: center;
+    }
+
+    .login-content .login-wrap {
+      margin: 0 auto;
+      min-height: auto;
+    }
+
+    .login-content .top-logo {
+      left: 24px;
+      top: 24px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login {
+    .login-content {
+      padding: 88px 16px 24px;
+    }
+
+    .login-content .login-wrap {
+      padding: 28px 20px 24px;
+      border-radius: 22px;
+    }
+
+    .login-content .login-wrap .panel-heading {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .login-content .login-wrap .app-name {
+      font-size: 24px;
     }
   }
 }
@@ -690,10 +1003,12 @@ select:-webkit-autofill {
 
 .forget-pwd {
   font-size: 13px;
+  color: rgba(216, 232, 244, 0.9);
+  line-height: 1.7;
 
   p {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
 }
 
@@ -701,4 +1016,68 @@ select:-webkit-autofill {
   display: none !important;
 }
 
+@keyframes backgroundFloat {
+  0% {
+    background-position: 50% 50%;
+  }
+
+  100% {
+    background-position: calc(50% - 4px) calc(50% + 6px);
+  }
+}
+
+@keyframes seaGlow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+@keyframes waveMove {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-120px);
+  }
+}
+
+@keyframes waveMoveReverse {
+  0% {
+    transform: translateX(-40px);
+  }
+
+  100% {
+    transform: translateX(120px);
+  }
+}
+
+</style>
+
+<style lang="scss">
+.forget-pwd-popover {
+  border: 1px solid rgba(143, 214, 255, 0.22) !important;
+  border-radius: 16px !important;
+  background:
+    radial-gradient(circle at top, rgba(84, 147, 202, 0.16) 0, transparent 34%),
+    linear-gradient(180deg, rgba(17, 44, 73, 0.96) 0%, rgba(8, 26, 46, 0.98) 100%) !important;
+  box-shadow: 0 20px 50px rgba(5, 20, 36, 0.28) !important;
+  color: rgba(216, 232, 244, 0.9) !important;
+  padding: 16px 18px !important;
+}
+
+.forget-pwd-popover[x-placement^="top"] .popper__arrow,
+.forget-pwd-popover[x-placement^="top"] .popper__arrow::after {
+  border-top-color: rgba(17, 44, 73, 0.96) !important;
+}
+
+.forget-pwd-popover .el-popover__title {
+  color: #e8f7ff !important;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
 </style>

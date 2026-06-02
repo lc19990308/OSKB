@@ -2,9 +2,7 @@
   <div v-loading="firstLoading" element-loading-spinner="el-icon-refresh" class="chart-wrap" :style="{ 'height': percentage === 'auto' ? '100%' : height + 'px' }">
     <div class="echarts" ref="chart" :style="{visibility: noData ? 'hidden' : 'visible'}" />
     <div class="no-data" v-if="noData">
-      <svg class="icon svg-icon" aria-hidden="true" :style="{width:'80px',height: '80px'}">
-        <use xlink:href="#iconkongshujuicon"></use>
-      </svg>
+      <img :src="nodata" alt="" class="empty-image">
       <div>暂无数据</div>
     </div>
   </div>
@@ -74,7 +72,7 @@ export default {
   },
   data () {
     return {
-      nodata: require('@/assets/images/icon-no-data.png'),
+      nodata: require('@/assets/images/empty.png'),
       lastArea: 0,
       height: 280,
       loadingOptions: {
@@ -341,6 +339,18 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+.no-data {
+  text-align: center;
+
+  .empty-image {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+    margin-bottom: 8px;
+  }
+}
+</style>
+<style scoped lang="scss">
 .chart-wrap{
   width: 100%;
   .echarts{
@@ -362,4 +372,3 @@ export default {
   }
 }
 </style>
-

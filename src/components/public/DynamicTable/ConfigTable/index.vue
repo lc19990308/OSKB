@@ -252,10 +252,10 @@ export default {
   font-size: 18px;
   box-sizing: border-box;
   transition: all 0.5s;
-  color: #666666;
+  color: #4A5568;
 
   &:hover, &:focus, &:active {
-    color: #A78BFA;
+    color: #8BAAC4;
   }
 
   &:active, &:focus {
@@ -264,7 +264,7 @@ export default {
 }
 
 .el-icon-s-tools.text-primary {
-  color: #A78BFA;
+  color: #8BAAC4;
 }
 
 .operating {
@@ -273,13 +273,13 @@ export default {
   .confirm {
     float: right;
     margin-right: 10px;
-    color: #8B5CF6;
+    color: #2C5F8A;
     cursor: pointer;
   }
 
   .reset {
     float: right;
-    color: #8B5CF6;
+    color: #2C5F8A;
     cursor: pointer;
   }
 }
@@ -318,7 +318,7 @@ export default {
     transform: translateY(-50%);
     opacity: 0;
     transition: opacity 0.4s;
-    color: #333333 !important;
+    color: #1B2838 !important;
   }
 }
 

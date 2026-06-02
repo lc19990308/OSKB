@@ -41,8 +41,8 @@ export default {
 <style lang="scss" scoped>
 .el-header {
   padding: 0;
-  background-color: #fff;
-  box-shadow: -1px 1px 26px -13px rgba(124, 58, 237, 50%);
+  background: transparent;
+  box-shadow: none;
   line-height: 65px;
   height: 65px;
   position: relative;
@@ -61,9 +61,15 @@ export default {
   flex-direction: column;
 }
 
+:deep(.el-main.main) {
+  background: url(~@/assets/images/layout-bg.png) no-repeat center top / cover !important;
+}
+
 .el-main {
-  background-color: #eff3f6;
-  color: #333;
+  background:
+    radial-gradient(circle at top, rgba(44, 95, 138, 0.04) 0, transparent 28%),
+    linear-gradient(180deg, #f4f7fa 0%, #eef3f7 100%);
+  color: $text-color-primary;
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   flex: 1;
@@ -74,7 +80,7 @@ export default {
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #7C3AED;
+    background: #2C5F8A;
     width: 6px;
     border-radius: 4px;
   }

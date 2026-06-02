@@ -13,7 +13,7 @@ export default {
 <style lang="scss" scoped>
 :deep(.el-input-group__append) {
   background: #FFFFFF;
-  color: #999999;
+  color: #8B9CB0;
   font-size: 16px;
   font-weight: bold;
 

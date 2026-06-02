@@ -42,7 +42,7 @@ export default {
   cursor: pointer;
   vertical-align: -1px;
   &:hover {
-    color: #999999;
+    color: #8B9CB0;
   }
 }
 </style>

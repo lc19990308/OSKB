@@ -146,32 +146,32 @@ export default {
         cancelButtonText: '关闭',
         content:
           `<div style="padding: 20px 0 0 0; width: 570px;margin: 0 auto">
-              <div style="color: #999999; display: flex" class="m-b-15">
-                <label style="color: #333333;width: 130px">组件黑白名单规则：</label>
+              <div style="color: #8B9CB0; display: flex" class="m-b-15">
+                <label style="color: #1B2838;width: 130px">组件黑白名单规则：</label>
                 <span style="flex: 1">当任务检测结果中含有黑名单组件时，本次任务将不允许构建；当任务检测结果中含有白名单组件时，本次任务可以继续构建</span>
                </div>
                ${
             response.blackSwitch === 1 ? `
-                       <div style="color: #999999; display: flex" class="m-b-15">
-                      <label style="color: #333333;width: 130px">漏洞黑名单规则：</label>
+                       <div style="color: #8B9CB0; display: flex" class="m-b-15">
+                      <label style="color: #1B2838;width: 130px">漏洞黑名单规则：</label>
                       <span style="flex: 1">当任务检测结果中含有黑名单漏洞时，本次任务将不允许构建</span>
                      </div>` : ''
           }
                ${response.componentBaseLineSwitch === 1 ? `
-                  <div style="color: #999999;display: flex" class="m-b-15">
-                    <label style="color: #333333; width: 130px">组件版本基线规则：</label>
+                  <div style="color: #8B9CB0;display: flex" class="m-b-15">
+                    <label style="color: #1B2838; width: 130px">组件版本基线规则：</label>
                     <span style="flex: 1">当任务检测结果中含有低于版本基线的组件时，本次任务将不允许构建</span>
                   </div>` : ''}
                ${
             response.qualitySwitch === 1 ? `
-                <div style="color: #999999;display: flex" class="m-b-15">
-                      <label style="color: #333333; width: 130px">自定义门禁阈值：</label>
+                <div style="color: #8B9CB0;display: flex" class="m-b-15">
+                      <label style="color: #1B2838; width: 130px">自定义门禁阈值：</label>
                       <span style="flex: 1">
                       ${
               response.vulQualitySwitch === 1 ? `
                                          <div style="display: flex" class="m-b-10">
                                   <label>漏洞风险阈值：</label>
-                                  <span style="flex: 1;color: #333333">
+                                  <span style="flex: 1;color: #1B2838">
                                     <span class="text-severity">严重</span><=${response.vulSeriousNum}，
                                     <span class="text-danger">高危</span><=${response.vulHighNum}，
                                     <span class="text-warning">中危</span><=${response.vulMediumNum}，
@@ -183,7 +183,7 @@ export default {
                        ${response.licenseQualitySwitch === 1 ? `
                                    <div style="display: flex">
                           <label>许可证风险阈值：</label>
-                          <span style="flex: 1;color: #333333">
+                          <span style="flex: 1;color: #1B2838">
                             <span class="text-danger">高风险</span><=${response.licenseHighNum}，
                             <span class="text-warning">中风险</span><=${response.licenseMediumNum}，
                             <span class="text-primary">低风险</span><=${response.licenseLowNum}</span>

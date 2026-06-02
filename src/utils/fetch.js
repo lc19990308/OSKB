@@ -217,19 +217,22 @@ function processLoading (config) {
     config.loading = true
     window.loading = Loading.service({
       background: 'rgba(0, 0, 0, 0.5)',
-      spinner: 'global-loading'
+      spinner: 'global-loading',
+      text: '航行中'
     })
   } else if (config.params && config.params.loading !== undefined && config.params.loading === true) {
     delete config.data.loading
     config.loading = true
     window.loading = Loading.service({
       background: 'rgba(0, 0, 0, 0.5)',
-      spinner: 'global-loading'
+      spinner: 'global-loading',
+      text: '航行中'
     })
   } else {
     window.loading = Loading.service({
       background: 'rgba(0, 0, 0, 0.5)',
-      spinner: 'global-loading'
+      spinner: 'global-loading',
+      text: '航行中'
     })
     config.loading = true
   }

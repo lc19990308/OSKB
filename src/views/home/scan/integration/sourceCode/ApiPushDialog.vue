@@ -150,7 +150,7 @@ export default {
     color: rgb(51, 51, 51);
 
     .el-icon-info {
-      color: #8B5CF6;
+      color: #2C5F8A;
     }
 
     .handle {

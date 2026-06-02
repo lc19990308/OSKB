@@ -83,11 +83,11 @@ export default {
       }
       const series = []
       const color = [
-        '#991B1B',
-        '#EF4444',
-        '#F59E0B',
+        '#8B1A1A',
+        '#D9534F',
+        '#D4932A',
         '#1a78cf',
-        '#10B981'
+        '#4A9C8C'
       ]
       label.forEach((item, index, arr) => {
         series.push({
@@ -97,7 +97,7 @@ export default {
           label: {
             show: !stack,
             position: 'top',
-            color: '#333333'
+            color: '#1B2838'
           },
           barMaxWidth: data.length > 5 ? '12' : '20',
           borderRadius: '5',
@@ -133,7 +133,7 @@ export default {
           },
           textStyle: {
             fontSize: this.fontSize(0.12),
-            color: '#333333',
+            color: '#1B2838',
             rich: {
               name: {
                 verticalAlign: 'center',
@@ -179,7 +179,7 @@ export default {
             nameLocation: 'end',
             nameTextStyle: {
               fontSize: this.fontSize(0.14),
-              color: '#333',
+              color: '#1B2838',
               align: 'left',
               padding: [27, 0, 0, -5]
             },
@@ -204,7 +204,7 @@ export default {
             },
             axisLabel: {
               show: true,
-              color: '#333333',
+              color: '#1B2838',
               fontSize: this.fontSize(0.12),
               // showMinLabel: null,
               showMaxLabel: true,
@@ -246,7 +246,7 @@ export default {
             },
             axisLabel: {
               show: true,
-              color: '#333333',
+              color: '#1B2838',
               fontSize: this.fontSize(0.12),
               formatter: '{value}'
             },

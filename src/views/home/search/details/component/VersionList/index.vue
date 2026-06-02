@@ -319,7 +319,7 @@ export default {
   i.iconfont {
     vertical-align: middle;
     font-size: 20px;
-    color: #8B5CF6;
+    color: #2C5F8A;
     margin-right: 10px;
   }
 }

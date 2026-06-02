@@ -21,7 +21,7 @@ export default {
   components: {},
   data () {
     return {
-      nodata: require('@/assets/images/icon-no-data.png')
+      nodata: require('@/assets/images/empty.png')
     }
   },
   computed: {

@@ -248,7 +248,7 @@ export default {
     .item-title{
       display: flex;
       align-items: center;
-      color: #333333;
+      color: #1B2838;
 
       span:nth-child(1) {
         cursor: pointer;
@@ -262,7 +262,7 @@ export default {
       padding-right: 4px;
 
       :deep(.el-slider__marks-text) {
-        color: #666666;
+        color: #4A5568;
       }
     }
   }

@@ -53,11 +53,11 @@ export default {
     option () {
       return {
         color: [
-          '#991B1B',
-          '#EF4444',
-          '#F59E0B',
-          '#8B5CF6',
-          '#6366F1'
+          '#8B1A1A',
+          '#D9534F',
+          '#D4932A',
+          '#2C5F8A',
+          '#5B8BA0'
         ],
         tooltip: {
           trigger: 'axis',
@@ -93,7 +93,7 @@ export default {
             },
             axisLabel: {
               interval: 0,
-              color: '#333333',
+              color: '#1B2838',
               fontSize: this.fontSize(0.13)
             }
           }
@@ -110,7 +110,7 @@ export default {
               }
             },
             axisLabel: {
-              color: '#333333',
+              color: '#1B2838',
               fontSize: this.fontSize(0.13)
             },
             splitLine: {
@@ -128,7 +128,7 @@ export default {
             label: {
               show: true,
               position: 'top',
-              color: '#333333'
+              color: '#1B2838'
             },
             data: this.chartData.map(function (i) {
               return {
@@ -146,7 +146,7 @@ export default {
           fontSize: this.fontSize(0.12),
           position: 'top',
           formatter: '{c}',
-          color: '#333333'
+          color: '#1B2838'
         }
       }
     },

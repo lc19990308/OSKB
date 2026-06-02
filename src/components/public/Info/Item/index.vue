@@ -50,7 +50,7 @@ export default {
 <style lang="scss" scoped>
 .info-panel-item {
   padding: 15px 15px;
-  color: #333333;
+  color: #1B2838;
 
   &:before,&:after {
     display: table;

@@ -92,7 +92,7 @@ export default {
         //     x: 'center',
         //     top: '52%',
         //     textStyle: {
-        //       color: '#666666',
+        //       color: '#4A5568',
         //       fontSize: this.fontSize(0.14),
         //       fontWeight: '500'
         //     }
@@ -103,7 +103,7 @@ export default {
         //     top: '42%',
         //     textStyle: {
         //       fontSize: this.fontSize(0.44),
-        //       color: '#333333',
+        //       color: '#1B2838',
         //       fontWeight: '500'
         //     }
         //   }
@@ -117,18 +117,18 @@ export default {
             label: {
               show: true,
               position: 'center',
-              color: '#333333',
+              color: '#1B2838',
               formatter: (x) => {
                 return `{data|${x.value}}\n{title|${x.name}}`
               },
               rich: {
                 data: {
                   fontSize: this.fontSize(0.40),
-                  color: '#333333',
+                  color: '#1B2838',
                   lineHeight: this.fontSize(0.3) * 1.5
                 },
                 title: {
-                  color: '#333333',
+                  color: '#1B2838',
                   fontSize: this.fontSize(0.14)
                 }
               }
@@ -154,7 +154,7 @@ export default {
             label: {
               position: 'outside',
               fontSize: this.fontSize(0.14),
-              color: '#333333',
+              color: '#1B2838',
               lineHeight: 6,
               formatter: function (x) {
                 return x.name + '：' + x.value + '个'
@@ -186,7 +186,7 @@ export default {
           },
           textStyle: {
             fontSize: this.fontSize(0.12),
-            color: '#333333',
+            color: '#1B2838',
             rich: {
               name: {
                 verticalAlign: 'center',

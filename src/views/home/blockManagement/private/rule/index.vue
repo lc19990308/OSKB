@@ -96,7 +96,7 @@ export default {
 }
 
 :deep(.oss-title) {
-  color: #333333;
+  color: #1B2838;
   font-size: 16px;
   position: relative;
   padding-left: 10px;

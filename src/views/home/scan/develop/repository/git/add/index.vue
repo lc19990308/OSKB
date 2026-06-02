@@ -496,11 +496,11 @@ export default {
   }
 
   :deep(.el-step__head.is-success) {
-    border-color: #8B5CF6;
+    border-color: #2C5F8A;
     color: #fff;
 
     .el-step__icon {
-      background: #8B5CF6;
+      background: #2C5F8A;
     }
   }
 

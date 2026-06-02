@@ -73,7 +73,7 @@ export default {
       },
       colors: [
         '#FF4D4A',
-        '#F59E0B',
+        '#D4932A',
         '#35D09C',
         '#48CDC5',
         '#1E88E5'

@@ -173,11 +173,11 @@ export default {
       ],
       searchData: {},
       color: [
-        '#EF4444',
-        '#F59E0B',
-        '#8B5CF6',
-        '#6366F1',
-        '#10B981'
+        '#D9534F',
+        '#D4932A',
+        '#2C5F8A',
+        '#5B8BA0',
+        '#4A9C8C'
       ]
     }
   },

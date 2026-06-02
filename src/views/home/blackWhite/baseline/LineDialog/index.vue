@@ -112,7 +112,7 @@ export default {
   height: 30px;
   text-align: center;
   cursor: pointer;
-  color: #8B5CF6;
+  color: #2C5F8A;
   background: #EDE9FE;
   transition: all 0.2s;
   margin-right: 10px;
@@ -123,7 +123,7 @@ export default {
   }
 
   &:hover {
-    color: #A78BFA;
+    color: #8BAAC4;
     background: #EDE9FE;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 10%);
   }

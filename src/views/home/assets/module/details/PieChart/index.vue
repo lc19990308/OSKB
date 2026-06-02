@@ -86,7 +86,7 @@ export default {
           itemGap: 10,
           textStyle: {
             fontSize: 12,
-            color: '#333333'
+            color: '#1B2838'
           },
           data
         },
@@ -99,19 +99,19 @@ export default {
             label: {
               show: true,
               position: 'center',
-              color: '#333333',
+              color: '#1B2838',
               formatter: (x) => {
                 return `{data|${x.value}}\n{title|${x.name}}`
               },
               rich: {
                 data: {
                   fontSize: 30,
-                  color: '#333333',
+                  color: '#1B2838',
                   lineHeight: 40,
                   fontWeight: 'bold'
                 },
                 title: {
-                  color: '#666666',
+                  color: '#4A5568',
                   fontSize: 12
                 }
               }

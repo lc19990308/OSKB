@@ -85,7 +85,8 @@ export default {
       }
       const loadingInstance = Loading.service({
         background: 'rgba(0, 0, 0, 0.5)',
-        spinner: 'global-loading'
+        spinner: 'global-loading',
+        text: '航行中'
 
       })
       loginZTSso({ token, loading: false }).then(response => {

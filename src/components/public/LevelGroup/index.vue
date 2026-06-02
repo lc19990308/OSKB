@@ -2,11 +2,11 @@
   <div :class="[plain ? 'level-group-plain' : 'level-group']" :style="{cursor: $listeners.click ? 'pointer' : 'null'}">
       <template v-for="(item, index) in value">
          <span v-if="item !== null && plain" @click.stop="$emit('click', index + 1)"
-               :style="{'border-color': item ? colors[index] : 'rgba(153, 153, 153, 0.15)', color:  item ? colors[index] : '#999999'}">
+               :style="{'border-color': item ? colors[index] : 'rgba(153, 153, 153, 0.15)', color:  item ? colors[index] : '#8B9CB0'}">
               {{tooltip[index]}}<i class="vertical-bar">|</i>{{ item }}
          </span>
         <el-tooltip v-else-if="item !== null" :disabled="disabled" effect="dark" :content="tooltip[index] + (item === 0 ? '' : ('：' + item))" placement="top">
-            <span @click="$emit('click', index + 1)" :style="{background: item ? colors[index] : 'rgba(153, 153, 153, 0.15)', color:  item ? '#ffffff' : '#999999'}">
+            <span @click="$emit('click', index + 1)" :style="{background: item ? colors[index] : 'rgba(153, 153, 153, 0.15)', color:  item ? '#ffffff' : '#8B9CB0'}">
               {{ item }}
             </span>
         </el-tooltip>
@@ -40,7 +40,7 @@ const props = defineProps({
 })
 
 const colors = computed(() => {
-  const defaultColors = ['#991B1B', '#EF4444', '#F59E0B', '#8B5CF6']
+  const defaultColors = ['#8B1A1A', '#D9534F', '#D4932A', '#2C5F8A']
   return props.layout.colors.length > 0 ? props.layout.colors : defaultColors
 })
 

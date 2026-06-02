@@ -43,7 +43,7 @@ export default {
 
   p {
     .link {
-      color: #7C3AED;
+      color: #2C5F8A;
     }
   }
 }

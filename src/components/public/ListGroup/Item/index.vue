@@ -50,27 +50,27 @@ export default {
     position: absolute;
     left: -15px;
     top: 0;
-    background-color: #7C3AED;
+    background-color: #2C5F8A;
   }
   .name {
-    color: #7C3AED;
+    color: #2C5F8A;
   }
   .version {
-    color: #7C3AED;
+    color: #2C5F8A;
     &.iconfengefu {
-      color: #999999;
+      color: #8B9CB0;
     }
   }
 }
 .list-item {
   &:hover{
     .name {
-      color: #7C3AED;
+      color: #2C5F8A;
     }
     .version {
-      color: #7C3AED;
+      color: #2C5F8A;
       &.iconfengefu {
-        color: #999999;
+        color: #8B9CB0;
       }
     }
   }

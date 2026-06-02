@@ -332,30 +332,64 @@ svg.icon {
 }
 
 .el-button--primary {
-  box-shadow: 0 2px 6px 0 rgba(30, 135, 227, 50%);
+  box-shadow: 0 2px 6px 0 rgba(44, 95, 138, 50%);
 }
 
 .el-button--info {
-  box-shadow: 0 2px 6px 0 rgba(72, 205, 197, 50%);
+  box-shadow: 0 2px 6px 0 rgba(91, 139, 160, 50%);
 }
 
 .el-button--success {
-  box-shadow: 0 2px 6px 0 rgba(72, 205, 127, 50%);
+  box-shadow: 0 2px 6px 0 rgba(74, 156, 140, 50%);
 }
 
 .el-button--warning {
-  box-shadow: 0 2px 6px 0 rgba(254, 173, 51, 50%);
+  box-shadow: 0 2px 6px 0 rgba(212, 147, 42, 50%);
 }
 
 .el-button--danger {
-  box-shadow: 0 2px 6px 0 rgba(255, 77, 74, 50%);
+  box-shadow: 0 2px 6px 0 rgba(217, 83, 79, 50%);
+}
+
+.el-button {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.22);
+    transform: translate(-50%, -50%) scale(0);
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    animation: btnRipple 1.8s ease-out infinite;
+  }
+
+  &.is-disabled::after {
+    display: none;
+  }
+
+  &.is-plain::after {
+    background: rgba($color-primary, 0.12);
+  }
+
+  &--default::after {
+    background: rgba($color-primary, 0.1);
+  }
 }
 
 .hover-text-primary {
   cursor: pointer;
 
   &:hover {
-    color: #8B5CF6;
+    color: $color-primary;
   }
 }
 
@@ -407,54 +441,125 @@ svg.icon {
   border: 0;
 }
 
-@keyframes spin {
+@keyframes shipFloat {
+  0%,
+  100% {
+    transform: translateX(-52%) translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateX(-48%) translateY(-4px) rotate(2deg);
+  }
+}
+
+@keyframes waveSlide {
   0% {
-    transform: rotate(0deg);
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(2px);
+    opacity: 0.9;
   }
 
   100% {
-    transform: rotate(360deg);
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.55;
   }
+}
+
+@keyframes inputWave {
+  0%,
+  100% {
+    box-shadow: 0 0 0 1px rgba($color-primary, 0.12), 0 0 0 3px rgba($color-primary, 0.05);
+  }
+
+  50% {
+    box-shadow: 0 0 0 2px rgba($color-primary, 0.2), 0 0 0 5px rgba($color-primary, 0.1);
+  }
+}
+
+@keyframes btnRipple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0.45;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(2.8);
+    opacity: 0;
+  }
+}
+
+.el-loading-mask {
+  background: rgba(244, 249, 252, 0.78) !important;
+  backdrop-filter: blur(1px);
+}
+
+.global-loading,
+.el-loading-spinner {
+  position: relative;
 }
 
 .global-loading {
   display: block;
-  position: relative;
   left: 50%;
   top: 50%;
-  width: 100px;
-  height: 100px;
-  margin: -75px 0 0 -75px;
-  border-radius: 50%;
-  border: 3px solid transparent;
-  border-top-color: $color-primary;
-  animation: spin 2s linear infinite;
+  width: 84px;
+  height: 54px;
+  margin: -27px 0 0 -42px;
+}
+
+.el-loading-spinner {
+  margin-top: -27px;
+  height: 54px;
+}
+
+.el-loading-spinner .circular,
+.el-loading-spinner .el-icon-loading,
+.el-loading-spinner .el-icon-refresh {
+  display: none !important;
 }
 
 .global-loading::before {
-  content: "";
+  content: "\e73f";
   position: absolute;
-  top: 5px;
-  left: 5px;
-  right: 5px;
-  bottom: 5px;
-  border-radius: 50%;
-  border: 3px solid transparent;
-  border-top-color: $color-warning;
-  animation: spin 3s linear infinite;
+  left: 50%;
+  top: 0;
+  color: rgba(35, 93, 136, 0.92);
+  font-family: element-icons !important;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 400;
+  animation: shipFloat 1.5s ease-in-out infinite;
 }
 
 .global-loading::after {
   content: "";
   position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
-  border-radius: 50%;
-  border: 3px solid transparent;
-  border-top-color: $color-danger;
-  animation: spin 1.5s linear infinite;
+  left: 50%;
+  top: 33px;
+  width: 56px;
+  height: 10px;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(87, 155, 201, 0.72) 18%, rgba(87, 155, 201, 0.72) 82%, transparent 100%) center 2px / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent 10%, rgba(87, 155, 201, 0.5) 26%, rgba(87, 155, 201, 0.5) 74%, transparent 90%) center 8px / 78% 1px no-repeat;
+  animation: waveSlide 1.5s ease-in-out infinite;
+}
+
+.el-loading-spinner .el-loading-text {
+  display: block;
+  margin-top: 46px;
+  color: rgba(35, 93, 136, 0.88);
+  font-size: 0;
+  line-height: 16px;
+  letter-spacing: 0.12em;
+}
+
+.el-loading-spinner .el-loading-text::before {
+  content: "航行中";
+  font-size: 11px;
 }
 
 .el-table th {
@@ -464,14 +569,29 @@ svg.icon {
 }
 
 .el-table__empty-text {
-  color: #333;
+  color: #8fa4b9;
   text-align: center;
+  line-height: 1.6;
 
   i {
-    font-size: 20px;
-    color: $color-primary;
-    vertical-align: middle;
-    margin-right: 5px;
+    display: none;
+  }
+}
+
+.el-empty__image {
+  width: 88px;
+  height: 88px;
+  background: url("~@/assets/images/empty.png") center/contain no-repeat;
+
+  svg,
+  img {
+    display: none;
+  }
+}
+
+.el-empty__description {
+  p {
+    color: #8fa4b9;
   }
 }
 
@@ -491,7 +611,7 @@ svg.icon {
   vertical-align: middle;
 
   .common-header-icon {
-    color: #7C3AED;
+    color: $color-primary;
     font-size: 18px;
     vertical-align: middle;
 
@@ -811,14 +931,7 @@ svg.icon {
   color: #fff;
 
   &:hover {
-    background-color: $color-primary !important;
-  }
-}
-
-.el-menu--collapse {
-  .el-menu-item {
-    height: 57px;
-    line-height: 57px;
+    background-color: $color-primary-light !important;
   }
 }
 
@@ -832,18 +945,20 @@ svg.icon {
 .el-aside .el-submenu__title {
   height: 45px;
   line-height: 45px;
+  color: #BCC8D6;
 
   .el-icon-arrow-down {
     font-weight: bold;
   }
 
   i {
-    color: #a1c8ee;
+    color: #8BA0BC;
     margin-right: 5px;
   }
 
   &:hover {
     background-color: rgba(0, 0, 0, 10%);
+    color: #fff;
   }
 
   &:focus {
@@ -862,22 +977,22 @@ svg.icon {
   /* stylelint-disable */
   .el-menu {
     width: 150px !important;
-    color: #a1c8ee;
+    color: #8BA0BC;
     background: {
       image: -webkit-linear-gradient(
                       to right,
-                      rgba(30, 135, 227, 90%) 10%,
-                      rgba(84, 169, 248, 90%) 100%
+                      rgba(26, 58, 92, 90%) 10%,
+                      rgba(44, 95, 138, 90%) 100%
       );
       image: -o-linear-gradient(
                       to right,
-                      rgba(30, 135, 227, 90%) 10%,
-                      rgba(84, 169, 248, 90%) 100%
+                      rgba(26, 58, 92, 90%) 10%,
+                      rgba(44, 95, 138, 90%) 100%
       );
       image: linear-gradient(
                       to right,
-                      rgba(30, 135, 227, 90%) 10%,
-                      rgba(84, 169, 248, 90%) 100%
+                      rgba(26, 58, 92, 90%) 10%,
+                      rgba(44, 95, 138, 90%) 100%
       );
       repeat: repeat-x;
     }
@@ -956,8 +1071,9 @@ svg.icon {
 }
 
 .el-dialog__header {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 20px;
+  background: $color-primary-dark;
 
   .el-dialog__headerbtn {
     top: 20px;
@@ -966,17 +1082,21 @@ svg.icon {
   .el-dialog__title {
     line-height: 18px;
     font-size: 16px;
-    color: #333;
+    color: #fff;
   }
 }
 
 .el-dialog__body {
   padding: 30px 22px;
-  color: #333;
+  color: $text-color-primary;
 }
 
 .el-dialog__headerbtn .el-dialog__close {
-  color: #333;
+  color: rgba(255, 255, 255, 0.75);
+
+  &:hover {
+    color: #fff;
+  }
 }
 
 .el-dialog {
@@ -993,9 +1113,22 @@ svg.icon {
 
   .el-dialog__header {
     border-color: transparent;
+    background: transparent;
 
     .el-dialog__headerbtn {
       font-size: 30px;
+    }
+
+    .el-dialog__title {
+      color: $text-color-primary;
+    }
+  }
+
+  .el-dialog__headerbtn .el-dialog__close {
+    color: $text-color-primary;
+
+    &:hover {
+      color: $text-color-primary;
     }
   }
 
@@ -1050,15 +1183,22 @@ svg.icon {
   }
 }
 
+.el-main.main {
+  background-image: url('~@/assets/images/layout-bg.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
 .view-content {
   background-color: #fff;
   padding: 20px;
-  box-shadow: 0 0 14px -8px rgba(124, 58, 237, 50%);
+  box-shadow: 0 0 14px -8px rgba(26, 58, 92, 50%);
   border-radius: 5px;
 
   .view-header {
     font-size: 16px;
-    color: #333;
+    color: $text-color-primary;
     margin: -20px -20px 0;
     padding: 17px 20px;
     border-bottom: 1px solid #dcdee0;
@@ -1073,7 +1213,7 @@ svg.icon {
 
 .common-bg {
   background-color: #fff;
-  box-shadow: 0 0 14px -8px rgba(124, 58, 237, 50%);
+  box-shadow: 0 0 14px -8px rgba(26, 58, 92, 50%);
   position: relative;
   border-radius: 4px;
 
@@ -1104,7 +1244,7 @@ svg.icon {
 
   .el-message-box__content {
     padding: 35px 15px;
-    color: #333;
+    color: $text-color-primary;
     font-size: 15px;
 
     p {
@@ -1136,6 +1276,7 @@ svg.icon {
     border-radius: 50%;
     display: flex;
     justify-content: center;
+    align-items: center;
     line-height: 48px;
     box-sizing: border-box;
 
@@ -1148,7 +1289,7 @@ svg.icon {
     flex: 1;
 
     h4 {
-      color: #333;
+      color: $text-color-primary;
       font-weight: 500;
       margin: 0;
       font-size: 16px;
@@ -1185,20 +1326,20 @@ svg.icon {
 
   &.card-sm-app {
     .card-icon {
-      border: 1px solid #7C3AED;
-      color: #8B5CF6;
+      border: 1px solid $color-primary;
+      color: $color-primary;
     }
 
     .card-main {
       p {
-        color: #8B5CF6;
+        color: $color-primary;
 
         .el-link {
-          color: #8B5CF6;
+          color: $color-primary;
         }
 
         .tag {
-          background: #8B5CF6;
+          background: $color-primary;
         }
       }
     }
@@ -1208,20 +1349,20 @@ svg.icon {
 
   &.card-sm-component {
     .card-icon {
-      border: 1px solid #96f;
-      color: #96f;
+      border: 1px solid $color-accent;
+      color: $color-accent;
     }
 
     .card-main {
       p {
-        color: #96f;
+        color: $color-accent;
 
         .el-link {
-          color: #96f;
+          color: $color-accent;
         }
 
         .tag {
-          background: #96f;
+          background: $color-accent;
         }
       }
     }
@@ -1231,20 +1372,20 @@ svg.icon {
 
   &.card-sm-vul {
     .card-icon {
-      border: 1px solid #EF4444;
-      color: #EF4444;
+      border: 1px solid $color-danger;
+      color: $color-danger;
     }
 
     .card-main {
       p {
-        color: #EF4444;
+        color: $color-danger;
 
         .el-link {
-          color: #EF4444;
+          color: $color-danger;
         }
 
         .tag {
-          background: #EF4444;
+          background: $color-danger;
         }
       }
     }
@@ -1254,20 +1395,20 @@ svg.icon {
 
   &.card-sm-license {
     .card-icon {
-      border: 1px solid #00c1c1;
-      color: #00c1c1;
+      border: 1px solid $color-success;
+      color: $color-success;
     }
 
     .card-main {
       p {
-        color: #00c1c1;
+        color: $color-success;
 
         .el-link {
-          color: #00c1c1;
+          color: $color-success;
         }
 
         .tag {
-          background: #00c1c1;
+          background: $color-success;
         }
       }
     }
@@ -1321,7 +1462,7 @@ svg.icon {
 }
 
 .el-pager li {
-  color: #666;
+  color: $text-color-regular;
   border: 1px solid transparent;
   border-radius: 4px;
 
@@ -1331,18 +1472,24 @@ svg.icon {
 }
 
 .el-input__inner {
-  border-color: #dee2e6;
+  border-color: rgba($color-primary, 0.35);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .el-input__inner,
 .el-textarea__inner {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
   &:hover {
-    border-color: $color-primary !important;
+    border-color: $color-primary;
+    animation: inputWave 2s ease-in-out infinite;
   }
 
   &:focus,
   &.is-active {
-    box-shadow: 0 0 0 2px rgba($color-primary, 0.12) !important;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 2px rgba($color-primary, 0.12);
+    animation: none;
   }
 }
 
@@ -1408,7 +1555,7 @@ svg.icon {
 }
 
 .el-input.is-disabled .el-input__inner {
-  color: #999;
+  color: $text-color-secondary;
 }
 
 .el-form-item.is-error .el-input__inner:focus,
@@ -1599,7 +1746,7 @@ svg.icon {
 
 .el-checkbox__input.is-checked + .el-checkbox__label,
 .el-radio__input.is-checked + .el-radio__label {
-  color: #333;
+  color: $text-color-primary;
 }
 
 // .search-container {
@@ -1667,7 +1814,7 @@ button [class^="el-icon-"] {
     .el-step__title {
       font-size: 14px;
       font-weight: 500;
-      color: #333;
+      color: $text-color-primary;
     }
 
     .el-step__head {
@@ -1715,9 +1862,9 @@ button [class^="el-icon-"] {
   border-style: solid;
 
   &.el-alert--primary {
-    color: #3ba3ff;
+    color: $color-primary;
     border-color: $color-primary;
-    background-color: rgba(30, 136, 228, 10%);
+    background-color: rgba(44, 95, 138, 10%);
   }
 }
 
@@ -1727,7 +1874,7 @@ code {
 
 code.code-container {
   display: block;
-  color: #333;
+  color: $text-color-primary;
   border-radius: 5px;
   border: #ccc solid 1px;
   background-color: #f8f8f8;
@@ -1822,7 +1969,7 @@ code.code-container {
     padding: 10px 20px;
     background-color: white;
     border-top: 1px solid #f1f1f1;
-    box-shadow: -1px 20px 26px -24px rgba(124, 58, 237, 50%);
+    box-shadow: -1px 20px 26px -24px rgba(26, 58, 92, 50%);
     z-index: 2000 !important;
 
     & > div {
@@ -1913,7 +2060,7 @@ pre {
     }
 
     &:hover {
-      color: #4ba0ea;
+      color: $color-primary-light;
       background: {
         image: -webkit-linear-gradient(
           to top,
@@ -2083,7 +2230,7 @@ pre {
   svg {
     vertical-align: middle;
     font-size: 21px;
-    color: #8B5CF6;
+    color: $color-primary;
     margin-right: 10px;
     font-weight: 500;
   }
@@ -2163,7 +2310,7 @@ pre {
     margin-top: 0;
     margin-bottom: 10px;
     line-height: 34px;
-    color: #666;
+    color: $text-color-regular;
 
     .title {
       width: 110px;
@@ -2281,13 +2428,13 @@ pre {
   }
 
   .name {
-    color: #333;
+    color: $text-color-primary;
     font-weight: bold;
     font-size: 18px;
   }
 
   i {
-    color: #666;
+    color: $text-color-regular;
     font-size: 12px;
     padding: 0 12px;
     display: inline-block;
@@ -2295,7 +2442,7 @@ pre {
   }
 
   .version {
-    color: #333;
+    color: $text-color-primary;
     font-weight: 500;
     font-size: 18px;
   }
@@ -2322,7 +2469,7 @@ pre {
 
   &.el-table__expand-icon--expanded {
     .el-icon.el-icon-arrow-right {
-      color: #7C3AED;
+      color: $color-primary;
     }
   }
 }
@@ -2349,7 +2496,7 @@ pre {
 }
 
 .el-input__inner::placeholder {
-  color: #999;
+  color: $text-color-secondary;
 }
 
 .el-appearance-none {
@@ -2371,7 +2518,7 @@ pre {
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #7C3AED;
+    background: $color-primary-dark;
     width: 6px;
     border-radius: 4px;
   }
@@ -2472,7 +2619,7 @@ pre {
       &:hover,
       &:focus,
       &:active {
-        border-right-color: #8B5CF6;
+        border-right-color: $color-primary;
       }
     }
   }
@@ -2482,29 +2629,29 @@ pre {
       border-color: #f0f0f0;
 
       .el-select__caret {
-        color: #7C3AED !important;
+        color: $color-primary !important;
       }
 
       input {
-        color: #7C3AED !important;
+        color: $color-primary !important;
         text-align: center;
       }
     }
 
     .el-input-group__append {
-      background: #7C3AED;
-      border-color: #7C3AED;
+      background: $color-primary;
+      border-color: $color-primary;
 
       &:focus,
       &:hover {
-        background: #4ba0ea;
-        border-color: #4ba0ea;
+        background: $color-primary-light;
+        border-color: $color-primary-light;
         color: #fff;
       }
 
       &:active {
-        background: #1b7ace;
-        border-color: #1b7ace;
+        background: $color-primary-dark;
+        border-color: $color-primary-dark;
         color: #fff;
       }
     }
@@ -2521,7 +2668,7 @@ pre {
 
 .detail-drawer {
   .el-drawer__header {
-    background: #8B5CF6;
+    background: $color-primary-dark;
     color: #fff;
     font-size: 16px;
     padding: 15px 20px;
@@ -2555,7 +2702,7 @@ pre {
   }
 }
 .el-upload-dragger .el-upload__text{
-  color:#999999;
+  color:#8B9CB0;
   font-size: 14px;
 }
 
@@ -2581,6 +2728,6 @@ pre {
 .el-tooltip__popper.is-light {
   background: #FFF;
   border: 1px solid #ebeef5;
-  color: #666;
+  color: $text-color-regular;
   box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 }

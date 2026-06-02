@@ -315,7 +315,7 @@ export default {
 }
 .left-icon {
   font-size: 20px;
-  color: #8B5CF6;
+  color: #2C5F8A;
   vertical-align: middle;
   margin-right: 5px;
 }
@@ -359,7 +359,7 @@ ul.component-list {
       word-break: break-all;
       i {
         &.iconfengefu {
-          color: #999999;
+          color: #8B9CB0;
           transform: scale(0.8);
           font-size: 12px;
         }

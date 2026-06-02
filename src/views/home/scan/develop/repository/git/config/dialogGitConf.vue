@@ -304,7 +304,7 @@ export default {
 
   .test-btn {
     border: 1px solid #8fc4f2;
-    color: #8B5CF6;
+    color: #2C5F8A;
   }
 }
 </style>

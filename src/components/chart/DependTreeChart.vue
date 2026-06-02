@@ -30,23 +30,23 @@ export default {
       color: [
         {
           label: '严重',
-          color: '#991B1B'
+          color: '#8B1A1A'
         },
         {
           label: '高危',
-          color: '#EF4444'
+          color: '#D9534F'
         },
         {
           label: '中危',
-          color: '#F59E0B'
+          color: '#D4932A'
         },
         {
           label: '低危',
-          color: '#8B5CF6'
+          color: '#2C5F8A'
         },
         {
           label: '无漏洞',
-          color: '#10B981'
+          color: '#4A9C8C'
         }
       ]
     }
@@ -77,7 +77,7 @@ export default {
         default: {
           backgroundColor: '#ffffff',
           borderColor: 'rgba(0, 0, 0, 0.1)',
-          color: '#333333',
+          color: '#1B2838',
           padding: [4, 4, 4, 4],
           borderRadius: 2,
           borderWidth: 1,
@@ -141,7 +141,7 @@ export default {
             label: {
               rich: this.rich,
               backgroundColor: '#ffffff',
-              color: '#333333',
+              color: '#1B2838',
               formatter (va) {
                 return '{default|{b}}'
               }

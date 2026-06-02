@@ -80,7 +80,7 @@ export default {
   name: 'LicenseInfo',
   data () {
     return {
-      nodata: require('@/assets/images/icon-no-data.png'),
+      nodata: require('@/assets/images/empty.png'),
       drawer: false,
       licenseInfo: {},
       defaultPermissionList: [

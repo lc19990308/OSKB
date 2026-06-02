@@ -310,7 +310,7 @@ export default {
   & > span{
     font-size: 16px;
     font-weight: 600;
-    color: #333333;
+    color: #1B2838;
   }
 }
 .list{
@@ -334,12 +334,12 @@ export default {
       padding-bottom: 5px;
     }
     .time{
-      color: #999999;
+      color: #8B9CB0;
       font-size: 12px;
     }
     .title{
       font-size: 15px;
-      color: #333333;
+      color: #1B2838;
       .el-badge {
         .el-badge__content.is-dot{
           top: 7px !important;

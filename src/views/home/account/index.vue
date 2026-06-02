@@ -65,9 +65,9 @@
                 </el-input>
               </div>
               <div>
-                <el-button size="medium" v-if="readonly" plain style="border-color: #8B5CF6;color: #8B5CF6;"  class="m-r-15" @click="readonly = false">修改</el-button>
+                <el-button size="medium" v-if="readonly" plain style="border-color: #2C5F8A;color: #2C5F8A;"  class="m-r-15" @click="readonly = false">修改</el-button>
                 <el-button size="medium" v-else type="primary" class="m-r-15" @click="saveToken()">保存</el-button>
-                <el-button size="medium" style="border-color: #8B5CF6;color: #8B5CF6;margin-left: 0;" plain v-if="readonly" @click="randomlyGeneratedToken">随机生成</el-button>
+                <el-button size="medium" style="border-color: #2C5F8A;color: #2C5F8A;margin-left: 0;" plain v-if="readonly" @click="randomlyGeneratedToken">随机生成</el-button>
                 <el-button size="medium" v-else style="margin-left: 0;" plain @click="cancelTokenCreate">取消</el-button>
               </div>
             </div>
@@ -255,7 +255,7 @@ export default {
 
         .edit-pwd-btn {
           float: right;
-          color: #8B5CF6;
+          color: #2C5F8A;
           transition: all 0.5s;
 
           &:hover {

@@ -58,7 +58,7 @@ export default {
       const d = this.chartData
       const color = [
         '#ffbc34',
-        '#10B981',
+        '#4A9C8C',
         new LinearGradient(1, 0, 0, 0, [{
           offset: 0,
           color: '#19b4e7'
@@ -68,17 +68,17 @@ export default {
         }]),
         new LinearGradient(1, 0, 0, 0, [{
           offset: 0,
-          color: '#8B5CF6'
+          color: '#2C5F8A'
         }, {
           offset: 1,
-          color: '#8B5CF6'
+          color: '#2C5F8A'
         }])
       ]
       const color2 = [
         '#ffbc34',
-        '#10B981',
+        '#4A9C8C',
         '#19b4e7',
-        '#8B5CF6'
+        '#2C5F8A'
       ]
       const infoObj = {
         target_ip: d.ip,
@@ -108,7 +108,7 @@ export default {
           },
           label: {
             fontSize: that.fontSize(0.1),
-            color: '#333333', // 字体颜色
+            color: '#1B2838', // 字体颜色
             position: config.label_position || 'top',
             formatter: function (i) {
               if (i.name && i.name.length > 50) {
@@ -179,7 +179,7 @@ export default {
         symbolSize: this.fontSize(0.15),
         label: {
           fontSize: this.fontSize(0.14),
-          color: '#333333',
+          color: '#1B2838',
           formatter: function (i) {
             if (i.name && i.name.length > 60) {
               const s = i.name.substring(0, 60)
@@ -250,7 +250,7 @@ export default {
             label: {
               position: 'left',
               verticalAlign: 'middle',
-              color: '#333333',
+              color: '#1B2838',
               fontSize: this.fontSize(0.14)
             }
           }

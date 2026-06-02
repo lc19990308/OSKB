@@ -126,16 +126,7 @@ module.exports = {
         }
       },
       '/oss': {
-        // target: 'http://x5sqti.natappfree.cc/oss', // 长沙
-        // target: 'https://v58r246643.oicp.vip/oss', // 军
-        target: 'https://192.168.172.234:8011/oss', // 北京
-        // target: 'https://v58r246643.oicp.vip/oss', // 长沙颜程
-        // target: 'https://172.25.0.29:47011/oss', // 长沙
-        // target: 'http://172.25.0.28:8011/oss', // 成都
-        // target: 'http://192.168.10.49:8080/oss', // 成都
-        // target: 'http://192.168.172.92:8012/oss',
-        // changeOrigin: true, // 允许websockets跨域
-        // ws: true,
+        target: 'http://localhost:8080/oss',
         pathRewrite: {
           '^/oss': ''
         }

@@ -20,8 +20,8 @@ export default {
 
 <style scoped lang="scss">
 :deep(.el-main) {
-  background-color: #eff3f6;
-  color: #333;
+  background: url(~@/assets/images/layout-bg.png) no-repeat center top / cover;
+  color: $text-color-primary;
   flex: 1;
 
   &::-webkit-scrollbar {
@@ -30,7 +30,7 @@ export default {
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #7C3AED;
+    background: $color-primary-dark;
     width: 6px;
     border-radius: 4px;
   }
@@ -43,7 +43,7 @@ export default {
 .el-header {
   padding: 0 0 0 20px;
   background-color: #fff;
-  box-shadow: -1px 1px 26px -13px rgba(124, 58, 237, 50%);
+  box-shadow: -1px 1px 26px -13px rgba(26, 58, 92, 50%);
   line-height: 65px;
   height: 65px;
   box-sizing: border-box;

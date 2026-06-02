@@ -108,8 +108,8 @@ export default {
 </script>
 <style scoped lang="scss">
 :deep(.el-drawer__header) {
-  //background: #8B5CF6;
-  color: #333333;
+  //background: #2C5F8A;
+  color: #1B2838;
   font-size: 16px;
   padding: 15px 20px;
   border-bottom: 1px solid #DCDEE0;

@@ -1,6 +1,7 @@
 <template>
   <div class="common-bg">
     <div class="common-header">
+      <svg class="common-header-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M16.2 7.8l-2.1 2.1M14.1 14.1l2.1 2.1M7.8 7.8l2.1 2.1M9.9 14.1l-2.1 2.1M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
       风险趋势分析
       <div class="time-check">
         <span
@@ -100,7 +101,7 @@ export default {
   .active {
     background: #fff;
     border: 1px solid #8fc4f2;
-    color: #8B5CF6;
+    color: #2C5F8A;
   }
 
   span {
@@ -120,7 +121,7 @@ export default {
     &:hover {
       background: rgba(30, 136, 229, 5%);
       border: 1px solid #8fc4f2;
-      color: #8B5CF6;
+      color: #2C5F8A;
     }
   }
 

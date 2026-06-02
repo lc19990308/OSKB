@@ -82,18 +82,18 @@ export default {
     border-color: #f0f0f0;
 
     .el-select__caret {
-      color: #7C3AED !important;
+      color: #2C5F8A !important;
     }
 
     input {
-      color: #7C3AED !important;
+      color: #2C5F8A !important;
       text-align: center;
     }
   }
 
   .el-input-group__append {
-    background: #7C3AED;
-    border-color: #7C3AED;
+    background: #2C5F8A;
+    border-color: #2C5F8A;
 
     &:focus,
     &:hover {

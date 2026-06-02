@@ -27,7 +27,7 @@
                 {
                   name: '标记自研',
                   value: statistics.selfSingStatusFileNums,
-                  color: '#F59E0B'
+                  color: '#D4932A'
                 }
             ]"
               />
@@ -185,7 +185,7 @@ export default {
           text: '匹配文件数',
           textStyle: {
             fontSize: '12px',
-            color: '#999999',
+            color: '#8B9CB0',
             fontWeight: 'normal'
           }
         }
@@ -194,12 +194,12 @@ export default {
         {
           name: '项目1',
           value: 0,
-          color: '#EF4444'
+          color: '#D9534F'
         },
         {
           name: '项目2',
           value: 0,
-          color: '#F59E0B'
+          color: '#D4932A'
         },
         {
           name: '项目3',
@@ -214,7 +214,7 @@ export default {
         {
           name: '项目5',
           value: 0,
-          color: '#10B981'
+          color: '#4A9C8C'
         }
       ]
     }
@@ -225,13 +225,13 @@ export default {
         {
           width: (this.statistics.selfSingStatusFileNums / this.statistics.fileNums * 100).toFixed(2),
           name: '自研文件数',
-          bg: '#F59E0B',
+          bg: '#D4932A',
           cont: this.statistics.selfSingStatusFileNums
         },
         {
           width: (this.statistics.openSignStatusFileNums / this.statistics.fileNums * 100).toFixed(2),
           name: '标记开源',
-          bg: '#10B981',
+          bg: '#4A9C8C',
           cont: this.statistics.openSignStatusFileNums
         }
       ]
@@ -276,7 +276,7 @@ export default {
    .statistics-card-item-desc {
 
      .number {
-       color: #333333;
+       color: #1B2838;
        font-weight: bold;
        font-size: 20px;
        line-height: normal;
@@ -301,12 +301,12 @@ export default {
  }
 
  .card-bg-1 {
-   background: lighten(#8B5CF6, 45%);
-   color: #8B5CF6;
+   background: lighten(#2C5F8A, 45%);
+   color: #2C5F8A;
 
    &:hover {
-     background: lighten(#8B5CF6, 46%);
-     color: lighten(#8B5CF6, 10%);
+     background: lighten(#2C5F8A, 46%);
+     color: lighten(#2C5F8A, 10%);
    }
  }
 
@@ -321,32 +321,32 @@ export default {
  }
 
  .card-bg-3 {
-   background: lighten(#10B981, 42%);
-   color: #10B981;
+   background: lighten(#4A9C8C, 42%);
+   color: #4A9C8C;
 
    &:hover {
-     background: lighten(#10B981, 43%);
-     color: lighten(#10B981, 10%);;
+     background: lighten(#4A9C8C, 43%);
+     color: lighten(#4A9C8C, 10%);;
    }
  }
 
  .card-bg-4 {
-   background: lighten(#EF4444, 32%);
-   color: #EF4444;
+   background: lighten(#D9534F, 32%);
+   color: #D9534F;
 
    &:hover {
-     background: lighten(#EF4444, 33%);
-     color: lighten(#EF4444, 10%);
+     background: lighten(#D9534F, 33%);
+     color: lighten(#D9534F, 10%);
    }
  }
 
  .card-bg-5 {
-   background: lighten(#F59E0B, 35%);
-   color: #F59E0B;
+   background: lighten(#D4932A, 35%);
+   color: #D4932A;
 
    &:hover {
-     background: lighten(#F59E0B, 36%);
-     color: lighten(#F59E0B, 10%);
+     background: lighten(#D4932A, 36%);
+     color: lighten(#D4932A, 10%);
    }
  }
 
@@ -391,7 +391,7 @@ export default {
    .self-research-bottom {
      padding-top: 20px;
      padding-left: 60px;
-     color: #666666;
+     color: #4A5568;
      font-size: 14px;
 
      @media (max-width: 1700px){
@@ -403,7 +403,7 @@ export default {
      }
 
      .number {
-       color: #333333;
+       color: #1B2838;
        padding-left: 20px;
        font-weight: bold;
        font-size: 14px;

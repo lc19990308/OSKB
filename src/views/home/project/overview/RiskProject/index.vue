@@ -1,6 +1,7 @@
 <template>
   <div class="common-bg">
     <div class="common-header">
+      <svg class="common-header-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M7.8 7.8l2.1 2.1M14.1 14.1l2.1 2.1M7.8 16.2l2.1-2.1M14.1 9.9l2.1-2.1"/></svg>
       风险项目TOP10
     </div>
     <stacked-bar-chart
@@ -33,8 +34,8 @@ export default {
     return {
       options: {
         color: [
-          '#8B5CF6',
-          '#6366F1',
+          '#2C5F8A',
+          '#5B8BA0',
           '#ff7059'
         ]
       },

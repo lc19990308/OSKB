@@ -49,7 +49,7 @@ export default {
     transition: all 0.1s;
   }
   &:hover i{
-    color: #A78BFA;
+    color: #8BAAC4;
     transform: scale(1.1);
   }
 }

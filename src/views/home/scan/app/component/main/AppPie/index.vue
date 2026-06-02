@@ -34,19 +34,19 @@ export default {
           {
             value: 0,
             name: '严重',
-            color: '#991B1B',
+            color: '#8B1A1A',
             key: 'seriousCount'
           },
           {
             value: 0,
             name: '高危',
-            color: '#EF4444',
+            color: '#D9534F',
             key: 'highCount'
           },
           {
             value: 0,
             name: '中危',
-            color: '#F59E0B',
+            color: '#D4932A',
             key: 'mediumCount'
           },
           {
@@ -58,7 +58,7 @@ export default {
           {
             value: 0,
             name: '无漏洞',
-            color: '#10B981',
+            color: '#4A9C8C',
             key: 'normalCount'
           }
         ],

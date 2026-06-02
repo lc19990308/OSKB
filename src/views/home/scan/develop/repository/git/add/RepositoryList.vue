@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="clearfix m-b-15">
-      <span v-if="configType !== 1" class="m-r-5" style="color: #EF4444">*</span>
+      <span v-if="configType !== 1" class="m-r-5" style="color: #D9534F">*</span>
       <el-input
         class="search-input"
         clearable

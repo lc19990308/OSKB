@@ -16,7 +16,7 @@ export default {
 
 <style scoped lang='scss'>
 .file_dir_item:last-child {
-  color: #333333;
+  color: #1B2838;
 }
 .file_dir_item {
   display: inline-block;
@@ -28,7 +28,7 @@ export default {
   vertical-align: top;
   color: $text-color-regular;
   &:hover {
-    color: #8B5CF6;
+    color: #2C5F8A;
   }
 
   .item {

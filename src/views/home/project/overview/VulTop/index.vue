@@ -1,6 +1,7 @@
 <template>
   <div class="common-bg">
     <div class="common-header">
+      <svg class="common-header-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8"/><path d="M10 21V3l4-1v19"/><path d="M10 8h4"/><path d="M10 12h4"/><circle cx="12" cy="4" r="2" fill="currentColor" stroke="none"/></svg>
       漏洞TOP10
     </div>
 
@@ -72,7 +73,7 @@ export default {
           height: 16,
           lineHeight: 16,
           borderRadius: 3,
-          backgroundColor: '#991B1B'
+          backgroundColor: '#8B1A1A'
         },
         2: {
           name: '高危',
@@ -80,7 +81,7 @@ export default {
           height: 16,
           lineHeight: 16,
           borderRadius: 3,
-          backgroundColor: '#EF4444'
+          backgroundColor: '#D9534F'
         },
         3: {
           name: '中危',
@@ -88,7 +89,7 @@ export default {
           height: 16,
           lineHeight: 16,
           borderRadius: 3,
-          backgroundColor: '#F59E0B'
+          backgroundColor: '#D4932A'
         },
         4: {
           name: '低危',

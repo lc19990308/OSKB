@@ -258,8 +258,10 @@ export default {
 // 解决ie11下 表格宽度异常 end
 
 .search-wrap {
-  background-image: url("~@/assets/images/search_bg.png");
+  background-image: url("~@/assets/images/knowledge-bg.png");
   background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 17px 0 25px;
   box-shadow: 0 0 14px -8px rgba(124, 58, 237, 50%);
   margin-bottom: 10px;

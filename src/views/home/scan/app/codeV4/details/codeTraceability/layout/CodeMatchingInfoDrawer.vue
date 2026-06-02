@@ -236,7 +236,7 @@ export default {
 </style>
 <style scoped lang="scss">
 :deep(.el-drawer__header) {
-  color: #333333;
+  color: #1B2838;
   font-size: 16px;
   padding: 15px 20px;
   border-bottom: 1px solid #DCDEE0;
@@ -266,7 +266,7 @@ export default {
 }
 
 .icon-button-circular-blue {
-  background: #8B5CF6;
+  background: #2C5F8A;
 
   &:hover {
     background: #4ba0ea;;
@@ -274,7 +274,7 @@ export default {
 }
 
 .icon-button-circular-ash {
-  background: #999999;
+  background: #8B9CB0;
 
   &:hover {
     background: #dcdee0;;
@@ -285,9 +285,9 @@ export default {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 1px solid #8B5CF6;
+  border: 1px solid #2C5F8A;
   box-shadow: 0px 0px 2px 0px #14304919;
-  color: #8B5CF6;
+  color: #2C5F8A;
   line-height: 14px;
   float: right;
   display: flex;
@@ -311,7 +311,7 @@ export default {
 .oss-drawer-main {
   padding: 20px;
   box-sizing: border-box;
-  color: #333333;
+  color: #1B2838;
   max-height: calc(100vh - 60px);
   overflow-y: auto;
 

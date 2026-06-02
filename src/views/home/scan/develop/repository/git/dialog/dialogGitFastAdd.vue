@@ -560,7 +560,7 @@ export default {
 
   .create-btn {
     border: 1px solid #8fc4f2;
-    color: #8B5CF6;
+    color: #2C5F8A;
   }
 }
 
@@ -580,7 +580,7 @@ export default {
     transition: all 0.6s;
 
     &:hover {
-      color: #7C3AED;
+      color: #2C5F8A;
     }
 
     &:active {

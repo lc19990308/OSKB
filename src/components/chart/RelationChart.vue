@@ -29,11 +29,11 @@ export default {
     return {
       windowWidth: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
       color: [
-        '#991B1B',
-        '#EF4444',
-        '#F59E0B',
-        '#8B5CF6',
-        '#10B981'
+        '#8B1A1A',
+        '#D9534F',
+        '#D4932A',
+        '#2C5F8A',
+        '#4A9C8C'
       ]
     }
   },

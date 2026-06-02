@@ -546,7 +546,7 @@ export default {
         justify-content: center;
         align-items: center;
         background: #FFFFFF;
-        border: 1px solid #999999;
+        border: 1px solid #8B9CB0;
         border-radius: 50%;
         .iconfont {
           font-size: 12px;

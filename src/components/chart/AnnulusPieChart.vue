@@ -107,7 +107,7 @@ export default {
       })
       return {
         color: [
-          '#EF4444',
+          '#D9534F',
           '#FF9900',
           '#3699FF',
           '#48CDC5',
@@ -202,18 +202,18 @@ export default {
               label: {
                 show: true,
                 position: 'center',
-                color: '#333333',
+                color: '#1B2838',
                 formatter: (x) => {
                   return `{data|${x.value}}\n{title|${x.name}}`
                 },
                 rich: {
                   data: {
                     fontSize: this.fontSize(0.30),
-                    color: '#333333',
+                    color: '#1B2838',
                     lineHeight: this.fontSize(0.4) * 1.5
                   },
                   title: {
-                    color: '#333333',
+                    color: '#1B2838',
                     fontSize: this.fontSize(0.14),
                     lineHeight: this.fontSize(-0.2) * 1.5
                   }
@@ -242,7 +242,7 @@ export default {
             label: {
               position: 'outside',
               fontSize: this.fontSize(0.14),
-              color: '#333333',
+              color: '#1B2838',
               lineHeight: 6,
               formatter: function (x) {
                 return x.name + '：' + x.value + '个'
@@ -273,7 +273,7 @@ export default {
           itemGap: this.fontSize(0.10),
           textStyle: {
             fontSize: this.fontSize(0.12),
-            color: '#333333'
+            color: '#1B2838'
           },
           data: legendData,
           ...this.legendConf
@@ -299,18 +299,18 @@ export default {
                     label: {
                       show: true,
                       position: 'center',
-                      color: '#333333',
+                      color: '#1B2838',
                       formatter: (x) => {
                         return `{data|${x.value}}\n{title|${x.name}}`
                       },
                       rich: {
                         data: {
                           fontSize: this.fontSize(0.24),
-                          color: '#333333',
+                          color: '#1B2838',
                           lineHeight: this.fontSize(0.3) * 1.5
                         },
                         title: {
-                          color: '#333333',
+                          color: '#1B2838',
                           fontSize: this.fontSize(0.12),
                           lineHeight: this.fontSize(-0.2) * 1.5
                         }
@@ -339,7 +339,7 @@ export default {
                   label: {
                     position: 'outside',
                     fontSize: this.fontSize(0.14),
-                    color: '#333333',
+                    color: '#1B2838',
                     lineHeight: 6,
                     formatter: function (x) {
                       return x.name + '：' + x.value + '个'
@@ -370,7 +370,7 @@ export default {
                 itemGap: this.fontSize(0.10),
                 textStyle: {
                   fontSize: this.fontSize(0.12),
-                  color: '#333333'
+                  color: '#1B2838'
                 },
                 data: legendData,
                 ...this.legendConf
@@ -397,18 +397,18 @@ export default {
                     label: {
                       show: true,
                       position: 'center',
-                      color: '#333333',
+                      color: '#1B2838',
                       formatter: (x) => {
                         return `{data|${x.value}}\n{title|${x.name}}`
                       },
                       rich: {
                         data: {
                           fontSize: this.fontSize(0.40),
-                          color: '#333333',
+                          color: '#1B2838',
                           lineHeight: this.fontSize(0.45) * 1.5
                         },
                         title: {
-                          color: '#333333',
+                          color: '#1B2838',
                           fontSize: this.fontSize(0.14),
                           lineHeight: this.fontSize(-0.2) * 1.5
                         }
@@ -437,7 +437,7 @@ export default {
                   label: {
                     position: 'outside',
                     fontSize: this.fontSize(0.14),
-                    color: '#333333',
+                    color: '#1B2838',
                     lineHeight: 6,
                     formatter: function (x) {
                       return x.name + '：' + x.value + '个'
@@ -468,7 +468,7 @@ export default {
                 itemGap: this.fontSize(0.10),
                 textStyle: {
                   fontSize: this.fontSize(0.12),
-                  color: '#333333'
+                  color: '#1B2838'
                 },
                 data: legendData,
                 ...this.legendConf

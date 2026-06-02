@@ -399,7 +399,7 @@ export default {
       transition: all 0.6s;
 
       &:hover {
-        color: #7C3AED;
+        color: #2C5F8A;
       }
 
       &:active {

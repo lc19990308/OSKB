@@ -37,7 +37,7 @@ export default {
 <style scoped lang='scss'>
 .file_path_views{
   &:hover{
-    border-color: #8B5CF6;
+    border-color: #2C5F8A;
   }
 }
 .back-btn{
@@ -48,7 +48,7 @@ export default {
   border: none !important;
   border-radius: 3px;
   &:hover,&:active,&:focus{
-    color: #8B5CF6 !important;
+    color: #2C5F8A !important;
     background: #e9f3fc !important;
   }
 }

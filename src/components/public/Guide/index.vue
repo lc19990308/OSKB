@@ -49,7 +49,7 @@ export default {
   margin: 150px auto 0;
   .title{
     font-size: 16px;
-    color: #333333;
+    color: #1B2838;
     margin-bottom: 50px;
   }
   .content{

@@ -203,12 +203,12 @@ export default {
         padding-left: 10px;
       }
       &:hover,&:active{
-        color: #8B5CF6;
+        color: #2C5F8A;
         background-color: #eff3f6;
       }
     }
     .active-li{
-      color: #8B5CF6;
+      color: #2C5F8A;
       background-color: #eff3f6;
     }
   }
@@ -225,7 +225,7 @@ export default {
     }
 
     &:hover,&:active{
-      color: #8B5CF6;
+      color: #2C5F8A;
       background-color: #eff3f6;
     }
   }
@@ -234,7 +234,7 @@ export default {
   }
 
   .el-checkbox.is-checked{
-    color: #8B5CF6;
+    color: #2C5F8A;
     background-color: #eff3f6;
   }
 }

@@ -380,13 +380,13 @@ export default {
           {
             value: 0,
             name: '高风险',
-            color: '#991B1B',
+            color: '#8B1A1A',
             key: 'highNum'
           },
           {
             value: 0,
             name: '中风险',
-            color: '#F59E0B',
+            color: '#D4932A',
             key: 'mediumNum'
           },
           {

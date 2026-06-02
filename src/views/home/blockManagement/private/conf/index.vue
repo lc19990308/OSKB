@@ -69,7 +69,7 @@
             placement="bottom-end"
             title="删除仓库配置后将不再进行转发和阻断。"
             icon="el-icon-info"
-            icon-color="#F59E0B"
+            icon-color="#D4932A"
             @confirm="del(row)"
           >
             <icon-button slot="reference" tooltip-content="删除" class="icondel" ></icon-button>

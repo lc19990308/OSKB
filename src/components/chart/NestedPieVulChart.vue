@@ -95,7 +95,7 @@ export default {
             label: {
               position: 'outside',
               fontSize: 14,
-              color: '#333333',
+              color: '#1B2838',
               lineHeight: 6,
               formatter: function (x) {
                 return x.name + '：' + x.value + '个'
@@ -107,7 +107,7 @@ export default {
               show: true,
               lineStyle: {
                 type: 'solid',
-                color: '#333333'
+                color: '#1B2838'
               },
               length: 8,
               length2: 8

@@ -75,19 +75,19 @@ export default {
       }
 
       .el-col:nth-child(2) > div {
-        background-color: #EF4444;
+        background-color: #D9534F;
       }
 
       .el-col:nth-child(3) > div {
-        background-color: #F59E0B;
+        background-color: #D4932A;
       }
 
       .el-col:nth-child(4) > div {
-        background-color: #8B5CF6;
+        background-color: #2C5F8A;
       }
 
       .el-col:nth-child(5) > div {
-        background-color: #6366F1;
+        background-color: #5B8BA0;
       }
     }
   }

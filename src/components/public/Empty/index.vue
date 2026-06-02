@@ -14,7 +14,7 @@ export default {
   name: 'Empty',
   data () {
     return {
-      emptyImg: require('@/assets/images/icon-no-data.png'),
+      emptyImg: require('@/assets/images/empty.png'),
     }
   }
 }

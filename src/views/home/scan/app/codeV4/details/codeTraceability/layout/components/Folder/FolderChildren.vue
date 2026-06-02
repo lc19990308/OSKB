@@ -195,7 +195,7 @@ li {
       font-weight: bold;
       margin-right: 8px;
       display: inline-block;
-      color: #999999;
+      color: #8B9CB0;
       //transition: all 0.1s;
     }
 
@@ -219,12 +219,12 @@ li {
       }
 
       .folder-icon {
-        color: #999999;
+        color: #8B9CB0;
         margin-right: 8px;
       }
 
       .icona-wenjian1 {
-        color: #999999;
+        color: #8B9CB0;
         margin-right: 8px;
       }
 

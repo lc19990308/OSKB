@@ -8,6 +8,7 @@
       <el-scrollbar>
         <el-aside width="auto">
           <el-menu
+              class="app-sidebar-menu"
               @open="handleOpen"
               @close="handleClose"
               :default-active="routePath"
@@ -24,7 +25,7 @@
                   <template v-if="hasShowMenu(ite)">
                     <el-submenu v-if="ite.hasOwnProperty('submenu')" :key="index + '-' + idx" :index="index + '-' + idx">
                       <template slot="title">
-                        <i :class="['iconfont','m-r','el-icon-',ite.icon]" class="m-r-5"></i>
+                        <i :class="['menu-icon', 'iconfont', 'el-icon-', ite.icon]"></i>
                         <span slot="title">{{ ite.text }}</span>
                       </template>
                       <template v-for="(it,id) in ite.submenu">
@@ -44,7 +45,7 @@
                         :index="ite.href"
                         :route="ite.href"
                         :class="routePath.indexOf(ite.href) === 0 ? 'is-active' : ''">
-                      <i :class="['iconfont','m-r','el-icon-',ite.icon]" class="m-r-5"></i>
+                      <i :class="['menu-icon', 'iconfont', 'el-icon-', ite.icon]"></i>
                       <span slot="title">{{ ite.text }}</span>
                     </el-menu-item>
                   </template>
@@ -193,88 +194,258 @@ export default {
 :deep(.horizontal-collapse-transition) {
   transition: 0.2s width ease;
 }
-.aside{
-  background-image: -webkit-linear-gradient(left, #3B0764 10%, #7C3AED 100%);
-  background-image: -o-linear-gradient(left, #3B0764 10%, #7C3AED 100%);
-  background-image: linear-gradient(to right, #3B0764 10%, #7C3AED 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3B0764', endColorstr='#7C3AED', GradientType=0);
-  filter: none;
-  //box-shadow: 9px 1px 26px -13px #6a8fb0;
+.sidebar-wrap {
+  position: relative;
+
+  &.hideSidebar {
+    .aside {
+      width: 56px;
+    }
+
+    .aside-logo {
+      height: 56px;
+      padding: 0;
+      justify-content: center;
+
+      img {
+        max-width: 28px;
+        max-height: 28px;
+      }
+    }
+
+    .el-scrollbar {
+      height: calc(100% - 56px);
+    }
+
+    :deep(.app-sidebar-menu) {
+      width: 56px !important;
+      padding: 0 !important;
+    }
+
+    :deep(.app-sidebar-menu.el-menu--collapse > .el-menu-item),
+    :deep(.app-sidebar-menu.el-menu--collapse > .el-submenu > .el-submenu__title) {
+      width: 48px !important;
+      min-width: 48px !important;
+      height: 40px !important;
+      margin: 3px auto !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+
+    :deep(.app-sidebar-menu.el-menu--collapse > .el-menu-item .menu-icon),
+    :deep(.app-sidebar-menu.el-menu--collapse > .el-submenu > .el-submenu__title .menu-icon) {
+      width: 18px !important;
+      min-width: 18px !important;
+      margin: 0 !important;
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    :deep(.app-sidebar-menu.el-menu--collapse .el-tooltip) {
+      padding: 0 !important;
+      text-align: center !important;
+    }
+
+    :deep(.app-sidebar-menu.el-menu--collapse > .el-menu-item span),
+    :deep(.app-sidebar-menu.el-menu--collapse > .el-submenu > .el-submenu__title span),
+    :deep(.app-sidebar-menu.el-menu--collapse > .el-submenu > .el-submenu__title .el-submenu__icon-arrow) {
+      display: none !important;
+    }
+  }
+}
+
+.aside {
   position: relative;
   z-index: 999;
-  .aside-logo{
-    width: auto;
-    height: 65px;
+  height: 100%;
+  background:
+    radial-gradient(circle at top, rgba(76, 137, 186, 0.24) 0, transparent 34%),
+    linear-gradient(180deg, #0d1c2d 0%, #13273d 35%, #1a3a5c 100%);
+  box-shadow: 12px 0 32px rgba(5, 20, 36, 0.24);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0%, transparent 28%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 20%);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 74px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(143, 214, 255, 0.28) 50%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .aside-logo {
+    height: 74px;
     position: relative;
     cursor: pointer;
-    img{
-      max-width: 80%;
-      max-height: 80%;
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      margin: auto 0 auto 6%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 16px 0 18px;
+    box-sizing: border-box;
+
+    img {
+      max-width: 82%;
+      max-height: 56px;
       display: block;
-      &.small{
-        margin: auto
+      filter: drop-shadow(0 10px 18px rgba(5, 20, 36, 0.35));
+
+      &.small {
+        margin: 0 auto;
       }
     }
   }
-  .el-scrollbar{
-    height: calc(100% - 65px);
+
+  .el-scrollbar {
+    height: calc(100% - 74px);
     box-sizing: border-box;
-    .el-scrollbar__wrap{
+
+    .el-scrollbar__wrap {
       margin-top: 0;
       height: 100%;
-      .el-scrollbar__view{
+      .el-scrollbar__view {
         .el-aside {
           font-size: 12px;
+
           .el-menu {
-            color: #C4B5FD;
-            .menus-header{
-              padding: 0 20px;
-              height: 45px;
-              line-height: 45px;
+            color: #c9ddec;
+            padding: 0;
+
+            .menus-header {
+              padding: 0 18px;
+              height: 42px;
+              line-height: 42px;
+              color: #8fb7d5;
+              letter-spacing: 0.08em;
             }
+
             &:not(.el-menu--collapse) {
-              width: 200px;
+              width: 210px;
               min-height: 400px;
-              @media (max-width: 1440px){
-                width: 180px;
+
+              @media (max-width: 1440px) {
+                width: 188px;
               }
             }
 
+            :deep(.el-menu-item),
+            :deep(.el-submenu__title) {
+              position: relative;
+              margin: 4px 8px;
+              padding-left: 16px !important;
+              padding-right: 16px !important;
+              border-radius: 12px;
+              height: 44px;
+              line-height: 44px;
+              border: 1px solid transparent;
+              transition: all 0.22s ease;
+            }
+
+            :deep(.el-menu-item) {
+              color: #d8e7f3;
+
+              &:hover {
+                background: linear-gradient(90deg, rgba(62, 124, 177, 0.16) 0%, rgba(62, 124, 177, 0.06) 100%);
+                border-color: rgba(143, 214, 255, 0.12);
+                color: #ffffff;
+              }
+
+              &.is-active {
+                background: linear-gradient(90deg, rgba(44, 95, 138, 0.95) 0%, rgba(62, 124, 177, 0.82) 100%);
+                border-color: rgba(143, 214, 255, 0.24);
+                box-shadow: 0 10px 26px rgba(5, 20, 36, 0.28);
+                color: #fff;
+              }
+            }
+
+            :deep(.el-submenu__title) {
+              color: #d8e7f3;
+
+              &:hover {
+                background: linear-gradient(90deg, rgba(62, 124, 177, 0.14) 0%, rgba(62, 124, 177, 0.05) 100%);
+                border-color: rgba(143, 214, 255, 0.12);
+                color: #ffffff;
+              }
+            }
+
+            :deep(.el-submenu.is-opened > .el-submenu__title) {
+              background: rgba(255, 255, 255, 0.04);
+              color: #fff;
+            }
+
+            :deep(.el-submenu .el-menu) {
+              background: transparent;
+            }
+
+            :deep(.el-menu-item i),
+            :deep(.el-submenu__title i) {
+              color: #8fb7d5;
+            }
+
+            :deep(.menu-icon) {
+              width: 18px;
+              min-width: 18px;
+              margin-right: 10px;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              flex-shrink: 0;
+            }
+
+            :deep(.el-menu-item.is-active i),
+            :deep(.el-menu-item:hover i),
+            :deep(.el-submenu__title:hover i) {
+              color: #e8f7ff;
+            }
           }
         }
       }
     }
   }
 }
+
 .menus-header {
-  // border-top: 1px solid rgba(255, 255, 255, 0.2);
-  margin-top: 13px;
-  padding-top: 13px !important;
+  margin-top: 14px;
+  padding-top: 14px !important;
   position: relative;
+
   &::before {
     content: "";
     display: block;
     width: 86%;
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(90deg, transparent 0%, rgba(143, 214, 255, 0.22) 50%, transparent 100%);
     position: absolute;
     top: 0;
     left: 7%;
   }
 
   &:first-child {
-    margin-top: 5px !important;
+    margin-top: 6px !important;
+
     &::before {
       background-color: rgba(255, 255, 255, 0);
-
     }
   }
+}
+
+.drawer-bg {
+  backdrop-filter: blur(2px);
 }
 </style>

@@ -28,11 +28,11 @@ export default {
     return {
       windowWidth: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
       color: [
-        '#991B1B',
-        '#EF4444',
-        '#F59E0B',
+        '#8B1A1A',
+        '#D9534F',
+        '#D4932A',
         '#1a78cf',
-        '#10B981'
+        '#4A9C8C'
       ]
     }
   },
@@ -75,11 +75,11 @@ export default {
         return item
       })
       const color = [
-        '#991B1B',
-        '#EF4444',
-        '#F59E0B',
+        '#8B1A1A',
+        '#D9534F',
+        '#D4932A',
         '#1a78cf',
-        '#10B981'
+        '#4A9C8C'
       ]
       return {
         color: color,

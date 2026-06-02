@@ -217,17 +217,17 @@ export default {
         {
           name: '影响组件',
           value: 30,
-          color: '#8B5CF6'
+          color: '#2C5F8A'
         },
         {
           name: '影响应用',
           value: 20,
-          color: '#8B5CF6'
+          color: '#2C5F8A'
         },
         {
           name: '影响项目',
           value: 10,
-          color: '#8B5CF6'
+          color: '#2C5F8A'
         }
       ],
       licenseLevelChart: {
@@ -240,7 +240,7 @@ export default {
           {
             value: 2,
             name: '直接依赖',
-            color: '#8B5CF6'
+            color: '#2C5F8A'
           }
         ],
         sum: 4
@@ -328,7 +328,7 @@ export default {
               {
                 value: this.get(this.appInfo, 'dataVulDependencyNumPie.indirectDependencyCount', 0),
                 name: '直接依赖',
-                color: '#8B5CF6'
+                color: '#2C5F8A'
               }
             ],
             sum: this.get(this.appInfo, 'dataVulDependencyNumPie.totalCount', 0)
@@ -337,17 +337,17 @@ export default {
             {
               name: '影响组件',
               value: this.get(this.appInfo, 'dataVulAffectedNumColumnChart.componentNum', 0),
-              color: '#8B5CF6'
+              color: '#2C5F8A'
             },
             {
               name: '影响应用',
               value: this.get(this.appInfo, 'dataVulAffectedNumColumnChart.appNum', 0),
-              color: '#8B5CF6'
+              color: '#2C5F8A'
             },
             {
               name: '影响项目',
               value: this.get(this.appInfo, 'dataVulAffectedNumColumnChart.projectNum', 0),
-              color: '#8B5CF6'
+              color: '#2C5F8A'
             }
           ]
           this.tabs = [

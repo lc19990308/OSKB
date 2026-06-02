@@ -437,19 +437,19 @@ export default {
           {
             value: 0,
             name: 'PDF',
-            color: '#991B1B',
+            color: '#8B1A1A',
             key: 'pdfCount'
           },
           {
             value: 0,
             name: 'Word',
-            color: '#EF4444',
+            color: '#D9534F',
             key: 'wordCount'
           },
           {
             value: 0,
             name: 'HTML',
-            color: '#F59E0B',
+            color: '#D4932A',
             key: 'htmlCount'
           },
           {
@@ -461,7 +461,7 @@ export default {
           {
             value: 0,
             name: 'JSON',
-            color: '#10B981',
+            color: '#4A9C8C',
             key: 'jsonCount'
           }
         ],
@@ -746,7 +746,7 @@ export default {
     font-weight: 500;
     height: 158px;
     border-radius: 50%;
-    border: 15px solid #7C3AED;
+    border: 15px solid #2C5F8A;
     margin: 0 auto;
   }
 

@@ -173,7 +173,7 @@ export default {
 }
 
 .ssh-tips {
-  color: #EF4444;
+  color: #D9534F;
   margin-bottom: 10px;
 }
 </style>

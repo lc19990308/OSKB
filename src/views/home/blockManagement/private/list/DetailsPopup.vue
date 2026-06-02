@@ -195,7 +195,7 @@ export default {
   margin-bottom: 0;
   line-height: normal;
   [role="heading"] {
-    color: #333333;
+    color: #1B2838;
   }
 }
 :deep(.el-drawer__body) {

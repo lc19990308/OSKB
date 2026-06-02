@@ -166,9 +166,9 @@ export default {
       const xAxisData = xAxisName
       const yAxisSetting = this.yAxisSetting
       const yAxisnames = [yAxisSetting[0].name, yAxisSetting[1].name]
-      var colors = ['#8B5CF6', '#6366F1']
+      var colors = ['#2C5F8A', '#5B8BA0']
       return {
-        colors: ['#8B5CF6', '#6366F1'],
+        colors: ['#2C5F8A', '#5B8BA0'],
         tooltip: {
           trigger: 'axis',
           axisPointer: {
@@ -250,14 +250,14 @@ export default {
             name: yAxisnames[0],
             type: 'bar',
             data: yValue1,
-            color: '#8B5CF6'
+            color: '#2C5F8A'
           },
           {
             name: yAxisnames[1],
             type: 'bar',
             yAxisIndex: 1,
             data: yValue2,
-            color: '#6366F1'
+            color: '#5B8BA0'
           }
         ]
       }

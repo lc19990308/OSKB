@@ -109,23 +109,23 @@ import DialogNotificationConfig from '@/views/home/project/conf/detail/dialogNot
 
 const colors = {
   1: {
-    color: '#991B1B',
+    color: '#8B1A1A',
     text: '严重'
   },
   2: {
-    color: '#EF4444',
+    color: '#D9534F',
     text: '高危'
   },
   3: {
-    color: '#F59E0B',
+    color: '#D4932A',
     text: '中危'
   },
   4: {
-    color: '#8B5CF6',
+    color: '#2C5F8A',
     text: '低危'
   },
   5: {
-    color: '#10B981',
+    color: '#4A9C8C',
     text: '无漏洞'
   }
 }

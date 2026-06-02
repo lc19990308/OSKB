@@ -56,7 +56,7 @@ export default {
     option () {
       const data = this.chartData
       return {
-        color: ['#8B5CF6'],
+        color: ['#2C5F8A'],
         tooltip: {
           show: true,
           trigger: 'axis',
@@ -77,7 +77,7 @@ export default {
           {
             nameLocation: 'end',
             nameTextStyle: {
-              color: '#333',
+              color: '#1B2838',
               align: 'left',
               padding: [20, 0, 0, -10]
             },
@@ -90,7 +90,7 @@ export default {
               }
             },
             axisLabel: {
-              color: '#333333',
+              color: '#1B2838',
               margin: 15,
               fontSize: this.fontSize(0.12),
               // rotate: '45',
@@ -125,7 +125,7 @@ export default {
               }
             },
             axisLabel: {
-              color: '#333333',
+              color: '#1B2838',
               formatter: '{value}',
               fontSize: this.fontSize(0.12)
             }
@@ -138,7 +138,7 @@ export default {
             symbolSize: 10,
             symbol: 'circle',
             lineStyle: {
-              color: '#8B5CF6'
+              color: '#2C5F8A'
             },
             // areaStyle: {
             //   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [

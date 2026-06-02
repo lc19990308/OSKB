@@ -57,10 +57,10 @@ export default {
     return {
       windowWidth: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
       color: [
-        '#EF4444',
-        '#F59E0B',
-        '#8B5CF6',
-        '#6366F1'
+        '#D9534F',
+        '#D4932A',
+        '#2C5F8A',
+        '#5B8BA0'
       ]
     }
   },
@@ -98,7 +98,7 @@ export default {
           },
           label: {
             position: 'top',
-            color: '#333333'
+            color: '#1B2838'
           },
           areaStyle: {
             opacity: areaShow ? 0.3 : 0,
@@ -156,7 +156,7 @@ export default {
           data: label.map((item) => {
             return {
               name: item,
-              color: '#666666'
+              color: '#4A5568'
             }
           })
         },
@@ -181,7 +181,7 @@ export default {
         xAxis: [{
           nameLocation: 'end',
           nameTextStyle: {
-            color: '#333',
+            color: '#1B2838',
             align: 'left',
             padding: [20, 0, 0, -10]
           },
@@ -194,7 +194,7 @@ export default {
             }
           },
           axisLabel: {
-            color: '#333333',
+            color: '#1B2838',
             margin: 15,
             showMaxLabel: true,
             fontSize: this.fontSize(0.12),
@@ -237,7 +237,7 @@ export default {
             }
           },
           axisLabel: {
-            color: '#333333',
+            color: '#1B2838',
             formatter: '{value}',
             fontSize: this.fontSize(0.12)
           }

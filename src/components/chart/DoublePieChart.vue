@@ -192,7 +192,7 @@ export default {
             label: {
               position: 'inner',
               fontSize: this.fontSize(0.14),
-              color: '#333333',
+              color: '#1B2838',
               lineHeight: this.fontSize(),
               formatter: function (x) {
                 return ''
@@ -202,7 +202,7 @@ export default {
               show: true,
               lineStyle: {
                 type: 'solid',
-                color: '#333333'
+                color: '#1B2838'
               }
             },
             data: data1
@@ -214,7 +214,7 @@ export default {
             label: {
               position: 'outside',
               fontSize: this.fontSize(0.14),
-              color: '#333333',
+              color: '#1B2838',
               lineHeight: this.fontSize(0.1),
               formatter: function (x) {
                 return x.name
@@ -226,7 +226,7 @@ export default {
               show: true,
               lineStyle: {
                 type: 'solid',
-                color: '#333333'
+                color: '#1B2838'
               }
             },
             data: data2

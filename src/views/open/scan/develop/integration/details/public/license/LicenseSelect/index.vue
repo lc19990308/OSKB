@@ -149,7 +149,7 @@ export default {
   margin-bottom: 20px;
 }
 .list-title{
-  color: #333333;
+  color: #1B2838;
   font-weight: bold;
   font-size: 16px;
   margin-bottom: 10px;
@@ -199,7 +199,7 @@ ul.component-list{
     }
     &:hover, &.active {
       background-color: transparent;
-      color: #7C3AED;
+      color: #2C5F8A;
     }
     &.active:before {
       width: 5px;

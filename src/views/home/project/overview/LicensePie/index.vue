@@ -1,6 +1,7 @@
 <template>
   <div class="common-bg">
     <div class="common-header">
+      <svg class="common-header-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18"/><path d="M6 4h14l-4 6 4 6H6"/></svg>
       许可证统计
     </div>
     <annulus-pie-chart
@@ -29,13 +30,13 @@ export default {
         {
           value: 0,
           name: '高风险',
-          color: '#EF4444',
+          color: '#D9534F',
           key: 'highNum'
         },
         {
           value: 0,
           name: '中风险',
-          color: '#F59E0B',
+          color: '#D4932A',
           key: 'mediumNum'
         },
         {

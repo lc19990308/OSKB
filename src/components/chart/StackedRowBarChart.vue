@@ -53,21 +53,21 @@ export default {
   data () {
     return {
       color: [
-        '#991B1B',
-        '#EF4444',
-        '#F59E0B',
-        '#8B5CF6',
-        '#8B5CF6',
-        '#8B5CF6',
-        '#8B5CF6',
-        '#8B5CF6',
-        '#8B5CF6',
-        '#8B5CF6',
-        '#8B5CF6'
+        '#8B1A1A',
+        '#D9534F',
+        '#D4932A',
+        '#2C5F8A',
+        '#2C5F8A',
+        '#2C5F8A',
+        '#2C5F8A',
+        '#2C5F8A',
+        '#2C5F8A',
+        '#2C5F8A',
+        '#2C5F8A'
       ],
       color2: [
-        '#8B5CF6',
-        '#6366F1'
+        '#2C5F8A',
+        '#5B8BA0'
       ],
       windowWidth: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
     }
@@ -86,7 +86,7 @@ export default {
           align: 'center'
         }
         rich['title' + y] = {
-          color: '#666666',
+          color: '#4A5568',
           width: this.fontSize(0.8),
           align: 'right'
         }
@@ -98,7 +98,7 @@ export default {
           stack: true,
           label: {
             position: 'top',
-            color: '#333333'
+            color: '#1B2838'
           },
           barMaxWidth: data.length > 5 ? '12' : '50',
           borderRadius: '5',
@@ -121,7 +121,7 @@ export default {
           itemGap: this.fontSize(0.10),
           textStyle: {
             fontSize: this.fontSize(0.12),
-            color: '#333333'
+            color: '#1B2838'
           },
           data: label.map((item) => {
             return {
@@ -166,7 +166,7 @@ export default {
               margin: this.fontSize(1.2),
               fontSize: this.fontSize(0.13),
               align: 'left',
-              color: '#333',
+              color: '#1B2838',
               rich: rich,
               formatter: (val, index) => {
                 let value = val
@@ -206,7 +206,7 @@ export default {
             },
             axisLabel: {
               show: false,
-              color: '#333333',
+              color: '#1B2838',
               fontSize: this.fontSize(0.13)
             },
             splitLine: {

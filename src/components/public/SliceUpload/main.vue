@@ -29,7 +29,7 @@
             <div class="uploader-body" v-show="collapse">
               <div class="uploader-empty" v-if="fileList.length === 0">
                 <div>
-                  <img :src="require('@/assets/images/icon-no-data.png')" alt=""/>
+                  <img :src="require('@/assets/images/empty.png')" alt=""/>
                   <div>暂无数据</div>
                 </div>
               </div>
@@ -435,12 +435,12 @@ export default {
     justify-content: space-between;
     .uploader-header-title {
       span {
-        color: #666666;
+        color: #4A5568;
       }
 
       .fold-btn {
         margin-left: 10px;
-        color: #666666;
+        color: #4A5568;
 
         i {
           transition: all 0.5s;

@@ -57,14 +57,14 @@ export default {
   data () {
     return {
       color: [
-        '#991B1B',
-        '#EF4444',
-        '#F59E0B',
+        '#8B1A1A',
+        '#D9534F',
+        '#D4932A',
         '#1a78cf',
-        '#10B981'
+        '#4A9C8C'
       ],
       color2: [
-        '#EF4444',
+        '#D9534F',
         '#48CDC5'
       ],
       windowWidth: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
@@ -76,11 +76,11 @@ export default {
       const series = []
       const richObject = {
         title: {
-          color: '#666666',
+          color: '#4A5568',
           fontSize: this.fontSize(0.13)
         },
         index: {
-          color: '#999999',
+          color: '#8B9CB0',
           width: 30,
           align: 'center',
           fontSize: 12
@@ -119,7 +119,7 @@ export default {
           stack: true,
           label: {
             position: 'top',
-            color: '#333333'
+            color: '#1B2838'
           },
           barMaxWidth: 6,
           // itemStyle: {
@@ -150,7 +150,7 @@ export default {
           },
           textStyle: {
             fontSize: this.fontSize(0.12),
-            color: '#333333',
+            color: '#1B2838',
             rich: {
               name: {
                 verticalAlign: 'center',
@@ -215,7 +215,7 @@ export default {
               fontSize: 13,
               align: 'left',
               inside: true,
-              color: '#333',
+              color: '#1B2838',
               rich: richObject,
               axisLabel: 'inside',
               formatter: (val) => {
@@ -251,7 +251,7 @@ export default {
               show: false
             },
             axisLabel: {
-              color: '#999999',
+              color: '#8B9CB0',
               fontSize: this.fontSize(0.12),
               margin: 10,
               align: 'left'
@@ -274,7 +274,7 @@ export default {
             },
             axisLabel: {
               show: false,
-              color: '#333333',
+              color: '#1B2838',
               fontSize: this.fontSize(0.13)
             },
             splitLine: {

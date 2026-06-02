@@ -144,7 +144,7 @@
               <img height="30" style="margin-right: 12px;" src="../../../../../assets/images/svg/use-jianyi.svg" alt="">
             </div>
             <div class="content-wrapper">
-              <p style="color: #8B5CF6;">
+              <p style="color: #2C5F8A;">
                 其它无漏洞可用版本
                 <i class="el-icon-d-arrow-right" style="font-weight: bold;"></i>
               </p>
@@ -355,12 +355,12 @@ export default {
         {
           name: '影响应用',
           value: 0,
-          color: '#8B5CF6'
+          color: '#2C5F8A'
         },
         {
           name: '影响项目',
           value: 0,
-          color: '#8B5CF6'
+          color: '#2C5F8A'
         }
       ],
       vulLevelData: {
@@ -368,19 +368,19 @@ export default {
           {
             value: 2,
             name: '严重',
-            color: '#991B1B',
+            color: '#8B1A1A',
             key: 'serious'
           },
           {
             value: 4,
             name: '高危',
-            color: '#EF4444',
+            color: '#D9534F',
             key: 'high'
           },
           {
             value: 4,
             name: '中危',
-            color: '#F59E0B',
+            color: '#D4932A',
             key: 'medium'
           },
           {
@@ -402,7 +402,7 @@ export default {
           {
             value: 0,
             name: '直接依赖',
-            color: '#8B5CF6'
+            color: '#2C5F8A'
           }
         ],
         sum: 0

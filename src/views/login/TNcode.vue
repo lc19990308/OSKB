@@ -311,12 +311,29 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+  $color-primary: #2C5F8A;
+  $color-primary-light: #3E7CB1;
+  $color-accent: #8fd6ff;
+
   .tn-code {
     z-index: 1000;
     width: 100%;
     height: 54px;
     position: relative;
     margin: 10px auto 0;
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: visible;
+      background: linear-gradient(180deg, rgba(16, 42, 69, 0.54) 0%, rgba(8, 26, 46, 0.48) 100%);
+      border: 1px solid rgba($color-accent, 0.50);
+      border-radius: 10px;
+      box-shadow: inset 0 0 20px rgba($color-primary, 0.22);
+    }
 
     .slide_block {
       background-image: url(~@/assets/images/ver_01.png);
@@ -325,12 +342,13 @@ export default {
       width: 100px;
       height: 100%;
       position: absolute;
-      border-radius: 4px;
+      border-radius: 9px 0 0 9px;
       left: 0;
       top: 0;
       transition: all 0.5s;
       z-index: 10000;
       cursor: pointer;
+      box-shadow: 0 0 12px rgba($color-accent, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
 
       .slide_block_arrows {
         width: 20px;
@@ -369,7 +387,7 @@ export default {
       position: absolute;
       right: 0;
       cursor: initial;
-      border-radius: 3px;
+      border-radius: 0 9px 9px 0;
       overflow: hidden;
 
       &::after {
@@ -378,8 +396,8 @@ export default {
         width: 0;
         height: 0;
         border-radius: 50%;
-        background-color: #fff;
-        box-shadow: 0 0 70px 14px #fff;
+        background-color: rgba($color-accent, 0.55);
+        box-shadow: 0 0 70px 14px rgba($color-accent, 0.35);
         position: relative;
         top: 0;
         left: 0;
@@ -391,10 +409,10 @@ export default {
       position: absolute;
       left: 0;
       top: 0;
-      border-radius: 2px;
+      border-radius: 9px 0 0 9px;
       width: 0;
       height: 100%;
-      background: #1bd0fa;
+      background: linear-gradient(90deg, $color-primary, $color-primary-light, rgba($color-accent, 0.7));
     }
 
     .slide_block_text {
@@ -403,35 +421,36 @@ export default {
       top: 35px;
       margin: -4.62% 0 0 -7.31%;
       font-size: 16px;
-      color: rgb(255, 255, 255);
+      color: rgba($color-accent, 0.9);
       cursor: initial;
-    }
-
-    .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: visible;
-      background: transparent;
+      letter-spacing: 0.06em;
     }
 
     #result-msg {
       width: 100%;
       height: 100%;
       line-height: 50px;
-      color: #fff;
+      color: #dff3ff;
       font-size: 14px;
+      text-align: center;
     }
 
     .tncode_box {
       width: 390px;
       position: absolute;
-      top: -290px;
+      top: -292px;
       height: 256px;
       overflow: hidden;
-      box-shadow: 0 0 5px rgba(255, 255, 255, 50%);
+      border: 1px solid rgba($color-accent, 0.22);
+      border-radius: 10px;
+      box-shadow: 0 20px 50px rgba(5, 20, 36, 0.44);
+    }
+
+    .tools {
+      position: absolute;
+      z-index: 10001;
+      top: 6px;
+      right: 8px;
     }
 
     .tools .tncode_refresh {
@@ -442,6 +461,13 @@ export default {
       cursor: pointer;
       background-repeat: no-repeat;
       background-image: url(~@/assets/images/tncodebtn.png);
+      filter: brightness(1.3) saturate(0.6) hue-rotate(160deg);
+      opacity: 0.85;
+
+      &:hover {
+        opacity: 1;
+        filter: brightness(1.5) saturate(0.6) hue-rotate(160deg);
+      }
     }
 
     .tncode_tips {
@@ -452,12 +478,15 @@ export default {
       position: absolute;
       left: 0;
       top: 0;
-      background-color: #56a6ec;
+      background:
+        radial-gradient(circle at top, rgba(84, 147, 202, 0.16) 0, transparent 32%),
+        linear-gradient(180deg, rgba(17, 44, 73, 0.96) 0%, rgba(8, 26, 46, 0.98) 100%);
       width: 390px;
       height: 256px;
       text-align: center;
       box-sizing: border-box;
       line-height: 255px;
+      color: rgba($color-accent, 0.8);
     }
 
     .tncode_canvas_bg,

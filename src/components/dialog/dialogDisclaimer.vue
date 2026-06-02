@@ -3,6 +3,7 @@
     title="免责声明"
     :visible.sync="dialogVisible"
     :append-to-body="true"
+    custom-class="disclaimer-dialog"
     width="600px"
     :close-on-click-modal="false"
     :before-close="handleClose">
@@ -58,12 +59,68 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  pre {
-    white-space: pre-line;
+:deep(.disclaimer-dialog) {
+  border: 1px solid rgba(143, 214, 255, 0.24);
+  border-radius: 20px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(84, 147, 202, 0.16) 0, transparent 32%),
+    linear-gradient(180deg, rgba(17, 44, 73, 0.96) 0%, rgba(8, 26, 46, 0.98) 100%);
+  box-shadow: 0 30px 90px rgba(5, 20, 36, 0.34);
 
-    .text-right {
-      display: block;
-      text-align: right;
+  .el-dialog__body {
+    padding: 22px 24px 18px;
+    background: transparent;
+  }
+
+  .el-dialog__footer {
+    padding: 0 24px 22px;
+    border-top: none;
+    background: transparent;
+  }
+
+  .el-button {
+    color: #dff3ff;
+    background: rgba(44, 95, 138, 0.32);
+    border-color: rgba(143, 214, 255, 0.28);
+
+    &:hover,
+    &:focus {
+      color: #ffffff;
+      background: rgba(62, 124, 177, 0.5);
+      border-color: rgba(143, 214, 255, 0.5);
     }
   }
+}
+
+pre {
+  margin: 0;
+  white-space: pre-line;
+  color: rgba(216, 232, 244, 0.9);
+  line-height: 1.85;
+  font-size: 14px;
+  font-family: "Microsoft YaHei", sans-serif;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 8px;
+
+  .text-right {
+    display: block;
+    text-align: right;
+    color: rgba(173, 214, 242, 0.78);
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(143, 214, 255, 0.35);
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
 </style>

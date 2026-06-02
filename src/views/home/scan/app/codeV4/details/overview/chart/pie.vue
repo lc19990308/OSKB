@@ -94,19 +94,19 @@ export default {
             label: {
               show: true,
               position: 'center',
-              color: '#333333',
+              color: '#1B2838',
               formatter: (x) => {
                 return `{data|${x.value}}\n{title|${x.name}}`
               },
               rich: {
                 data: {
-                  color: '#333333',
+                  color: '#1B2838',
                   lineHeight: 27,
                   fontWeight: 'bold',
                   fontSize: '16px'
                 },
                 title: {
-                  color: '#333333'
+                  color: '#1B2838'
                 }
               }
             },
@@ -135,7 +135,7 @@ export default {
               formatter: '{b} {c}个',
               fontSize: 14,
               lineHeight: 18,
-              color: '#333333'
+              color: '#1B2838'
             },
             data: this.data.map((item) => {
               return {

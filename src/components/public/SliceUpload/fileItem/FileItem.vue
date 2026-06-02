@@ -19,7 +19,7 @@
         <el-progress
           type="circle"
           :show-text="false"
-          :color="'#8B5CF6'"
+          :color="'#2C5F8A'"
           :stroke-width="2"
           :percentage="file.progress"
           :width="26"
@@ -149,7 +149,7 @@ export default {
       margin-right: 5px;
       margin-left: 4px;
       font-size: 25px!important;
-      color: #8B5CF6;
+      color: #2C5F8A;
       vertical-align: middle;
     }
   }
@@ -174,7 +174,7 @@ export default {
       padding: 0 7px;
       font-size: 29px;
       vertical-align: middle;
-      color: #8B5CF6;
+      color: #2C5F8A;
       &.refresh{
         cursor: pointer;
       }
@@ -196,7 +196,7 @@ export default {
         top: 0;
         bottom: 0;
         right: 0;
-        color: #8B5CF6;
+        color: #2C5F8A;
         text-align: center;
         line-height: 26px;
         margin: auto;
@@ -214,7 +214,7 @@ export default {
       width: 25px;
       height: 25px;
       border-radius: 50%;
-      border: 2px solid #8B5CF6;
+      border: 2px solid #2C5F8A;
       box-sizing: border-box;
       position: relative;
       i{
@@ -226,12 +226,12 @@ export default {
         display: block;
         width: 100%;
         height: 100%;
-        color: #8B5CF6;
+        color: #2C5F8A;
       }
     }
     .el-button{
       font-size: 16px;
-      color: #666666;
+      color: #4A5568;
     }
   }
 }

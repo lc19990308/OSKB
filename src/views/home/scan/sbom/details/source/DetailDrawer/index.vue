@@ -85,7 +85,7 @@ export default {
   }
 
   .el-drawer__header {
-    background: #8B5CF6;
+    background: #2C5F8A;
     color: #fff;
     font-size: 16px;
     padding: 15px 20px;

@@ -117,19 +117,19 @@ export default {
         data: [{
           value: 0,
           name: '严重漏洞',
-          color: '#991B1B',
+          color: '#8B1A1A',
           key: 'serious'
         },
         {
           value: 0,
           name: '高危漏洞',
-          color: '#EF4444',
+          color: '#D9534F',
           key: 'high'
         },
         {
           value: 0,
           name: '中危漏洞',
-          color: '#F59E0B',
+          color: '#D4932A',
           key: 'medium'
         },
         {
@@ -210,7 +210,7 @@ export default {
 <style scoped lang="scss">
   .drawer-vul {
     :deep(.el-drawer__header) {
-      background: #8B5CF6;
+      background: #2C5F8A;
       color: #fff;
       font-size: 16px;
       padding: 15px 20px;
@@ -235,7 +235,7 @@ export default {
 
           .iconfont {
             font-size: 20px;
-            color: #8B5CF6;
+            color: #2C5F8A;
             vertical-align: middle;
             margin-right: 10px;
             font-weight: 500;
@@ -288,11 +288,11 @@ export default {
 
       &:active,
       &:focus {
-        color: #8B5CF6;
+        color: #2C5F8A;
       }
 
       &:hover {
-        background-color: #8B5CF6;
+        background-color: #2C5F8A;
       }
     }
   }

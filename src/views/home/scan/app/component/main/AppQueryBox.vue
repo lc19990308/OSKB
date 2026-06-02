@@ -159,7 +159,7 @@ export default {
     &:hover,
     &:focus,
     &:active {
-      border-right-color: #8B5CF6;
+      border-right-color: #2C5F8A;
     }
   }
 }

@@ -55,15 +55,15 @@ export default {
       const data = this.chartData
       const color = [
         '#ffbc34',
-        '#10B981',
+        '#4A9C8C',
         new LinearGradient(1, 0, 0, 0, [{ offset: 0, color: '#19b4e7' }, { offset: 1, color: '#1a45b6' }]),
-        new LinearGradient(1, 0, 0, 0, [{ offset: 0, color: '#8B5CF6' }, { offset: 1, color: '#8B5CF6' }])
+        new LinearGradient(1, 0, 0, 0, [{ offset: 0, color: '#2C5F8A' }, { offset: 1, color: '#2C5F8A' }])
       ]
       // const color2 = [
       //   '#ffbc34',
-      //   '#10B981',
+      //   '#4A9C8C',
       //   '#19b4e7',
-      //   '#8B5CF6'
+      //   '#2C5F8A'
       // ]
       return {
         tooltip: {

@@ -1,6 +1,7 @@
 <template>
   <div class="common-bg">
     <div class="common-header">
+      <svg class="common-header-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="3"/><path d="M12 8v10"/><path d="M8 18l4-4 4 4"/><path d="M5 13h14"/></svg>
       风险组件TOP10
     </div>
     <stacked-row-bar-chart

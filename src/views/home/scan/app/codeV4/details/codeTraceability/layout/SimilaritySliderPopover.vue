@@ -47,6 +47,6 @@ export default {
 
 <style scoped lang="scss">
 :deep(.el-slider__marks-text) {
-  color: #666666;
+  color: #4A5568;
 }
 </style>

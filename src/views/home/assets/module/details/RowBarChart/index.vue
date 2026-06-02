@@ -93,7 +93,7 @@ export default {
             }
           },
           axisLabel: {
-            color: '#333333',
+            color: '#1B2838',
             formatter: '{value}',
             fontSize: this.fontSize(0.14)
           }
@@ -116,7 +116,7 @@ export default {
           },
           axisLabel: {
             show: true,
-            color: '#333333',
+            color: '#1B2838',
             fontSize: this.fontSize(0.12),
             formatter: '{value}'
           }

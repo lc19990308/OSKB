@@ -65,7 +65,7 @@ export default {
                 overview.vulNumVO.low || 0
                ]"
               :layout="{
-                colors: ['#991B1B', '#EF4444', '#F59E0B', '#8B5CF6'],
+                colors: ['#8B1A1A', '#D9534F', '#D4932A', '#2C5F8A'],
                 tooltip: ['严重', '高危', '中危', '低危']
               }"
             />
@@ -81,7 +81,7 @@ export default {
                 overview.licenseNumVO.lowNum || 0
               ]"
               :layout="{
-                colors: ['#EF4444', '#F59E0B', '#8B5CF6'],
+                colors: ['#D9534F', '#D4932A', '#2C5F8A'],
                 tooltip: ['高风险', '中风险', '低风险']
               }"
             />

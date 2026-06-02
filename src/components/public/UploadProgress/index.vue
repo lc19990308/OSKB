@@ -79,7 +79,7 @@ export default {
         padding: 10px 0;
         h4{
           font-size: 14px;
-          color: #666666;
+          color: #4A5568;
           font-weight: 500;
           margin: 0;
         }

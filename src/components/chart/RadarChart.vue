@@ -120,7 +120,7 @@ export default {
           },
           axisLabel: {
             show: true,
-            color: '#999',
+            color: '#8B9CB0',
             lineHeight: 15,
             padding: [0, 0, -45, 0],
             formatter: (x, index) => {
@@ -145,7 +145,7 @@ export default {
             axisName: {
               show: true,
               formatter: '{value}',
-              color: '#333',
+              color: '#1B2838',
               fontSize: this.fontSize(0.14)
             },
             splitArea: {

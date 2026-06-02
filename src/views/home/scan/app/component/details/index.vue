@@ -171,12 +171,12 @@ export default {
   }
 
   .oss-halo-button {
-    box-shadow: 0 1px 8px 0 #8B5CF633;
-    border: 3px solid #8B5CF67f;
+    box-shadow: 0 1px 8px 0 #2C5F8A33;
+    border: 3px solid #2C5F8A7f;
     width: 46px;
     height: 46px;
     font-size: 12px;
-    color: #8B5CF6;
+    color: #2C5F8A;
     display: flex;
     box-sizing: border-box;
     border-radius: 50%;
@@ -196,8 +196,8 @@ export default {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      border: 1px solid #8B5CF67f;
-      box-shadow: 0 0 5px #8B5CF67f;
+      border: 1px solid #2C5F8A7f;
+      box-shadow: 0 0 5px #2C5F8A7f;
       position: absolute;
       top: -1px;
       left: -1px;

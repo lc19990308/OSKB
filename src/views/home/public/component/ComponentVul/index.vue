@@ -4,7 +4,7 @@
       <h3 class="headline left" style="line-height: 32px;">
         <i class="iconfont iconloudongku"></i>漏洞信息
         <el-tooltip effect="dark" content="仅展示组件本身的漏洞" :open-delay="150" placement="top">
-          <i class="el-icon-info" style="color: #999999;"></i>
+          <i class="el-icon-info" style="color: #8B9CB0;"></i>
         </el-tooltip>
       </h3>
       <div :span="24" class="text-right compound-search-box--btn">

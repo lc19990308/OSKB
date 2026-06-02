@@ -79,7 +79,7 @@ export default {
   overflow: hidden;
   //,&:focus
   &:hover,&:focus{
-    color: #A78BFA;
+    color: #8BAAC4;
     background: #EDE9FE;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   }

@@ -3,8 +3,8 @@
   "version": "3.7.3",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && rm -rf dist/package-lock.json",
+    "serve": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service serve",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service build && rm -rf dist/package-lock.json",
     "lint": "vue-cli-service lint",
     "stylelint:fix": "stylelint \"**/*.{css,scss,vue}\" --fix",
     "postinstall": "npx husky install"

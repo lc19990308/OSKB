@@ -1,6 +1,7 @@
 <template>
   <div class="common-bg">
     <div class="common-header">
+      <svg class="common-header-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18"/><path d="M6 4h14l-4 6 4 6H6"/></svg>
       风险许可证TOP10
     </div>
     <stacked-row-bar-chart
@@ -34,7 +35,7 @@ export default {
           width: 46,
           height: 16,
           lineHeight: 16,
-          backgroundColor: '#EF4444'
+          backgroundColor: '#D9534F'
         },
         2: {
           name: '中风险',
@@ -42,7 +43,7 @@ export default {
           width: 46,
           height: 16,
           lineHeight: 16,
-          backgroundColor: '#F59E0B'
+          backgroundColor: '#D4932A'
         },
         3: {
           name: '低风险',

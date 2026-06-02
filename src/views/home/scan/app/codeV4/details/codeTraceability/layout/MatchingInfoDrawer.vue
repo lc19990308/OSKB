@@ -425,7 +425,7 @@ export default {
 </script>
 <style scoped lang="scss">
 :deep(.el-drawer__header) {
-  color: #333333;
+  color: #1B2838;
   font-size: 16px;
   padding: 15px 20px;
   border-bottom: 1px solid #DCDEE0;
@@ -440,12 +440,12 @@ export default {
 
 .btn-select-status {
   cursor: pointer;
-  color: #666666;
+  color: #4A5568;
   transition: all 0.1s;
   display: inline-block;
   padding: 4px 8px;
   &.active,&:hover {
-    color: #333333;
+    color: #1B2838;
     border-radius: 1px;
     background: #f3f6f9;
   }
@@ -474,7 +474,7 @@ export default {
 }
 
 :deep(.el-slider__marks-text) {
-  color: #666666;
+  color: #4A5568;
 }
 
 .handle-btn {
