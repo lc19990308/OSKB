@@ -15,14 +15,8 @@
     <div class="scene-layer cursor-ripple"></div>
     <div class="scene-layer cursor-foam"></div>
     <div class="login-content">
-      <div v-show="!!brandLogoUrl" class="top-logo">
-        <img :src="brandLogoUrl" alt="">
-      </div>
       <div class="login-wrap">
         <div class="panel-heading">
-          <div class="logo-wrap" v-show="!!loginLogoUrl">
-            <img class="login-logo" :src="loginLogoUrl" alt="">
-          </div>
           <div class="title-wrap">
             <p class="app-kicker">MARITIME SECURITY CONSOLE</p>
             <h4 class="app-name">{{ siteName }}</h4>
@@ -47,11 +41,7 @@
             <el-link type="info" @click="readDisclaimer">我已阅读并同意《免责声明》</el-link>
           </div>
           <div class="login-submit">
-            <TNcode v-if="loginVerifyType == 1" :imgCodeUrl="imgCodeUrl" :loginService="loginService"
-                    :user="formState.user"
-                    :password="formState.password"
-                     :disclaimer="disclaimer"></TNcode>
-            <el-button v-else @click="handleButtonLogin" type="primary"
+            <el-button @click="handleButtonLogin" type="primary"
                        :loading="loading"
                        style="height:  45px;"
                        class="block w-full m-t-10"
@@ -111,7 +101,6 @@
   </div>
 </template>
 <script>
-import TNcode from '@/views/login/TNcode.vue'
 import DialogForceLogin from './dialogForceLogin.vue'
 import DialogDisclaimer from '@/components/dialog/dialogDisclaimer.vue'
 import md5 from 'js-md5'
@@ -124,7 +113,6 @@ import Vue from 'vue'
 export default {
   name: 'Login',
   components: {
-    TNcode,
     DialogForceLogin,
     DialogDisclaimer
   },
@@ -153,8 +141,6 @@ export default {
   computed: {
     ...mapState({
       siteName: state => state.site.siteName,
-      loginLogoUrl: state => state.site.loginLogoUrl,
-      brandLogoUrl: state => state.site.brandLogoUrl,
       copyright: state => state.site.copyright,
       accessToken: state => state.login.accessToken,
       ossoidcProperties: state => state.site.ossoidcProperties,

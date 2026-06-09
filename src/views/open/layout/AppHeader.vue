@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="aside-logo-wrap">
-      <img src="@/assets/images/logo_solid.png" class="small" alt="">
+      <img src="@/assets/images/logo_solid.png" class="small" alt="" />
     </div>
     <el-breadcrumb separator="/" class="breadcrumb">
       <transition-group name="breadcrumb">
@@ -9,28 +9,32 @@
           <i class="iconfont iconzhandian"></i>
         </el-breadcrumb-item>
         <el-breadcrumb-item
-          v-for="(val,key) in routeMatched"
+          v-for="(val, key) in routeMatched"
           :key="key + '-breadcrumb'"
           v-show="!!val.name"
-        >{{ val.name }}
+          >{{ val.name }}
         </el-breadcrumb-item>
       </transition-group>
     </el-breadcrumb>
     <div class="right clearfix">
-      <div class="header-logo">
+      <!-- <div class="header-logo">
         <img :src="cnnvdImage" alt="">
       </div>
       <div class="header-logo">
         <img :src="compatible" alt="">
-      </div>
-      <div class="el-dropdown-link user-info" @click="$router.push('/')" style="display: inline-block;">
+      </div> -->
+      <div
+        class="el-dropdown-link user-info"
+        @click="$router.push('/')"
+        style="display: inline-block"
+      >
         <div class="user-head">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#iconyonghu"></use>
           </svg>
         </div>
         <el-link :underline="false" class="p-r-5" type="primary">
-          {{ get(userInfo, 'username', '登录') }}
+          {{ get(userInfo, "username", "登录") }}
         </el-link>
       </div>
     </div>
@@ -43,8 +47,6 @@ export default {
   name: 'OpenAppHeader',
   data () {
     return {
-      compatible: require('@/assets/images/compatible.jpg'),
-      cnnvdImage: require('@/assets/images/CNNVD.png'),
       asideSmallLogoUrl: require('@/assets/images/confimg/logo.png'),
       allPath: []
     }
@@ -54,8 +56,8 @@ export default {
       return this.$route.meta.breadcrumb || []
     },
     ...mapState({
-      userInfo: state => state.login.userInfo,
-      defaultPath: state => state.home.defaultPath
+      userInfo: (state) => state.login.userInfo,
+      defaultPath: (state) => state.home.defaultPath
     })
   }
 }
@@ -82,7 +84,7 @@ export default {
   }
 
   .is-link {
-    color: #2C5F8A;
+    color: #2c5f8a;
     font-weight: 500;
   }
 }

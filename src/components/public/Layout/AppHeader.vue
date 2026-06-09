@@ -52,12 +52,12 @@
       </transition-group>
     </el-breadcrumb>
     <div class="right clearfix">
-      <div class="header-logo">
+      <!-- <div class="header-logo">
         <img :src="cnnvdImage" alt="" />
       </div>
       <div class="header-logo">
         <img :src="compatible" alt="" />
-      </div>
+      </div> -->
       <!--      <div class="header-btn"  @click="system">-->
       <!--        <i class="iconfont iconcelve"></i>-->
       <!--      </div>-->
@@ -120,8 +120,6 @@ export default {
   data() {
     return {
       hideProjectList,
-      compatible: require("@/assets/images/compatible.jpg"),
-      cnnvdImage: require("@/assets/images/CNNVD.png"),
       asideSmallLogoUrl: require("@/assets/images/confimg/logo.png"),
       menus: [
         {

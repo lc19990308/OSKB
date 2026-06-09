@@ -7,12 +7,6 @@
         </span>
       </h3>
       <div class="search-container">
-        <div class="search-auth-item">
-          <img :src="cveSrc" alt="">
-        </div>
-        <div class="search-auth-item">
-          <img :src="cweSrc" alt="">
-        </div>
         <div class="search-area">
           <el-autocomplete v-if="activeTab==='component'" ref="autocomplete" :fetch-suggestions="querySearchAsync"
                            @select="handleSelect" clearable
@@ -33,15 +27,6 @@
               <el-button slot="append" class="btn vul-button" @click="search" icon="el-icon-search">查&nbsp;询</el-button>
             </el-input>
           </div>
-        </div>
-<!--        <transition name="v-zoom-w">-->
-<!--          <el-button  v-if="activeTab==='component'"  class="btn-batch" @click="$router.push({ path: '/search/batch' })">风险扫描</el-button>-->
-<!--        </transition>-->
-        <div class="search-auth-item">
-          <img :src="cnnvdSrc" alt="">
-        </div>
-        <div class="search-auth-item">
-          <img :src="caictSrc" alt="">
         </div>
       </div>
     </div>
@@ -97,11 +82,6 @@ export default {
   },
   data () {
     return {
-      logoSrc: require('@/assets/images/confimg/logo.png'),
-      cveSrc: require('@/assets/images/CVE.svg'),
-      cnnvdSrc: require('@/assets/images/cnnvd.svg'),
-      caictSrc: require('@/assets/images/CAICT.svg'),
-      cweSrc: require('@/assets/images/CWE.svg'),
       statistic: {
         componentTotal: 0,
         licenseTotal: 0,
@@ -287,29 +267,6 @@ export default {
   .search-container {
     margin: 20px auto 0;
     text-align: center;
-
-    .search-auth-item {
-      display: inline-block;
-      vertical-align: bottom;
-      margin: 0 20px;
-
-      @media (max-width: 1600px) and (min-width: 1360px) {
-        margin: 0 15px;
-      }
-
-      @media (max-width: 1359px) and (min-width: 1180px) {
-        margin: 0 10px;
-      }
-
-      @media (max-width: 1179px) {
-        margin: 0 5px;
-      }
-
-      img {
-        margin-top: 2px;
-        max-height: 40px;
-      }
-    }
 
     .search-area {
       margin: 0 20px;

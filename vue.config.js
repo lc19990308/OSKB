@@ -126,7 +126,7 @@ module.exports = {
         }
       },
       '/oss': {
-        target: 'http://localhost:8080/oss',
+        target: 'http://8.130.55.127:8080/oss',
         pathRewrite: {
           '^/oss': ''
         }
