@@ -18,9 +18,8 @@
       <div class="login-wrap">
         <div class="panel-heading">
           <div class="title-wrap">
-            <p class="app-kicker">MARITIME SECURITY CONSOLE</p>
             <h4 class="app-name">{{ siteName }}</h4>
-            <p class="app-summary">面向数字供应链的海上护航控制台</p>
+            <p class="app-summary"></p>
           </div>
         </div>
         <div class="login-form">
