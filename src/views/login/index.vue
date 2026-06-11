@@ -119,7 +119,7 @@ export default {
     return {
       formState: {
         password: 'Xmirror!@#123',
-        user: 'xmirror'
+        user: 'xcheck'
       },
       disclaimerTooltip: false,
       visibleTooltip: false,
