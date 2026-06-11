@@ -196,8 +196,15 @@ export default {
 }
 .sidebar-wrap {
   position: relative;
+  width: 210px;
+
+  @media (max-width: 1440px) {
+    width: 188px;
+  }
 
   &.hideSidebar {
+    width: 56px;
+
     .aside {
       width: 56px;
     }
@@ -214,7 +221,9 @@ export default {
     }
 
     .el-scrollbar {
-      height: calc(100% - 56px);
+      flex: 1;
+      min-height: 0;
+      height: auto;
     }
 
     :deep(.app-sidebar-menu) {
@@ -259,6 +268,8 @@ export default {
 }
 
 .aside {
+  display: flex;
+  flex-direction: column;
   position: relative;
   z-index: 999;
   height: 100%;
@@ -290,6 +301,7 @@ export default {
   }
 
   .aside-logo {
+    flex-shrink: 0;
     height: 74px;
     position: relative;
     cursor: pointer;
@@ -312,7 +324,9 @@ export default {
   }
 
   .el-scrollbar {
-    height: calc(100% - 74px);
+    flex: 1;
+    min-height: 0;
+    height: auto;
     box-sizing: border-box;
 
     .el-scrollbar__wrap {

@@ -1887,6 +1887,7 @@ code.code-container {
 
 .sidebar-wrap {
   height: 100%;
+  flex-shrink: 0;
 
   .drawer-bg {
     display: none;
