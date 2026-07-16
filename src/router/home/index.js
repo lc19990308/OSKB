@@ -75,6 +75,24 @@ export default [
     component: () => import('@/views/home/log/index.vue')
   },
   {
+    path: 'log/source-feature',
+    name: 'sourceFeatureLog',
+    meta: {
+      requiresAuth: true,
+      breadcrumb: [
+        {
+          name: '日志审计',
+          path: '/log'
+        },
+        {
+          name: '源码特征检测流程',
+          path: ''
+        }
+      ]
+    },
+    component: () => import('@/views/home/log/sourceFeature.vue')
+  },
+  {
     path: 'message',
     name: 'message',
     meta: {

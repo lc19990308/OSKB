@@ -11,7 +11,25 @@
       <el-alert :closable="false" type="primary" class="header-alert">
         <div class="alert-content">
           <i class="el-icon-info"></i>
-          展示当前的的组件依赖关系，从0层（应用包本身）到当前组件的依赖路径
+          <span>展示当前组件的依赖关系</span>
+          <div v-if="moduleOptions.length > 1" class="module-filter">
+            <span class="module-label">模块筛选</span>
+            <el-select
+              v-model="moduleTreeNodeId"
+              size="mini"
+              class="module-select"
+              clearable
+              placeholder="全部模块"
+              @change="getDependencyPath(assetComponentId)"
+            >
+              <el-option
+                v-for="item in moduleOptions"
+                :key="item.treeNodeId"
+                :label="item.name"
+                :value="item.treeNodeId"
+              />
+            </el-select>
+          </div>
         </div>
       </el-alert>
       <RelationChart :chart-data="chartData" :chart-link="chartLink"></RelationChart>
@@ -77,14 +95,20 @@ export default {
           zhongwei,
           diwei,
           wu
-        ],
+      ],
       chartLink: [],
-      chartData: []
+      chartData: [],
+      assetComponentId: null,
+      moduleTreeNodeId: null,
+      moduleOptions: []
     }
   },
   methods: {
 
     open(id) {
+      this.assetComponentId = id
+      this.moduleTreeNodeId = null
+      this.moduleOptions = []
       this.dialogVisible = true
       this.getDependencyPath(id)
     },
@@ -95,7 +119,10 @@ export default {
      */
     async getDependencyPath(id) {
       try {
-        const res = await dependencyPathApi(id)
+        const res = await dependencyPathApi(id, {
+          treeMode: true,
+          moduleTreeNodeId: this.moduleTreeNodeId
+        })
         this.parseChartData(res.data)
       } catch (error) {
         if (typeof error === 'object') {
@@ -108,15 +135,21 @@ export default {
     parseChartData(data = []) {
       this.chartLink = []
       this.chartData = []
+      if (!this.moduleOptions.length) {
+        this.moduleOptions = data.filter(item => item.parentTreeNodeId === 0)
+      }
       data.forEach((item, idx) => {
-        this.chartLink.push({
-          source: idx,
-          target: idx + 1,
-          value: idx + 1 + '级',
-          lineStyle: {
-            width: 1
-          }
-        })
+        const parentIdx = data.findIndex(parent => parent.treeNodeId === item.parentTreeNodeId)
+        if (parentIdx >= 0) {
+          this.chartLink.push({
+            source: parentIdx,
+            target: idx,
+            value: (item.parseDeep || 0) + '层',
+            lineStyle: {
+              width: 1
+            }
+          })
+        }
 
         const tmp = {
           name: item.name,
@@ -135,8 +168,6 @@ export default {
             }
           }
         }
-        // 根元素不显示漏洞等级
-        idx === 0 && (delete tmp.symbol)
         this.chartData.push(tmp)
       })
     }
@@ -157,6 +188,9 @@ export default {
   :deep(.alert-content) {
     margin-bottom: 5px;
     padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
     .handle {
       position: absolute;
@@ -165,6 +199,23 @@ export default {
       transform: translateY(-50%);
     }
   }
+}
+
+.module-filter {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.module-label {
+  color: #2f6f9f;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.module-select {
+  width: 220px;
 }
 
 :deep(.el-dialog__body) {

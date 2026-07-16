@@ -9,6 +9,8 @@ const TerserPlugin = require('terser-webpack-plugin')
 
 const isDevelopment = process.env.NODE_ENV === 'development'
 const isProduction = !isDevelopment
+const ossProxyTarget = process.env.VUE_APP_OSS_PROXY_TARGET || 'http://localhost:8080/oss'
+const ossSaasProxyTarget = process.env.VUE_APP_OSS_SAAS_PROXY_TARGET || 'http://localhost:8080/oss-saas'
 
 const provide = {
   to: [path.resolve(__dirname, 'src/utils/await-to.js'), 'to'],
@@ -115,7 +117,7 @@ module.exports = {
       '/oss-saas': {
         // logLevel: 'debug',
         // target: 'https://10.1.2.79:8011/oss-saas', // 成都
-        target: 'https://192.168.172.199:8011/oss-saas', // 北京
+        target: ossSaasProxyTarget,
         // target: 'http://tymdn6.natappfree.cc/oss-saas', // 长沙颜程
         // target: 'https://172.25.0.29:47011/oss-saas', // 长沙
         // target: 'http://x5sqti.natappfree.cc/oss-saas', // 长沙
@@ -126,7 +128,7 @@ module.exports = {
         }
       },
       '/oss': {
-        target: 'http://8.130.55.127:8080/oss',
+        target: ossProxyTarget,
         pathRewrite: {
           '^/oss': ''
         }

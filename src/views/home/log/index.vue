@@ -26,6 +26,9 @@
           <el-button size="medium" type="primary" @click="exportFile" v-if="authorityFilter(2102)">
             导出日志
           </el-button>
+          <el-button size="medium" type="primary" plain @click="$router.push('/log/source-feature')">
+            源码特征检测流程
+          </el-button>
           <el-button size="medium" type="primary" @click="del" :disabled="multipleSelection.length === 0" v-if="authorityFilter(2103)">
             删除
           </el-button>

@@ -84,6 +84,23 @@
         </div>
       </el-col>
     </el-row>
+    <el-row :gutter="20" class="system-info-row">
+      <el-col :span="24">
+        <div class="common-bg">
+          <div class="common-header">运行环境信息</div>
+          <div class="system-info-body">
+            <div
+              v-for="item in systemInfo"
+              :key="item.label"
+              class="system-info-item"
+            >
+              <div class="system-info-label">{{ item.label }}</div>
+              <div class="system-info-value">{{ item.value }}</div>
+            </div>
+          </div>
+        </div>
+      </el-col>
+    </el-row>
     <Knowledge :list="$refs.history" v-if="authorityFilter(2252)"/>
     <History ref="history"/>
   </el-main>
@@ -109,6 +126,16 @@ export default {
       img1: img1,
       img2: img2,
       img3: img3,
+      systemInfo: [
+        {
+          label: 'CPU',
+          value: '飞腾D2000'
+        },
+        {
+          label: '操作系统',
+          value: '银河麒麟v10'
+        }
+      ],
       currentVersion: {
         webFrontendVersion: '',
         webBackendVersion: '',
@@ -142,6 +169,10 @@ export default {
   .el-col {
     display: flex;
   }
+}
+
+.system-info-row {
+  margin-top: 20px;
 }
 
 .common-bg {
@@ -246,6 +277,42 @@ export default {
       font-weight: 600;
       color: #334155;
     }
+  }
+}
+
+.system-info-body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: 24px 30px;
+  box-sizing: border-box;
+}
+
+.system-info-item {
+  display: flex;
+  align-items: center;
+  min-height: 72px;
+  padding: 0 24px;
+  background: #f8fafc;
+  border: 1px solid #edf2f7;
+  border-radius: 8px;
+}
+
+.system-info-label {
+  min-width: 96px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.system-info-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+@media (max-width: 900px) {
+  .system-info-body {
+    grid-template-columns: 1fr;
   }
 }
 

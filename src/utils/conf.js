@@ -214,6 +214,30 @@ export const MENUS = [
         ]
       },
       {
+        icon: 'iconmoshi',
+        text: '二进制成分分析',
+        href: '/scan/binary',
+        powerId: 2800,
+        ops: [
+          {
+            text: '查看分析列表',
+            powerId: 2801
+          },
+          {
+            text: '发起分析',
+            powerId: 2802
+          },
+          {
+            text: '删除',
+            powerId: 2803
+          },
+          {
+            text: '生成报告',
+            powerId: 2804
+          }
+        ]
+      },
+      {
         icon: 'icondepend',
         text: '编码实现分析',
         href: '/scan/develop',

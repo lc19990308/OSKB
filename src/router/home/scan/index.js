@@ -2,6 +2,7 @@ import App from '@/router/home/scan/app'
 import Node from '@/router/home/scan/node/index'
 import Develop from '@/router/home/scan/develop/index'
 import sbom from '@/router/home/scan/sbom/index'
+import Binary from '@/router/home/scan/binary/index'
 
 export default [
   {
@@ -35,6 +36,22 @@ export default [
     redirect: '/scan/sbom/list',
     component: () => import('@/views/home/scan/sbom'),
     children: sbom
+  },
+  {
+    path: 'binary',
+    name: 'ScanBinary',
+    meta: {
+      requiresAuth: true,
+      breadcrumb: [
+        {
+          name: '二进制成分分析',
+          path: ''
+        }
+      ]
+    },
+    redirect: '/scan/binary/list',
+    component: () => import('@/views/home/scan/binary/index.vue'),
+    children: Binary
   },
   {
     path: 'node',
