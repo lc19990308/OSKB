@@ -2,10 +2,10 @@
   <div class="sidebar-wrap" :class="classObj" v-if="!hideMenus">
     <div class="aside sidebar-container">
       <div class="aside-logo" @click="$router.push('/')">
-        <img class="brand-mark" :src="brandMarkUrl" alt="开源软件评估服务系统">
+        <img class="brand-mark" :src="brandMarkUrl" alt="开源知识库系统">
         <div class="brand-copy" v-show="!sidebarCollapse">
-          <strong>开源软件评估</strong>
-          <span>开源软件评估服务系统</span>
+          <strong>开源知识库</strong>
+          <span>开源知识库系统</span>
         </div>
       </div>
       <el-scrollbar>
@@ -281,9 +281,9 @@ export default {
   z-index: 999;
   height: 100%;
   background:
-    radial-gradient(circle at 18% 0%, rgba(21, 150, 163, 0.2) 0, transparent 34%),
-    linear-gradient(180deg, #102833 0%, #123541 54%, #0b5961 100%);
-  box-shadow: 12px 0 32px rgba(5, 20, 36, 0.24);
+    radial-gradient(circle at 18% 0%, rgba(196, 139, 43, 0.18) 0, transparent 34%),
+    linear-gradient(180deg, #1c2129 0%, #2a3038 54%, #343942 100%);
+  box-shadow: 12px 0 32px rgba(15, 17, 21, 0.24);
   overflow: hidden;
 
   &::before {
@@ -303,7 +303,7 @@ export default {
     right: 10px;
     top: 74px;
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(111, 240, 224, 0.32) 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(231, 194, 119, 0.32) 50%, rgba(255, 255, 255, 0.12) 72%, transparent 100%);
     pointer-events: none;
   }
 
@@ -322,7 +322,7 @@ export default {
       max-width: 82%;
       max-height: 56px;
       display: block;
-      filter: drop-shadow(0 10px 18px rgba(5, 20, 36, 0.35));
+      filter: drop-shadow(0 10px 18px rgba(15, 17, 21, 0.35));
 
       &.small {
         margin: 0 auto;
@@ -356,14 +356,14 @@ export default {
           font-size: 12px;
 
           .el-menu {
-            color: #c8e3e0;
+            color: #e5e0d6;
             padding: 0;
 
             .menus-header {
               padding: 0 18px;
               height: 42px;
               line-height: 42px;
-              color: #88b7b6;
+              color: #c5b89f;
               letter-spacing: 0.08em;
             }
 
@@ -390,35 +390,35 @@ export default {
             }
 
             :deep(.el-menu-item) {
-              color: #d9efed;
+              color: #f0ece3;
 
               &:hover {
-                background: linear-gradient(90deg, rgba(21, 150, 163, 0.2) 0%, rgba(21, 150, 163, 0.07) 100%);
-                border-color: rgba(111, 240, 224, 0.22);
+                background: linear-gradient(90deg, rgba(196, 139, 43, 0.2) 0%, rgba(196, 139, 43, 0.07) 100%);
+                border-color: rgba(231, 194, 119, 0.22);
                 color: #ffffff;
               }
 
               &.is-active {
-                background: linear-gradient(90deg, #087e8b 0%, #0c6971 100%);
-                border-color: rgba(111, 240, 224, 0.38);
-                box-shadow: inset 3px 0 0 #62e2d9, 0 8px 20px rgba(4, 55, 61, 0.24);
+                background: linear-gradient(90deg, #b7791f 0%, #8f5a18 100%);
+                border-color: rgba(231, 194, 119, 0.38);
+                box-shadow: inset 3px 0 0 #f0c675, 0 8px 20px rgba(72, 50, 19, 0.24);
                 color: #fff;
               }
             }
 
             :deep(.el-submenu__title) {
-              color: #d9efed;
+              color: #f0ece3;
 
               &:hover {
-                background: linear-gradient(90deg, rgba(21, 150, 163, 0.18) 0%, rgba(21, 150, 163, 0.06) 100%);
-                border-color: rgba(111, 240, 224, 0.22);
+                background: linear-gradient(90deg, rgba(196, 139, 43, 0.18) 0%, rgba(196, 139, 43, 0.06) 100%);
+                border-color: rgba(231, 194, 119, 0.22);
                 color: #ffffff;
               }
             }
 
             :deep(.el-submenu.is-opened > .el-submenu__title) {
-              background: rgba(21, 150, 163, 0.16);
-              border-color: rgba(111, 240, 224, 0.2);
+              background: rgba(196, 139, 43, 0.16);
+              border-color: rgba(231, 194, 119, 0.2);
               color: #fff;
             }
 
@@ -428,7 +428,7 @@ export default {
 
             :deep(.el-menu-item i),
             :deep(.el-submenu__title i) {
-              color: #90c9c4;
+              color: #d4c29c;
             }
 
             :deep(.menu-icon) {
@@ -445,7 +445,7 @@ export default {
             :deep(.el-menu-item.is-active i),
             :deep(.el-menu-item:hover i),
             :deep(.el-submenu__title:hover i) {
-              color: #d9fffb;
+              color: #fff4db;
             }
           }
         }
@@ -464,7 +464,7 @@ export default {
     display: block;
     width: 86%;
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(111, 240, 224, 0.22) 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(231, 194, 119, 0.22) 50%, rgba(255, 255, 255, 0.1) 72%, transparent 100%);
     position: absolute;
     top: 0;
     left: 7%;

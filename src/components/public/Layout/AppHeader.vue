@@ -284,9 +284,9 @@ export default {
   box-sizing: border-box;
   overflow: hidden;
   background:
-    radial-gradient(circle at 28% -120%, rgba(73, 211, 195, 0.22) 0%, transparent 52%),
-    linear-gradient(90deg, #102833 0%, #123541 54%, #0b5961 100%) !important;
-  border-bottom: 1px solid rgba(111, 240, 224, 0.2);
+    radial-gradient(circle at 28% -120%, rgba(216, 164, 71, 0.18) 0%, transparent 52%),
+    linear-gradient(90deg, #1c2129 0%, #2a3038 54%, #343942 100%) !important;
+  border-bottom: 1px solid rgba(231, 194, 119, 0.18);
 }
 
 .app-header-bg {
@@ -305,13 +305,13 @@ export default {
   inset: 0;
   background: linear-gradient(
       90deg,
-      rgba(111, 240, 224, 0.08) 0%,
+      rgba(231, 194, 119, 0.08) 0%,
       transparent 28%,
-      rgba(111, 240, 224, 0.06) 100%
+      rgba(255, 255, 255, 0.05) 100%
     ),
     repeating-linear-gradient(
       90deg,
-      rgba(111, 240, 224, 0.06) 0 1px,
+      rgba(231, 194, 119, 0.06) 0 1px,
       transparent 1px 48px
     );
   pointer-events: none;
@@ -356,12 +356,12 @@ export default {
   vertical-align: middle;
 
   .el-breadcrumb__inner {
-    color: rgba(192, 231, 226, 0.78);
+    color: rgba(224, 220, 210, 0.78);
     font-weight: 500;
   }
 
   .is-link {
-    color: rgba(225, 250, 247, 0.92);
+    color: rgba(248, 244, 234, 0.92);
     font-weight: 600;
   }
 
@@ -370,25 +370,25 @@ export default {
   .el-breadcrumb__item:last-child .el-breadcrumb__inner.is-link {
     color: #ffffff;
     font-weight: 700;
-    text-shadow: 0 0 10px rgba(111, 240, 224, 0.18);
+    text-shadow: 0 0 10px rgba(231, 194, 119, 0.18);
   }
 
   .el-breadcrumb__separator {
-    color: rgba(150, 211, 205, 0.62);
+    color: rgba(205, 191, 162, 0.62);
   }
 
   .iconfont,
   .el-icon-house {
-    color: rgba(194, 235, 230, 0.86);
+    color: rgba(237, 229, 211, 0.86);
   }
 
   .iconzhandian {
-    color: rgba(220, 250, 247, 0.96);
+    color: rgba(248, 239, 220, 0.96);
   }
 
   .iconzhandian.is-active {
     color: #ffffff;
-    text-shadow: 0 0 10px rgba(111, 240, 224, 0.2);
+    text-shadow: 0 0 10px rgba(231, 194, 119, 0.2);
   }
 }
 
@@ -405,9 +405,9 @@ export default {
   height: 36px;
   padding: 0 14px 0 10px;
   margin-bottom: 0;
-  color: rgba(232, 255, 251, 0.92);
-  border: 1px solid rgba(111, 240, 224, 0.22);
-  background: rgba(5, 65, 72, 0.54);
+  color: rgba(250, 247, 239, 0.92);
+  border: 1px solid rgba(231, 194, 119, 0.22);
+  background: rgba(39, 42, 48, 0.68);
 }
 
 .sidebar-collapse-icon {
@@ -422,10 +422,10 @@ export default {
   margin-right: 8px;
   background: linear-gradient(
     180deg,
-    #087e8b 0%,
-    #0b6570 100%
+    #b7791f 0%,
+    #8f5a18 100%
   );
-  border: 1px solid rgba(111, 240, 224, 0.32);
+  border: 1px solid rgba(231, 194, 119, 0.32);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
   display: flex;
   align-items: center;
@@ -434,7 +434,7 @@ export default {
   i {
     display: inline-block;
     transition: all 0.3s;
-    color: #e6fffc;
+    color: #fff7e7;
     font-size: 14px;
   }
   .rotate {
@@ -446,16 +446,16 @@ export default {
   min-width: 200px;
   background: radial-gradient(
       circle at top,
-      rgba(63, 203, 194, 0.14) 0,
+      rgba(216, 164, 71, 0.14) 0,
       transparent 36%
     ),
     linear-gradient(
       180deg,
-      rgba(13, 61, 69, 0.98) 0%,
-      rgba(7, 43, 51, 0.98) 100%
+      rgba(45, 47, 53, 0.98) 0%,
+      rgba(27, 30, 36, 0.98) 100%
     );
-  border: 1px solid rgba(111, 240, 224, 0.24);
-  box-shadow: 0 18px 48px rgba(5, 20, 36, 0.34);
+  border: 1px solid rgba(231, 194, 119, 0.24);
+  box-shadow: 0 18px 48px rgba(15, 17, 21, 0.34);
   overflow: hidden;
 }
 
@@ -467,7 +467,7 @@ export default {
   height: 34px;
   padding: 0;
   cursor: pointer;
-  color: rgba(233, 244, 252, 0.86);
+  color: rgba(241, 238, 230, 0.86);
   i {
     font-size: 18px;
   }
@@ -495,9 +495,9 @@ export default {
   display: -webkit-flex;
   display: flex;
   height: 65px;
-  background-image: -webkit-linear-gradient(left, #102833 10%, #0b5961 100%);
-  background-image: -o-linear-gradient(left, #102833 10%, #0b5961 100%);
-  background-image: linear-gradient(to right, #102833 10%, #0b5961 100%);
+  background-image: -webkit-linear-gradient(left, #1c2129 10%, #343942 100%);
+  background-image: -o-linear-gradient(left, #1c2129 10%, #343942 100%);
+  background-image: linear-gradient(to right, #1c2129 10%, #343942 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#152233', endColorstr='#1A3A5C', GradientType=0);
   filter: none;
@@ -511,7 +511,7 @@ export default {
 }
 
 .user-dropdown .el-dropdown-menu__item {
-  color: rgba(229, 255, 251, 0.92);
+  color: rgba(250, 247, 239, 0.92);
   line-height: 42px;
   padding: 0 18px;
   background: transparent;
@@ -519,17 +519,17 @@ export default {
 }
 
 .user-dropdown .el-dropdown-menu__item:hover {
-  background: rgba(21, 150, 163, 0.22);
+  background: rgba(196, 139, 43, 0.22);
   color: #fff;
 }
 
 .user-dropdown .el-dropdown-menu__item.is-disabled {
-  color: rgba(229, 255, 251, 0.44);
+  color: rgba(250, 247, 239, 0.44);
 }
 
 .user-dropdown .el-dropdown-menu__item--divided {
   margin-top: 0;
-  border-top: 1px solid rgba(111, 240, 224, 0.16);
+  border-top: 1px solid rgba(231, 194, 119, 0.16);
 }
 
 .user-dropdown .el-dropdown-menu__item--divided:before {

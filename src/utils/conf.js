@@ -277,11 +277,6 @@ export const MENUS = [
               //   powerId: 2308
               // }
             ]
-          },
-          {
-            text: '社区健康评估',
-            href: '/community-health',
-            alwaysShow: true
           }
         ]
       },

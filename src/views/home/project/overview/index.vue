@@ -93,6 +93,20 @@
         </div>
       </el-col>
     </el-row>
+    <section class="acceptance-section" aria-labelledby="acceptance-indicators-title">
+      <div class="acceptance-section__header">
+        <h3 id="acceptance-indicators-title">验收指标</h3>
+      </div>
+      <div class="acceptance-indicators">
+        <article
+          v-for="indicator in acceptanceIndicators"
+          :key="indicator.name"
+          :class="['acceptance-indicator', `acceptance-indicator--${indicator.tone}`]">
+          <p class="acceptance-indicator__name">{{ indicator.name }}</p>
+          <strong class="acceptance-indicator__value">{{ indicator.value }}</strong>
+        </article>
+      </div>
+    </section>
     <div class="ship-divider">
       <span class="divider-line"></span>
       <svg class="divider-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M7.8 7.8l2.1 2.1M14.1 14.1l2.1 2.1M7.8 16.2l2.1-2.1M14.1 9.9l2.1-2.1"/></svg>
@@ -190,7 +204,14 @@ export default {
         componentTotal: null,
         vulTotal: null,
         licenseTotal: null
-      }
+      },
+      acceptanceIndicators: [
+        { name: '软件库', value: '42万以上', tone: 'ocean' },
+        { name: '开源项目库', value: '3000万以上', tone: 'amber' },
+        { name: '组件库', value: '1000万以上', tone: 'indigo' },
+        { name: '版本库', value: '1亿以上', tone: 'brick' },
+        { name: '代码特征库', value: '1.5TB以上', tone: 'plum' }
+      ]
     }
   },
   methods: {
@@ -244,6 +265,112 @@ export default {
 
   .el-col {
     margin-bottom: 20px;
+  }
+}
+
+.acceptance-section {
+  margin: 0 0 20px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid var(--ossm-line);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    min-height: 36px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--ossm-primary);
+    padding-left: 10px;
+  }
+
+  h3 {
+    margin: 0;
+    color: var(--ossm-ink);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+}
+
+.acceptance-indicators {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.acceptance-indicator {
+  --indicator-color: var(--ossm-primary);
+  --indicator-surface: #fffdf8;
+  --indicator-line: #e7d6b5;
+
+  box-sizing: border-box;
+  min-height: 96px;
+  border: 1px solid var(--indicator-line);
+  border-top: 3px solid var(--indicator-color);
+  border-radius: var(--ossm-radius);
+  background: var(--indicator-surface);
+  padding: 16px;
+
+  &__name {
+    margin: 0 0 12px;
+    color: var(--ossm-muted);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  &__value {
+    display: block;
+    color: var(--indicator-color);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  &--ocean {
+    --indicator-color: #2d6f89;
+    --indicator-surface: #f2f8fa;
+    --indicator-line: #c8dee6;
+  }
+
+  &--amber {
+    --indicator-color: #ae741c;
+    --indicator-surface: #fff9ed;
+    --indicator-line: #ebd5aa;
+  }
+
+  &--indigo {
+    --indicator-color: #596b9d;
+    --indicator-surface: #f5f6fc;
+    --indicator-line: #d2d8eb;
+  }
+
+  &--brick {
+    --indicator-color: #b35b47;
+    --indicator-surface: #fdf5f2;
+    --indicator-line: #eccdc4;
+  }
+
+  &--plum {
+    --indicator-color: #815d7c;
+    --indicator-surface: #faf5f9;
+    --indicator-line: #e3cedd;
+  }
+}
+
+@media (max-width: 1280px) {
+  .acceptance-indicators {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .acceptance-indicators {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .acceptance-indicators {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

@@ -6,7 +6,7 @@
       <div class="login-wrap">
         <div class="panel-heading">
           <div class="title-wrap">
-            <h4 class="app-name">开源软件评估服务系统</h4>
+            <h4 class="app-name">开源知识库系统</h4>
             <p class="app-summary"></p>
           </div>
         </div>
@@ -394,24 +394,24 @@ export default {
 }
 
 :deep(.disclaimer .el-checkbox__inner) {
-  background-color: rgba(8, 26, 46, 0.28) !important;
-  border: 1px solid rgba(143, 214, 255, 0.72) !important;
+  background-color: rgba(28, 32, 39, 0.42) !important;
+  border: 1px solid rgba(231, 194, 119, 0.72) !important;
   border-radius: 4px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 :deep(.disclaimer .el-checkbox__inner:hover) {
-  border-color: #b9e6ff !important;
-  box-shadow: 0 0 0 3px rgba(143, 214, 255, 0.12);
+  border-color: #f2d28d !important;
+  box-shadow: 0 0 0 3px rgba(231, 194, 119, 0.12);
 }
 
 :deep(.disclaimer .el-checkbox__input.is-checked .el-checkbox__inner) {
-  background: linear-gradient(180deg, rgba(62, 124, 177, 0.92) 0%, rgba(44, 95, 138, 0.92) 100%) !important;
-  border-color: #8fd6ff !important;
+  background: linear-gradient(180deg, rgba(203, 145, 43, 0.92) 0%, rgba(152, 96, 24, 0.92) 100%) !important;
+  border-color: #e7bb65 !important;
 }
 
 :deep(.disclaimer .el-checkbox__inner::after) {
-  border-color: #eff9ff !important;
+  border-color: #f3fff6 !important;
 }
 
 @keyframes flylight1 {
@@ -495,7 +495,7 @@ select:-webkit-autofill {
   overflow: hidden;
   position: relative;
   contain: layout paint;
-  background-color: #091b2e;
+  background-color: var(--ossm-primary);
 
   &::after {
     content: "";
@@ -514,8 +514,9 @@ select:-webkit-autofill {
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(90deg, rgba(7, 19, 34, 0.22) 0%, rgba(7, 19, 34, 0.08) 34%, rgba(7, 19, 34, 0.2) 100%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(7, 19, 34, 0.24) 100%);
+      linear-gradient(90deg, rgba(183, 121, 31, 0.1) 0%, rgba(255, 255, 255, 0.02) 36%, rgba(28, 33, 41, 0.1) 100%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(183, 121, 31, 0.1) 100%);
+    z-index: 1;
     pointer-events: none;
   }
 
@@ -539,7 +540,7 @@ select:-webkit-autofill {
       img {
         max-width: 148px;
         max-height: 96px;
-        filter: drop-shadow(0 8px 18px rgba(5, 20, 36, 0.28));
+        filter: drop-shadow(0 8px 18px rgba(15, 17, 21, 0.28));
       }
     }
 
@@ -550,14 +551,14 @@ select:-webkit-autofill {
       text-align: left;
       min-height: 500px;
       padding: 34px 34px 28px;
-      border: 1px solid rgba(160, 224, 227, 0.3);
+      border: 1px solid rgba(231, 194, 119, 0.32);
       border-radius: 20px;
       background:
-        linear-gradient(145deg, rgba(16, 65, 82, 0.66) 0%, rgba(8, 43, 61, 0.54) 52%, rgba(5, 29, 46, 0.62) 100%),
-        linear-gradient(180deg, rgba(99, 215, 211, 0.11) 0%, rgba(255, 255, 255, 0.025) 100%);
+        linear-gradient(145deg, rgba(38, 41, 48, 0.72) 0%, rgba(27, 30, 36, 0.6) 52%, rgba(20, 23, 29, 0.68) 100%),
+        linear-gradient(180deg, rgba(231, 194, 119, 0.11) 0%, rgba(255, 255, 255, 0.025) 100%);
       backdrop-filter: blur(20px) saturate(128%);
       -webkit-backdrop-filter: blur(20px) saturate(128%);
-      box-shadow: 0 28px 90px rgba(3, 19, 32, 0.44), inset 0 1px 0 rgba(224, 255, 255, 0.14);
+      box-shadow: 0 28px 90px rgba(10, 12, 15, 0.44), inset 0 1px 0 rgba(255, 249, 236, 0.14);
       position: relative;
       overflow: hidden;
 
@@ -565,7 +566,7 @@ select:-webkit-autofill {
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(112deg, rgba(202, 255, 252, 0.12) 0%, rgba(255, 255, 255, 0.02) 28%, transparent 58%);
+        background: linear-gradient(112deg, rgba(255, 240, 207, 0.12) 0%, rgba(216, 164, 71, 0.035) 28%, transparent 58%);
         pointer-events: none;
       }
 
@@ -601,14 +602,14 @@ select:-webkit-autofill {
 
       .app-kicker {
         margin: 0 0 8px;
-        color: rgba(166, 212, 255, 0.88);
+        color: rgba(240, 209, 148, 0.88);
         letter-spacing: 0.22em;
         font-size: 12px;
       }
 
       .app-summary {
         margin: 8px 0 0;
-        color: rgba(220, 235, 247, 0.72);
+        color: rgba(232, 229, 221, 0.72);
         font-size: 13px;
       }
 
@@ -619,7 +620,7 @@ select:-webkit-autofill {
         margin: 0;
         line-height: 1.2;
         display: inline-block;
-        background-image: linear-gradient(90deg, #f4fbff 0%, #b9e6ff 45%, #ffffff 100%);
+        background-image: linear-gradient(90deg, #fffaf0 0%, #f2c979 45%, #fff4df 100%);
         background-size: 100% 100%;
         background-repeat: no-repeat;
         -webkit-background-clip: text;
@@ -628,7 +629,7 @@ select:-webkit-autofill {
 
         &:hover {
           color: transparent;
-          text-shadow: 0 0 22px rgba(143, 214, 255, 0.28);
+          text-shadow: 0 0 22px rgba(231, 194, 119, 0.28);
           filter: brightness(1.08);
           transform: translateY(-1px);
         }
@@ -644,7 +645,7 @@ select:-webkit-autofill {
           outline: none;
 
           &::placeholder {
-            color: rgba(220, 246, 247, 0.66);
+            color: rgba(217, 241, 225, 0.66);
           }
         }
 
@@ -668,25 +669,25 @@ select:-webkit-autofill {
           :deep(.el-radio__input.is-checked .el-radio__inner),
           :deep(.el-radio__input.is-focus .el-radio__inner),
           :deep(.el-radio__inner:hover) {
-            border-color: #8fd6ff;
+            border-color: #e7bb65;
           }
 
           :deep(.el-radio__inner) {
             width: 18px;
             height: 18px;
             background: transparent;
-            border: 2px solid rgba(143, 214, 255, 0.9);
-            box-shadow: 0 0 0 2px rgba(143, 214, 255, 0.08);
+            border: 2px solid rgba(231, 194, 119, 0.9);
+            box-shadow: 0 0 0 2px rgba(231, 194, 119, 0.08);
 
             &::after {
               width: 6px;
               height: 6px;
-              background-color: #8fd6ff;
+              background-color: #e7bb65;
             }
           }
 
           :deep(.el-radio__input.is-checked + .el-radio__label) {
-            color: #dff3ff;
+            color: #dbf4e4;
           }
 
           :deep(.el-radio__label) {
@@ -701,21 +702,21 @@ select:-webkit-autofill {
           font-size: 14px;
           width: 100%;
           height: 100%;
-          border: 1px solid rgba(190, 245, 241, 0.34);
-          background: linear-gradient(110deg, rgba(2, 35, 51, 0.48) 0%, rgba(26, 119, 130, 0.18) 100%);
-          color: #efffff;
+          border: 1px solid rgba(186, 235, 201, 0.34);
+          background: linear-gradient(110deg, rgba(30, 33, 40, 0.58) 0%, rgba(84, 68, 38, 0.2) 100%);
+          color: #fffaf0;
           border-radius: 10px;
           box-sizing: border-box;
-          box-shadow: inset 0 1px 0 rgba(224, 255, 255, 0.08);
+          box-shadow: inset 0 1px 0 rgba(224, 255, 230, 0.08);
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
           transition: border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
 
           &:hover,
           &:focus {
-            border-color: rgba(95, 211, 202, 0.72);
-            box-shadow: 0 0 0 3px rgba(29, 164, 158, 0.16), inset 0 1px 0 rgba(116, 224, 216, 0.1);
-            background: linear-gradient(110deg, rgba(2, 42, 58, 0.62) 0%, rgba(29, 137, 145, 0.28) 100%);
+            border-color: rgba(223, 169, 74, 0.72);
+            box-shadow: 0 0 0 3px rgba(196, 139, 43, 0.16), inset 0 1px 0 rgba(241, 202, 123, 0.1);
+            background: linear-gradient(110deg, rgba(36, 34, 27, 0.66) 0%, rgba(115, 80, 29, 0.3) 100%);
           }
         }
 
@@ -733,10 +734,10 @@ select:-webkit-autofill {
             top: 7px;
             z-index: 1;
             pointer-events: none;
-            background-color: #78ded7;
+            background-color: #efbf64;
             -webkit-mask: url(~@/assets/images/user.png) center / contain no-repeat;
             mask: url(~@/assets/images/user.png) center / contain no-repeat;
-            filter: drop-shadow(0 0 3px rgba(120, 222, 215, 0.22));
+            filter: drop-shadow(0 0 3px rgba(239, 191, 100, 0.22));
           }
         }
 
@@ -753,10 +754,10 @@ select:-webkit-autofill {
             top: 7px;
             z-index: 1;
             pointer-events: none;
-            background-color: #78ded7;
+            background-color: #efbf64;
             -webkit-mask: url(~@/assets/images/password.png) center / contain no-repeat;
             mask: url(~@/assets/images/password.png) center / contain no-repeat;
-            filter: drop-shadow(0 0 3px rgba(120, 222, 215, 0.22));
+            filter: drop-shadow(0 0 3px rgba(239, 191, 100, 0.22));
           }
         }
 
@@ -771,37 +772,37 @@ select:-webkit-autofill {
           align-items: center;
           justify-content: flex-start;
           text-align: left;
-          color: rgba(232, 251, 250, 0.9);
+          color: rgba(248, 245, 237, 0.9);
           margin-top: 18px;
           font-size: 13px;
 
           :deep(.el-link) {
             margin-left: 10px;
-            color: #b8f6f1 !important;
+            color: #f0c675 !important;
             text-decoration: underline;
             text-underline-offset: 3px;
             transition: color 0.2s ease, text-shadow 0.2s ease;
 
             &:hover {
               color: #ffffff !important;
-              text-shadow: 0 0 12px rgba(182, 246, 241, 0.24);
+              text-shadow: 0 0 12px rgba(240, 198, 117, 0.24);
             }
           }
         }
 
         .login-submit {
           :deep(.el-button--primary) {
-            border-color: rgba(99, 211, 202, 0.58);
-            background: linear-gradient(135deg, #1397a1 0%, #087e8b 52%, #066d7b 100%);
+            border-color: rgba(238, 194, 109, 0.58);
+            background: linear-gradient(135deg, #d19a3e 0%, #aa711e 52%, #825015 100%);
             color: #ffffff;
-            box-shadow: 0 10px 22px rgba(3, 46, 59, 0.26), inset 0 1px 0 rgba(106, 221, 213, 0.16);
+            box-shadow: 0 10px 22px rgba(68, 45, 16, 0.26), inset 0 1px 0 rgba(255, 224, 161, 0.16);
 
             &:hover,
             &:focus {
-              border-color: rgba(104, 222, 213, 0.74);
-              background: linear-gradient(135deg, #11949e 0%, #0a8792 52%, #066f7d 100%);
+              border-color: rgba(255, 221, 150, 0.74);
+              background: linear-gradient(135deg, #dfa948 0%, #bd7e24 52%, #905818 100%);
               color: #ffffff;
-              box-shadow: 0 12px 26px rgba(3, 46, 59, 0.32), inset 0 1px 0 rgba(113, 230, 221, 0.18);
+              box-shadow: 0 12px 26px rgba(68, 45, 16, 0.32), inset 0 1px 0 rgba(255, 230, 177, 0.18);
             }
           }
         }
@@ -815,7 +816,7 @@ select:-webkit-autofill {
 
         :deep(.el-link) {
           display: inline-block;
-          color: #b8f6f1 !important;
+          color: #f0c675 !important;
           text-decoration: underline;
           text-underline-offset: 3px;
 
@@ -886,7 +887,7 @@ select:-webkit-autofill {
       display: block;
       max-width: 100%;
       font-size: 24px;
-      color: #eefcff;
+      color: #fffaf0;
       background-image: none;
       -webkit-background-clip: initial;
       background-clip: initial;
@@ -914,7 +915,7 @@ select:-webkit-autofill {
 
 .forget-pwd {
   font-size: 13px;
-  color: rgba(216, 232, 244, 0.9);
+  color: rgba(229, 226, 218, 0.9);
   line-height: 1.7;
 
   p {
@@ -945,21 +946,21 @@ body:has(#login-container) {
 }
 
 .forget-pwd-popover {
-  border: 1px solid rgba(184, 246, 241, 0.42) !important;
+  border: 1px solid rgba(240, 198, 117, 0.42) !important;
   border-radius: 12px !important;
   background:
-    linear-gradient(145deg, rgba(20, 157, 164, 0.8) 0%, rgba(5, 91, 104, 0.78) 100%),
-    rgba(5, 68, 80, 0.7) !important;
+    linear-gradient(145deg, rgba(183, 121, 31, 0.8) 0%, rgba(112, 73, 20, 0.78) 100%),
+    rgba(40, 36, 28, 0.7) !important;
   backdrop-filter: blur(18px) saturate(130%);
   -webkit-backdrop-filter: blur(18px) saturate(130%);
-  box-shadow: 0 20px 50px rgba(3, 19, 32, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 20px 50px rgba(10, 12, 15, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
   color: #ffffff !important;
   padding: 16px 18px !important;
 }
 
 .forget-pwd-popover[x-placement^="top"] .popper__arrow,
 .forget-pwd-popover[x-placement^="top"] .popper__arrow::after {
-  border-top-color: rgba(5, 91, 104, 0.88) !important;
+  border-top-color: rgba(112, 73, 20, 0.88) !important;
 }
 
 .forget-pwd-popover .el-popover__title {
