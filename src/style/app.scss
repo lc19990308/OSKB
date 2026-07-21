@@ -441,34 +441,6 @@ svg.icon {
   border: 0;
 }
 
-@keyframes shipFloat {
-  0%,
-  100% {
-    transform: translateX(-52%) translateY(0) rotate(-2deg);
-  }
-
-  50% {
-    transform: translateX(-48%) translateY(-4px) rotate(2deg);
-  }
-}
-
-@keyframes waveSlide {
-  0% {
-    transform: translateX(-50%) translateY(0);
-    opacity: 0.55;
-  }
-
-  50% {
-    transform: translateX(-50%) translateY(2px);
-    opacity: 0.9;
-  }
-
-  100% {
-    transform: translateX(-50%) translateY(0);
-    opacity: 0.55;
-  }
-}
-
 @keyframes inputWave {
   0%,
   100% {
@@ -497,69 +469,29 @@ svg.icon {
   backdrop-filter: blur(1px);
 }
 
-.global-loading,
 .el-loading-spinner {
   position: relative;
 }
 
-.global-loading {
-  display: block;
-  left: 50%;
-  top: 50%;
-  width: 84px;
-  height: 54px;
-  margin: -27px 0 0 -42px;
-}
-
 .el-loading-spinner {
-  margin-top: -27px;
-  height: 54px;
+  margin-top: -18px;
+  height: 36px;
 }
 
-.el-loading-spinner .circular,
-.el-loading-spinner .el-icon-loading,
-.el-loading-spinner .el-icon-refresh {
-  display: none !important;
-}
-
-.global-loading::before {
-  content: "\e73f";
-  position: absolute;
-  left: 50%;
-  top: 0;
+.el-loading-spinner .el-icon-loading {
+  display: block;
   color: rgba(35, 93, 136, 0.92);
-  font-family: element-icons !important;
-  font-size: 28px;
+  font-size: 32px;
   line-height: 1;
-  font-weight: 400;
-  animation: shipFloat 1.5s ease-in-out infinite;
-}
-
-.global-loading::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 33px;
-  width: 56px;
-  height: 10px;
-  background:
-    linear-gradient(90deg, transparent 0%, rgba(87, 155, 201, 0.72) 18%, rgba(87, 155, 201, 0.72) 82%, transparent 100%) center 2px / 100% 1px no-repeat,
-    linear-gradient(90deg, transparent 10%, rgba(87, 155, 201, 0.5) 26%, rgba(87, 155, 201, 0.5) 74%, transparent 90%) center 8px / 78% 1px no-repeat;
-  animation: waveSlide 1.5s ease-in-out infinite;
 }
 
 .el-loading-spinner .el-loading-text {
   display: block;
-  margin-top: 46px;
+  margin-top: 44px;
   color: rgba(35, 93, 136, 0.88);
-  font-size: 0;
+  font-size: 12px;
   line-height: 16px;
-  letter-spacing: 0.12em;
-}
-
-.el-loading-spinner .el-loading-text::before {
-  content: "航行中";
-  font-size: 11px;
+  letter-spacing: 0;
 }
 
 .el-table th {
@@ -1184,10 +1116,7 @@ svg.icon {
 }
 
 .el-main.main {
-  background-image: url('~@/assets/images/layout-bg.png');
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
+  background-color: #f4f7fa;
 }
 
 .view-content {

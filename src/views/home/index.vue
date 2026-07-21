@@ -62,13 +62,11 @@ export default {
 }
 
 :deep(.el-main.main) {
-  background: url(~@/assets/images/layout-bg.png) no-repeat center top / cover !important;
+  background-color: #f4f7fa !important;
 }
 
 .el-main {
-  background:
-    radial-gradient(circle at top, rgba(44, 95, 138, 0.04) 0, transparent 28%),
-    linear-gradient(180deg, #f4f7fa 0%, #eef3f7 100%);
+  background-color: #f4f7fa;
   color: $text-color-primary;
   -webkit-box-flex: 1;
   -moz-box-flex: 1;

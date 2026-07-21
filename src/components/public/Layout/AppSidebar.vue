@@ -2,8 +2,11 @@
   <div class="sidebar-wrap" :class="classObj" v-if="!hideMenus">
     <div class="aside sidebar-container">
       <div class="aside-logo" @click="$router.push('/')">
-        <img v-show="!!navLogoUrl && !sidebarCollapse" :src="navLogoUrl" alt="">
-        <img v-show="!!navLogoUrl && sidebarCollapse" :src="navLogoMiniUrl" class="small" alt="">
+        <img class="brand-mark" :src="brandMarkUrl" alt="开源软件评估服务系统">
+        <div class="brand-copy" v-show="!sidebarCollapse">
+          <strong>开源软件评估</strong>
+          <span>开源软件评估服务系统</span>
+        </div>
       </div>
       <el-scrollbar>
         <el-aside width="auto">
@@ -72,6 +75,7 @@ export default {
       menus: cloneDeep(MENUS),
       openeds: ['2-0'],
       openedsDf: ['2-0'],
+      brandMarkUrl: require('@/assets/images/brand/open-source-evaluation-mark.png'),
       asideLogoUrl: require('@/assets/images/confimg/nav_logo.png'),
       asideSmallLogoUrl: require('@/assets/images/confimg/logo.png'),
       hideMenus: false
@@ -114,13 +118,13 @@ export default {
       const sourceCheckEnable = this.sourceCheckEnable;
       return (item) => {
         if (item.text === '二进制成分分析' && !binaryEnable) {
-          return false
+          return  false
         }
         if (item.href === '/scan/app/code' && (!homologyEnable || sourceCheckEnable)) {
           return false
         }
         if (item.href === '/scan/app/v4_code' && !sourceCheckEnable) {
-          return  false
+          return false
         }
         if (item.text === '镜像安全扫描' && !imageEnable) {
           return false
@@ -145,7 +149,10 @@ export default {
         let hasPower = false
         item.forEach(it => {
           this.$set(it, '$show', false)
-          if (!it.isPublic) {
+          if (it.alwaysShow) {
+            this.$set(it, '$show', true)
+            hasPower = true
+          } else if (!it.isPublic) {
             if (it.ops) {
               this.$set(it, '$show', func(it.ops))
               if (it.$show) {
@@ -274,8 +281,8 @@ export default {
   z-index: 999;
   height: 100%;
   background:
-    radial-gradient(circle at top, rgba(76, 137, 186, 0.24) 0, transparent 34%),
-    linear-gradient(180deg, #0d1c2d 0%, #13273d 35%, #1a3a5c 100%);
+    radial-gradient(circle at 18% 0%, rgba(21, 150, 163, 0.2) 0, transparent 34%),
+    linear-gradient(180deg, #102833 0%, #123541 54%, #0b5961 100%);
   box-shadow: 12px 0 32px rgba(5, 20, 36, 0.24);
   overflow: hidden;
 
@@ -296,7 +303,7 @@ export default {
     right: 10px;
     top: 74px;
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(143, 214, 255, 0.28) 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(111, 240, 224, 0.32) 50%, transparent 100%);
     pointer-events: none;
   }
 
@@ -323,6 +330,18 @@ export default {
     }
   }
 
+  .brand-mark {
+    display: block;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    border: 0;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 5px 14px rgba(3, 18, 32, 0.2);
+    object-fit: cover;
+  }
+
   .el-scrollbar {
     flex: 1;
     min-height: 0;
@@ -337,14 +356,14 @@ export default {
           font-size: 12px;
 
           .el-menu {
-            color: #c9ddec;
+            color: #c8e3e0;
             padding: 0;
 
             .menus-header {
               padding: 0 18px;
               height: 42px;
               line-height: 42px;
-              color: #8fb7d5;
+              color: #88b7b6;
               letter-spacing: 0.08em;
             }
 
@@ -371,34 +390,35 @@ export default {
             }
 
             :deep(.el-menu-item) {
-              color: #d8e7f3;
+              color: #d9efed;
 
               &:hover {
-                background: linear-gradient(90deg, rgba(62, 124, 177, 0.16) 0%, rgba(62, 124, 177, 0.06) 100%);
-                border-color: rgba(143, 214, 255, 0.12);
+                background: linear-gradient(90deg, rgba(21, 150, 163, 0.2) 0%, rgba(21, 150, 163, 0.07) 100%);
+                border-color: rgba(111, 240, 224, 0.22);
                 color: #ffffff;
               }
 
               &.is-active {
-                background: linear-gradient(90deg, rgba(44, 95, 138, 0.95) 0%, rgba(62, 124, 177, 0.82) 100%);
-                border-color: rgba(143, 214, 255, 0.24);
-                box-shadow: 0 10px 26px rgba(5, 20, 36, 0.28);
+                background: linear-gradient(90deg, #087e8b 0%, #0c6971 100%);
+                border-color: rgba(111, 240, 224, 0.38);
+                box-shadow: inset 3px 0 0 #62e2d9, 0 8px 20px rgba(4, 55, 61, 0.24);
                 color: #fff;
               }
             }
 
             :deep(.el-submenu__title) {
-              color: #d8e7f3;
+              color: #d9efed;
 
               &:hover {
-                background: linear-gradient(90deg, rgba(62, 124, 177, 0.14) 0%, rgba(62, 124, 177, 0.05) 100%);
-                border-color: rgba(143, 214, 255, 0.12);
+                background: linear-gradient(90deg, rgba(21, 150, 163, 0.18) 0%, rgba(21, 150, 163, 0.06) 100%);
+                border-color: rgba(111, 240, 224, 0.22);
                 color: #ffffff;
               }
             }
 
             :deep(.el-submenu.is-opened > .el-submenu__title) {
-              background: rgba(255, 255, 255, 0.04);
+              background: rgba(21, 150, 163, 0.16);
+              border-color: rgba(111, 240, 224, 0.2);
               color: #fff;
             }
 
@@ -408,7 +428,7 @@ export default {
 
             :deep(.el-menu-item i),
             :deep(.el-submenu__title i) {
-              color: #8fb7d5;
+              color: #90c9c4;
             }
 
             :deep(.menu-icon) {
@@ -425,7 +445,7 @@ export default {
             :deep(.el-menu-item.is-active i),
             :deep(.el-menu-item:hover i),
             :deep(.el-submenu__title:hover i) {
-              color: #e8f7ff;
+              color: #d9fffb;
             }
           }
         }
@@ -444,7 +464,7 @@ export default {
     display: block;
     width: 86%;
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(143, 214, 255, 0.22) 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(111, 240, 224, 0.22) 50%, transparent 100%);
     position: absolute;
     top: 0;
     left: 7%;

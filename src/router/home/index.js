@@ -12,6 +12,7 @@ import Extension from '@/router/home/extension'
 import Message from '@/router/home/message'
 import project from '@/router/home/project'
 import integrated from '@/router/home/integrated'
+import CommunityHealth from '@/router/home/communityHealth'
 export default [
   {
     path: '404',
@@ -155,6 +156,7 @@ export default [
     component: () => import('@/views/home/scan/index.vue'),
     children: Scan
   },
+  CommunityHealth,
   {
     path: 'account',
     meta: {

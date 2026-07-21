@@ -61,13 +61,13 @@
             <div style="display: flex;width: 100%;">
               <div style="flex: 1;" class="m-r-15">
                 <el-input ref="input" placeholder="令牌格式为32~64位的数字及英文字母组合" style="width: 100%;" size="medium" :disabled="readonly" v-model="token">
-                  <span v-if="readonly" class="text-regular font-base cursor-pointer" style="vertical-align: middle;padding: 2px 7px;border-radius: 2px;background: #fff;" slot="suffix" @click="copyToken">复制</span>
+                  <span v-if="readonly" class="token-copy-btn text-regular font-base cursor-pointer" slot="suffix" @click="copyToken">复制</span>
                 </el-input>
               </div>
               <div>
-                <el-button size="medium" v-if="readonly" plain style="border-color: #2C5F8A;color: #2C5F8A;"  class="m-r-15" @click="readonly = false">修改</el-button>
+                <el-button size="medium" v-if="readonly" plain class="token-action-btn m-r-15" @click="readonly = false">修改</el-button>
                 <el-button size="medium" v-else type="primary" class="m-r-15" @click="saveToken()">保存</el-button>
-                <el-button size="medium" style="border-color: #2C5F8A;color: #2C5F8A;margin-left: 0;" plain v-if="readonly" @click="randomlyGeneratedToken">随机生成</el-button>
+                <el-button size="medium" class="token-action-btn token-action-btn--adjacent" plain v-if="readonly" @click="randomlyGeneratedToken">随机生成</el-button>
                 <el-button size="medium" v-else style="margin-left: 0;" plain @click="cancelTokenCreate">取消</el-button>
               </div>
             </div>
@@ -206,6 +206,47 @@ export default {
       transform: translateY(-50%);
     }
   }
+}
+
+.token-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  margin: 2px 4px 2px 0;
+  padding: 0 8px;
+  border-left: 1px solid #cdebe8;
+  border-radius: 3px;
+  background: #edf8f8;
+  color: #087e8b;
+  transition: background-color 0.18s ease, color 0.18s ease;
+
+  &:hover {
+    background: #d8f1ef;
+    color: #065a64;
+  }
+}
+
+:deep(.el-button.token-action-btn) {
+  border-color: #087e8b;
+  background: #fff;
+  color: #087e8b;
+
+  &:focus,
+  &:hover {
+    border-color: #1596a3;
+    background: #edf8f8;
+    color: #087e8b;
+  }
+
+  &:active {
+    border-color: #065a64;
+    background: #d8f1ef;
+    color: #065a64;
+  }
+}
+
+:deep(.token-action-btn--adjacent) {
+  margin-left: 0 !important;
 }
 
 .wrap {

@@ -60,13 +60,20 @@ export default {
 
 <style scoped lang="scss">
 :deep(.disclaimer-dialog) {
-  border: 1px solid rgba(143, 214, 255, 0.24);
+  border: 1px solid rgba(153, 235, 226, 0.3);
   border-radius: 20px;
   overflow: hidden;
   background:
-    radial-gradient(circle at top, rgba(84, 147, 202, 0.16) 0, transparent 32%),
-    linear-gradient(180deg, rgba(17, 44, 73, 0.96) 0%, rgba(8, 26, 46, 0.98) 100%);
-  box-shadow: 0 30px 90px rgba(5, 20, 36, 0.34);
+    linear-gradient(145deg, rgba(22, 112, 121, 0.76) 0%, rgba(7, 57, 69, 0.78) 100%),
+    rgba(6, 45, 57, 0.68);
+  backdrop-filter: blur(22px) saturate(120%);
+  -webkit-backdrop-filter: blur(22px) saturate(120%);
+  box-shadow: 0 30px 90px rgba(2, 24, 35, 0.38), inset 0 1px 0 rgba(224, 255, 251, 0.12);
+
+  .el-dialog__header {
+    background: rgba(5, 55, 68, 0.24);
+    border-bottom: 1px solid rgba(173, 245, 238, 0.16);
+  }
 
   .el-dialog__body {
     padding: 22px 24px 18px;
@@ -76,19 +83,19 @@ export default {
   .el-dialog__footer {
     padding: 0 24px 22px;
     border-top: none;
-    background: transparent;
+    background: linear-gradient(180deg, transparent 0%, rgba(3, 42, 53, 0.16) 100%);
   }
 
   .el-button {
-    color: #dff3ff;
-    background: rgba(44, 95, 138, 0.32);
-    border-color: rgba(143, 214, 255, 0.28);
+    color: #dcfffb;
+    background: rgba(17, 132, 142, 0.2);
+    border-color: rgba(159, 241, 233, 0.32);
 
     &:hover,
     &:focus {
       color: #ffffff;
-      background: rgba(62, 124, 177, 0.5);
-      border-color: rgba(143, 214, 255, 0.5);
+      background: rgba(21, 150, 163, 0.42);
+      border-color: rgba(194, 255, 249, 0.58);
     }
   }
 }
@@ -96,7 +103,7 @@ export default {
 pre {
   margin: 0;
   white-space: pre-line;
-  color: rgba(216, 232, 244, 0.9);
+  color: rgba(222, 248, 245, 0.9);
   line-height: 1.85;
   font-size: 14px;
   font-family: "Microsoft YaHei", sans-serif;
@@ -107,7 +114,7 @@ pre {
   .text-right {
     display: block;
     text-align: right;
-    color: rgba(173, 214, 242, 0.78);
+    color: rgba(173, 229, 224, 0.8);
   }
 
   &::-webkit-scrollbar {
@@ -115,12 +122,12 @@ pre {
   }
 
   &::-webkit-scrollbar-thumb {
-    background: rgba(143, 214, 255, 0.35);
+    background: rgba(129, 225, 216, 0.44);
     border-radius: 999px;
   }
 
   &::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(197, 255, 249, 0.06);
   }
 }
 </style>

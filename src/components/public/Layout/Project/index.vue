@@ -95,33 +95,48 @@ export default {
 
 <style scoped lang="scss">
 :deep(.el-input__inner){
-  background: #eff3f6 !important;
-  color: #333 !important;
-  border-radius: 4px;
-  border-color: #eff3f6 ;
+  background: rgba(5, 65, 72, 0.54) !important;
+  color: #e8fffc !important;
+  border: 1px solid rgba(111, 240, 224, 0.24);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 :deep(.el-select__caret){
-  color: #333 !important;
+  color: #a9e5df !important;
 
 }
 :deep(.el-select__caret.is-reverse){
-  color: $color-primary !important;
+  color: #62e2d9 !important;
   font-weight: bold;
 }
 
 </style>
 <style lang="scss">
 .project-select_popper{
+  padding: 6px;
+  border: 1px solid rgba(111, 240, 224, 0.24);
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at top, rgba(63, 203, 194, 0.14) 0%, transparent 42%),
+    linear-gradient(180deg, #0d3d45 0%, #072b33 100%);
+  box-shadow: 0 16px 40px rgba(4, 38, 45, 0.32);
+
   .el-select-dropdown__item{
     height: 40px !important;
     line-height: 40px !important;
     padding-right: 15px !important;
     width: 215px !important;
+    border-radius: 4px;
+    color: #d9efed;
   }
   .el-select-dropdown__item.selected {
-    background: #EFF3F6;
+    background: rgba(8, 126, 139, 0.82);
+    color: #fff;
   }
   .el-select-dropdown__item.hover{
+    background: rgba(21, 150, 163, 0.22);
+    color: #fff;
+
     .el-button{
       opacity: 1 !important;
       cursor: pointer;

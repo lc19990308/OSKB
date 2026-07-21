@@ -1,24 +1,12 @@
 <template>
-  <div
-    id="login-container"
-    class="login h-full"
-    :style="loginDynamicStyle"
-    @mousemove="handleMouseMove"
-    @mouseleave="handleMouseLeave"
-  >
+  <div id="login-container" class="login h-full">
     <dialog-disclaimer ref="disclaimer"></dialog-disclaimer>
     <dialog-force-login ref="forceLogin" callback="forceLogin"></dialog-force-login>
-    <div class="scene-layer scene-radar"></div>
-    <div class="scene-layer scene-glow"></div>
-    <div class="scene-layer scene-wave wave-back"></div>
-    <div class="scene-layer scene-wave wave-front"></div>
-    <div class="scene-layer cursor-ripple"></div>
-    <div class="scene-layer cursor-foam"></div>
     <div class="login-content">
       <div class="login-wrap">
         <div class="panel-heading">
           <div class="title-wrap">
-            <h4 class="app-name">{{ siteName }}</h4>
+            <h4 class="app-name">开源软件评估服务系统</h4>
             <p class="app-summary"></p>
           </div>
         </div>
@@ -118,8 +106,8 @@ export default {
   data () {
     return {
       formState: {
-        password: 'Xmirror!@#123',
-        user: 'xcheck'
+        password: '',
+        user: ''
       },
       disclaimerTooltip: false,
       visibleTooltip: false,
@@ -131,42 +119,19 @@ export default {
       past_time: null,
       message: '',
       errorTimeout: null,
-      loading: false,
-      mouseX: 0,
-      mouseY: 0,
-      rippleOpacity: 0
+      loading: false
     }
   },
   computed: {
     ...mapState({
-      siteName: state => state.site.siteName,
       copyright: state => state.site.copyright,
       accessToken: state => state.login.accessToken,
       ossoidcProperties: state => state.site.ossoidcProperties,
       loginVerifyType: state => state.site.loginVerifyType
-    }),
-    loginDynamicStyle () {
-      return {
-        '--cursor-x': `${this.mouseX}px`,
-        '--cursor-y': `${this.mouseY}px`,
-        '--ripple-opacity': this.rippleOpacity,
-        '--drift-x': `${(this.mouseX - window.innerWidth / 2) / 90}px`,
-        '--drift-y': `${(this.mouseY - window.innerHeight / 2) / 120}px`
-      }
-    }
+    })
   },
   methods: {
     isArray,
-    handleMouseMove (event) {
-      this.mouseX = event.clientX
-      this.mouseY = event.clientY
-      this.rippleOpacity = 1
-    },
-    handleMouseLeave () {
-      this.mouseX = window.innerWidth * 0.72
-      this.mouseY = window.innerHeight * 0.72
-      this.rippleOpacity = 0
-    },
     handleButtonLogin () {
       if (this.disclaimer) {
         if (!this.formState.user) {
@@ -276,7 +241,6 @@ export default {
     if (localStore.get('disclaimer') === '1') {
       this.disclaimer = localStore.get('disclaimer') === '1'
     }
-    this.handleMouseLeave()
     this.$store.dispatch('clearUserInfo')
   },
   beforeRouteEnter (to, from, next) {
@@ -531,22 +495,16 @@ select:-webkit-autofill {
   overflow: hidden;
   position: relative;
   contain: layout paint;
-  --cursor-x: 70%;
-  --cursor-y: 72%;
-  --ripple-opacity: 0;
-  --drift-x: 0px;
-  --drift-y: 0px;
   background-color: #091b2e;
 
   &::after {
     content: "";
     position: absolute;
-    inset: -28px;
-    background-image: url(~@/assets/images/login/ship-login-bg.png);
-    background-position: calc(50% + var(--drift-x)) calc(50% + var(--drift-y));
+    inset: 0;
+    background-image: url(~@/assets/images/login/login-tech-bg.png);
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: background-position 240ms ease-out;
     z-index: 0;
     pointer-events: none;
   }
@@ -559,74 +517,6 @@ select:-webkit-autofill {
       linear-gradient(90deg, rgba(7, 19, 34, 0.22) 0%, rgba(7, 19, 34, 0.08) 34%, rgba(7, 19, 34, 0.2) 100%),
       linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(7, 19, 34, 0.24) 100%);
     pointer-events: none;
-  }
-
-  .scene-layer {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .scene-radar {
-    background:
-      radial-gradient(circle at 16% 42%, rgba(146, 206, 255, 0.14) 0, rgba(146, 206, 255, 0.05) 28%, transparent 60%),
-      radial-gradient(circle at 80% 76%, rgba(146, 206, 255, 0.08) 0, transparent 22%);
-    opacity: 0.75;
-    mix-blend-mode: screen;
-    transform: translate3d(calc(var(--drift-x) * -0.5), calc(var(--drift-y) * -0.5), 0);
-  }
-
-  .scene-glow {
-    background:
-      radial-gradient(circle at 24% 70%, rgba(255, 255, 255, 0.18) 0, transparent 16%),
-      radial-gradient(circle at 78% 84%, rgba(138, 214, 255, 0.12) 0, transparent 12%);
-    opacity: 0.65;
-    animation: seaGlow 9s ease-in-out infinite alternate;
-    mix-blend-mode: screen;
-  }
-
-  .scene-wave {
-    top: auto;
-    height: 34%;
-    bottom: -2%;
-    background-repeat: repeat-x;
-    background-size: 1200px 100%;
-    opacity: 0.5;
-  }
-
-  .wave-back {
-    background-image:
-      radial-gradient(ellipse at 50% 100%, rgba(133, 203, 255, 0.16) 0, rgba(133, 203, 255, 0.12) 15%, transparent 55%),
-      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 24px, rgba(255, 255, 255, 0) 24px 48px);
-    filter: blur(10px);
-    animation: waveMove 18s linear infinite;
-  }
-
-  .wave-front {
-    background-image:
-      radial-gradient(ellipse at 50% 100%, rgba(198, 235, 255, 0.16) 0, rgba(198, 235, 255, 0.09) 16%, transparent 58%),
-      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.11) 0 40px, rgba(255, 255, 255, 0) 40px 76px);
-    filter: blur(4px);
-    animation: waveMoveReverse 12s linear infinite;
-  }
-
-  .cursor-ripple {
-    opacity: var(--ripple-opacity);
-    background:
-      radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(133, 214, 255, 0.26) 0, rgba(133, 214, 255, 0.16) 36px, rgba(133, 214, 255, 0.08) 78px, transparent 150px),
-      radial-gradient(circle at calc(var(--cursor-x) + 28px) calc(var(--cursor-y) + 18px), rgba(255, 255, 255, 0.24) 0, transparent 28px);
-    transition: opacity 0.35s ease;
-    mix-blend-mode: screen;
-  }
-
-  .cursor-foam {
-    opacity: calc(var(--ripple-opacity) * 0.95);
-    background:
-      radial-gradient(ellipse at var(--cursor-x) calc(var(--cursor-y) + 18px), rgba(255, 255, 255, 0.24) 0, rgba(255, 255, 255, 0.12) 16px, transparent 62px),
-      radial-gradient(ellipse at calc(var(--cursor-x) - 24px) calc(var(--cursor-y) + 24px), rgba(255, 255, 255, 0.14) 0, transparent 54px);
-    filter: blur(2px);
-    transition: opacity 0.35s ease;
   }
 
   .login-content {
@@ -660,41 +550,29 @@ select:-webkit-autofill {
       text-align: left;
       min-height: 500px;
       padding: 34px 34px 28px;
-      border: 1px solid rgba(255, 255, 255, 0.26);
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(16, 42, 69, 0.54) 0%, rgba(8, 26, 46, 0.48) 100%);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 28px 90px rgba(5, 20, 36, 0.24), inset 0 0 0 1px rgba(143, 214, 255, 0.08);
+      border: 1px solid rgba(160, 224, 227, 0.3);
+      border-radius: 20px;
+      background:
+        linear-gradient(145deg, rgba(16, 65, 82, 0.66) 0%, rgba(8, 43, 61, 0.54) 52%, rgba(5, 29, 46, 0.62) 100%),
+        linear-gradient(180deg, rgba(99, 215, 211, 0.11) 0%, rgba(255, 255, 255, 0.025) 100%);
+      backdrop-filter: blur(20px) saturate(128%);
+      -webkit-backdrop-filter: blur(20px) saturate(128%);
+      box-shadow: 0 28px 90px rgba(3, 19, 32, 0.44), inset 0 1px 0 rgba(224, 255, 255, 0.14);
       position: relative;
       overflow: hidden;
-      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 
-      &::after {
+      &::before {
         content: "";
         position: absolute;
         inset: 0;
-        border-radius: inherit;
-        border: 1px solid transparent;
-        background:
-          linear-gradient(120deg, rgba(143, 214, 255, 0) 0%, rgba(143, 214, 255, 0.45) 50%, rgba(143, 214, 255, 0) 100%) border-box;
-        -webkit-mask:
-          linear-gradient(#fff 0 0) padding-box,
-          linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        opacity: 0;
-        transition: opacity 0.25s ease;
+        background: linear-gradient(112deg, rgba(202, 255, 252, 0.12) 0%, rgba(255, 255, 255, 0.02) 28%, transparent 58%);
         pointer-events: none;
       }
 
-      &:hover {
-        border-color: rgba(143, 214, 255, 0.38);
-        box-shadow: 0 34px 100px rgba(5, 20, 36, 0.3), 0 0 0 1px rgba(143, 214, 255, 0.16);
-        transform: translateY(-2px);
-
-        &::after {
-          opacity: 1;
-        }
+      .panel-heading,
+      .login-form {
+        position: relative;
+        z-index: 1;
       }
 
       .panel-heading {
@@ -766,7 +644,7 @@ select:-webkit-autofill {
           outline: none;
 
           &::placeholder {
-            color: #fff;
+            color: rgba(220, 246, 247, 0.66);
           }
         }
 
@@ -823,18 +701,21 @@ select:-webkit-autofill {
           font-size: 14px;
           width: 100%;
           height: 100%;
-          border: 1px solid rgba(255, 255, 255, 0.86);
-          background-color: rgba(6, 20, 35, 0.16);
-          color: #fff;
+          border: 1px solid rgba(190, 245, 241, 0.34);
+          background: linear-gradient(110deg, rgba(2, 35, 51, 0.48) 0%, rgba(26, 119, 130, 0.18) 100%);
+          color: #efffff;
           border-radius: 10px;
           box-sizing: border-box;
-          transition: border-color 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+          box-shadow: inset 0 1px 0 rgba(224, 255, 255, 0.08);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          transition: border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
 
           &:hover,
           &:focus {
-            border-color: #8fd6ff;
-            box-shadow: 0 0 0 3px rgba(143, 214, 255, 0.12);
-            background-color: rgba(6, 20, 35, 0.24);
+            border-color: rgba(95, 211, 202, 0.72);
+            box-shadow: 0 0 0 3px rgba(29, 164, 158, 0.16), inset 0 1px 0 rgba(116, 224, 216, 0.1);
+            background: linear-gradient(110deg, rgba(2, 42, 58, 0.62) 0%, rgba(29, 137, 145, 0.28) 100%);
           }
         }
 
@@ -850,9 +731,12 @@ select:-webkit-autofill {
             position: absolute;
             left: 6px;
             top: 7px;
-            background-image: url(~@/assets/images/user.png);
-            background-repeat: no-repeat;
-            background-size: contain;
+            z-index: 1;
+            pointer-events: none;
+            background-color: #78ded7;
+            -webkit-mask: url(~@/assets/images/user.png) center / contain no-repeat;
+            mask: url(~@/assets/images/user.png) center / contain no-repeat;
+            filter: drop-shadow(0 0 3px rgba(120, 222, 215, 0.22));
           }
         }
 
@@ -867,9 +751,12 @@ select:-webkit-autofill {
             position: absolute;
             left: 6px;
             top: 7px;
-            background-image: url(~@/assets/images/password.png);
-            background-repeat: no-repeat;
-            background-size: contain;
+            z-index: 1;
+            pointer-events: none;
+            background-color: #78ded7;
+            -webkit-mask: url(~@/assets/images/password.png) center / contain no-repeat;
+            mask: url(~@/assets/images/password.png) center / contain no-repeat;
+            filter: drop-shadow(0 0 3px rgba(120, 222, 215, 0.22));
           }
         }
 
@@ -884,30 +771,59 @@ select:-webkit-autofill {
           align-items: center;
           justify-content: flex-start;
           text-align: left;
-          color: rgba(201, 223, 239, 0.88);
+          color: rgba(232, 251, 250, 0.9);
           margin-top: 18px;
           font-size: 13px;
 
           :deep(.el-link) {
             margin-left: 10px;
-            color: rgba(173, 214, 242, 0.92) !important;
+            color: #b8f6f1 !important;
+            text-decoration: underline;
+            text-underline-offset: 3px;
             transition: color 0.2s ease, text-shadow 0.2s ease;
 
             &:hover {
-              color: #e8f7ff !important;
-              text-shadow: 0 0 14px rgba(143, 214, 255, 0.22);
+              color: #ffffff !important;
+              text-shadow: 0 0 12px rgba(182, 246, 241, 0.24);
+            }
+          }
+        }
+
+        .login-submit {
+          :deep(.el-button--primary) {
+            border-color: rgba(99, 211, 202, 0.58);
+            background: linear-gradient(135deg, #1397a1 0%, #087e8b 52%, #066d7b 100%);
+            color: #ffffff;
+            box-shadow: 0 10px 22px rgba(3, 46, 59, 0.26), inset 0 1px 0 rgba(106, 221, 213, 0.16);
+
+            &:hover,
+            &:focus {
+              border-color: rgba(104, 222, 213, 0.74);
+              background: linear-gradient(135deg, #11949e 0%, #0a8792 52%, #066f7d 100%);
+              color: #ffffff;
+              box-shadow: 0 12px 26px rgba(3, 46, 59, 0.32), inset 0 1px 0 rgba(113, 230, 221, 0.18);
             }
           }
         }
       }
 
       .login-op {
-        padding: 10px 0 2px;
+        display: block;
+        margin-top: 10px;
+        padding: 0;
         text-align: left;
 
         :deep(.el-link) {
-          float: left !important;
           display: inline-block;
+          color: #b8f6f1 !important;
+          text-decoration: underline;
+          text-underline-offset: 3px;
+
+          &:hover,
+          &:focus {
+            color: #ffffff !important;
+            text-shadow: none;
+          }
         }
       }
     }
@@ -953,6 +869,9 @@ select:-webkit-autofill {
     }
 
     .login-content .login-wrap {
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 440px;
       padding: 28px 20px 24px;
       border-radius: 22px;
     }
@@ -964,7 +883,14 @@ select:-webkit-autofill {
     }
 
     .login-content .login-wrap .app-name {
+      display: block;
+      max-width: 100%;
       font-size: 24px;
+      color: #eefcff;
+      background-image: none;
+      -webkit-background-clip: initial;
+      background-clip: initial;
+      overflow-wrap: anywhere;
     }
   }
 }
@@ -1011,57 +937,33 @@ select:-webkit-autofill {
   }
 }
 
-@keyframes seaGlow {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  100% {
-    transform: translate3d(0, -6px, 0);
-  }
-}
-
-@keyframes waveMove {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-120px);
-  }
-}
-
-@keyframes waveMoveReverse {
-  0% {
-    transform: translateX(-40px);
-  }
-
-  100% {
-    transform: translateX(120px);
-  }
-}
-
 </style>
 
 <style lang="scss">
+body:has(#login-container) {
+  min-width: 0;
+}
+
 .forget-pwd-popover {
-  border: 1px solid rgba(143, 214, 255, 0.22) !important;
-  border-radius: 16px !important;
+  border: 1px solid rgba(184, 246, 241, 0.42) !important;
+  border-radius: 12px !important;
   background:
-    radial-gradient(circle at top, rgba(84, 147, 202, 0.16) 0, transparent 34%),
-    linear-gradient(180deg, rgba(17, 44, 73, 0.96) 0%, rgba(8, 26, 46, 0.98) 100%) !important;
-  box-shadow: 0 20px 50px rgba(5, 20, 36, 0.28) !important;
-  color: rgba(216, 232, 244, 0.9) !important;
+    linear-gradient(145deg, rgba(20, 157, 164, 0.8) 0%, rgba(5, 91, 104, 0.78) 100%),
+    rgba(5, 68, 80, 0.7) !important;
+  backdrop-filter: blur(18px) saturate(130%);
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+  box-shadow: 0 20px 50px rgba(3, 19, 32, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
   padding: 16px 18px !important;
 }
 
 .forget-pwd-popover[x-placement^="top"] .popper__arrow,
 .forget-pwd-popover[x-placement^="top"] .popper__arrow::after {
-  border-top-color: rgba(17, 44, 73, 0.96) !important;
+  border-top-color: rgba(5, 91, 104, 0.88) !important;
 }
 
 .forget-pwd-popover .el-popover__title {
-  color: #e8f7ff !important;
+  color: #ffffff !important;
   font-weight: 600;
   margin-bottom: 10px;
 }

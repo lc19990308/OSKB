@@ -91,13 +91,15 @@
     </el-table>
 
     <empty v-if="!loading && tableData.length === 0"></empty>
-    <pagination
-      :current-page.sync="currentPage"
-      :page-size.sync="pageSize"
-      :total="total"
-      @current-change="initList"
-      @size-change="handleSizeChange"
-    ></pagination>
+    <div v-if="total > 0" class="pagination-footer">
+      <pagination
+        :current-page.sync="currentPage"
+        :page-size.sync="pageSize"
+        :total="total"
+        @current-change="initList"
+        @size-change="handleSizeChange"
+      ></pagination>
+    </div>
   </div>
 </template>
 
@@ -198,5 +200,26 @@ export default {
 
 .query-bar {
   margin-bottom: 16px;
+}
+
+.pagination-footer {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 12px 4px 0;
+  box-sizing: border-box;
+  overflow-x: auto;
+
+  :deep(.el-pagination) {
+    flex: 0 0 auto;
+    float: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .pagination-footer {
+    justify-content: flex-start;
+  }
 }
 </style>

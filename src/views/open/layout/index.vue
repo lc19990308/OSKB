@@ -20,7 +20,7 @@ export default {
 
 <style scoped lang="scss">
 :deep(.el-main) {
-  background: url(~@/assets/images/layout-bg.png) no-repeat center top / cover;
+  background-color: #f4f7fa;
   color: $text-color-primary;
   flex: 1;
 

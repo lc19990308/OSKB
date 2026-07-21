@@ -64,6 +64,10 @@ router.beforeEach((to, from, next) => {
   } else if (to.name === null) {
     next('/404')
   } else if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (to.matched.some(record => record.meta.skipPermission)) {
+      next()
+      return
+    }
     let hasPower = false
     let path = null
     for (const x in powerObj) {

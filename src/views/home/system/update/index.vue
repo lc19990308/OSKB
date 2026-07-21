@@ -6,7 +6,7 @@
           <div class="common-header">系统当前版本</div>
           <div class="version-body">
             <div class="sys-identity">
-              <div class="sys-name">船舶工业软件SBOM检查与代码分析工具</div>
+              <div class="sys-name">开源软件评估服务系统</div>
               <span class="version-tag">V1.0 版</span>
             </div>
             <div class="version-divider"></div>

@@ -12,6 +12,7 @@ import './assets/theme/index.css'
 import './assets/fonts/iconFont/iconfont.css'
 import './assets/fonts/iconFont/iconfont.js'
 import './style/app.scss'
+import './style/ossm-theme.scss'
 import _global from './views/login/global'
 
 // console.log = () => {}

@@ -75,7 +75,7 @@ export default {
       cursor: pointer;
     }
     .el-tabs__item.is-active {
-      border: 1px solid #3596fa !important;
+      border: 1px solid var(--ossm-primary) !important;
       border-bottom-color: #ffffff !important;
       z-index: 9999;
     }

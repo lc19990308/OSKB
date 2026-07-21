@@ -9,7 +9,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 
 const isDevelopment = process.env.NODE_ENV === 'development'
 const isProduction = !isDevelopment
-const ossProxyTarget = process.env.VUE_APP_OSS_PROXY_TARGET || 'http://localhost:8080/oss'
+const ossProxyTarget = process.env.VUE_APP_OSS_PROXY_TARGET || 'http://8.130.55.127:8080/oss'
 const ossSaasProxyTarget = process.env.VUE_APP_OSS_SAAS_PROXY_TARGET || 'http://localhost:8080/oss-saas'
 
 const provide = {
