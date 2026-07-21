@@ -93,10 +93,7 @@
         </div>
       </el-col>
     </el-row>
-    <section class="acceptance-section" aria-labelledby="acceptance-indicators-title">
-      <div class="acceptance-section__header">
-        <h3 id="acceptance-indicators-title">验收指标</h3>
-      </div>
+    <section class="acceptance-section">
       <div class="acceptance-indicators">
         <article
           v-for="indicator in acceptanceIndicators"
@@ -206,11 +203,11 @@ export default {
         licenseTotal: null
       },
       acceptanceIndicators: [
-        { name: '软件库', value: '42万以上', tone: 'ocean' },
-        { name: '开源项目库', value: '3000万以上', tone: 'amber' },
-        { name: '组件库', value: '1000万以上', tone: 'indigo' },
-        { name: '版本库', value: '1亿以上', tone: 'brick' },
-        { name: '代码特征库', value: '1.5TB以上', tone: 'plum' }
+        { name: '软件库', value: '42万', tone: 'ocean' },
+        { name: '开源项目库', value: '3000万', tone: 'amber' },
+        { name: '组件库', value: '1000万', tone: 'indigo' },
+        { name: '版本库', value: '1亿', tone: 'brick' },
+        { name: '代码特征库', value: '1.5TB', tone: 'plum' }
       ]
     }
   },
@@ -272,23 +269,6 @@ export default {
   margin: 0 0 20px;
   padding: 0 0 20px;
   border-bottom: 1px solid var(--ossm-line);
-
-  &__header {
-    display: flex;
-    align-items: center;
-    min-height: 36px;
-    margin-bottom: 10px;
-    border-left: 3px solid var(--ossm-primary);
-    padding-left: 10px;
-  }
-
-  h3 {
-    margin: 0;
-    color: var(--ossm-ink);
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.4;
-  }
 }
 
 .acceptance-indicators {
