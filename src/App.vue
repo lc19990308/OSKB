@@ -61,7 +61,7 @@ export default {
         this.$store.dispatch('initSiteInfo', { key: 'imageEnable', val: data.imageEnable })
         this.$store.dispatch('initSiteInfo', { key: 'homologyEnable', val: data.homologyEnable })
         this.$store.dispatch('initSiteInfo', { key: 'sourceCheckEnable', val: data.sourceCheckEnable })
-        document.title = this.$store.state.site.siteName
+        document.title = '开源知识库系统'
         document.querySelector('link[rel="icon"]').href = data.faviconUrl || ''
       }).catch(error => {
         if (typeof error === 'object') {
