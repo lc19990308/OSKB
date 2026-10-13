@@ -189,14 +189,8 @@ function responseOnRejected (error) {
 }
 
 function processToken (config) {
-  if (config.url.slice(0, 9) === '/oss-saas') { // 调opeSca这边的接口
-    if (store.state.home.openscaToken) {
-      config.headers.Authorization = `Bearer ${store.state.home.openscaToken}`
-    }
-  } else if (store.state.login.accessToken && !config.headers.OpenApiToken) {
-    const zhongtai = localStorage.getItem('tok')
-    config.headers.Authorization = `Bearer ${zhongtai || store.state.login.accessToken}`
-  }
+  // 联调测试：token 从浏览器 localStorage 读取（key = 'tok'），DevTools 可改
+  config.headers.Authorization = `Bearer ${localStorage.getItem('tok') || 'xPaXVa0o-k57lKHhgN3DdqIcoPqeYnj2RxklZRu8Rx8'}`
 }
 
 function paramsSerializer (config) {
